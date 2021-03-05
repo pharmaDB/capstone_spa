@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DrugComponent } from './drug/drug.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [DrugComponent],
   imports: [
     CommonModule
   ]
 })
-export class AppRoutingModule { }
+export class DrugModule { }
