@@ -1,0 +1,32 @@
+<div class="uk-container uk-container-xsmall">
+    <div class="uk-margin uk-padding-large">
+        <hr>
+        <dl class="uk-description-list uk-description-list-divider">
+            <dd>
+                <article *ngFor="let searchResult of searchResults" class="uk-comment ">
+                    <header class="uk-comment-header">
+                        <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                            <div class="uk-width-auto">
+                                <img class="uk-comment-avatar" src="https://thumbnails.texastribune.org/fAe_I1MxlEnUnAElR_X67laIskU=/850x570/smart/filters:quality(75)/https://static.texastribune.org/media/images/Pills.jpg" width="80" height="80" alt="">
+                            </div>
+                            <div class="uk-width-1-4@m">
+                                <h5 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset"
+                                        href="#">{{ searchResult.brandName }}</a></h5>
+                                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                                    <li><a href="#">{{ searchResult.manufacturer }}</a></li>
+                                </ul>
+                            </div>
+                            <div class="uk-width-1-3@m">
+                                <ul class="uk-comment-meta uk-subnav uk-margin-remove-top">
+                                    <li *ngFor="let packaging of searchResult.packagings">
+                                        <a class ="packagingEntry uk-text-muted" href="#">Lipito 12 mg</a>
+                                    </li>                               
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                </article>
+            </dd>
+        </dl>
+    </div>
+</div>

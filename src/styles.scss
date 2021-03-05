@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: ProximaNova;
+    src: url(assets/fonts/ProximaNovaThin.otf) format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(assets/fonts/ProximaNovaRegular.otf) format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(assets/fonts/ProximaNovaBold.otf) format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(assets/fonts/ProximaNovaBlack.otf) format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(assets/fonts/ProximaNovaAltThin.otf) format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(assets/fonts/ProximaNovaAltLight.otf) format("opentype");
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(assets/fonts/ProximaNovaAltBold.otf) format("opentype");
+}
+
+.gradientBlueBackground {
+    background: linear-gradient(to left, #28a5f5, #1e87f0) !important;
+}
+
+.whiteText {
+    color: #fff !important;
+}
+.navbarLink {
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+.fw200 {
+    font-weight: 200;
+}
+
+.fw500 {
+    font-weight: 500;
+}
