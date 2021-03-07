@@ -7,17 +7,22 @@ import { RouterModule } from '@angular/router';
  * Custom Component
  */
 import { NavbarComponent } from './navbar/navbar.component';
+import { ShortestValueFromArrayPipe } from './pipes/shortest-value-from-array.pipe';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [
+    NavbarComponent,
+    ShortestValueFromArrayPipe
+  ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    ShortestValueFromArrayPipe
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OpenFDADrug } from 'src/app/shared/services/open-fdadrug.interface';
 import { SearchResult } from '../search-result.interface';
 
 @Component({
@@ -7,7 +8,8 @@ import { SearchResult } from '../search-result.interface';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() searchResults: SearchResult[];
+  @Input() searchResults: OpenFDADrug[];
+  @Input() isLoadingResults: boolean;
 
   constructor() { }
 

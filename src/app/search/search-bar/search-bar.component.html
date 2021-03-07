@@ -1,11 +1,14 @@
 <div class="uk-container uk-container-small">
-    <div class="uk-margin uk-padding-large uk-padding-remove-bottom ">
+    <div class="uk-margin uk-padding-large uk-padding-remove-bottom">
         <form [formGroup]="searchForm" class="uk-search uk-search-default uk-width-1-1">
             <span uk-search-icon></span>
-            <input formControlName="searchQuery" class="uk-search-input" type="search" placeholder="Search for drug by Brand Name">
+            <input formControlName="searchQuery" class="uk-search-input" type="search"
+                placeholder="Search by {{ searchForm.get('searchType')?.value }}">
         </form>
+        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+            <li *ngFor="let drugSearchType of drugSearchTypes | keyvalue">
+                <a (click)="onSearchTypeClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>
+            </li>
+        </ul>
     </div>
-    <p>
-        <!-- Value: {{ name.value }} -->
-      </p>
 </div>
