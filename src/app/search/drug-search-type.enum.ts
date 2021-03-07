@@ -3,8 +3,8 @@
  */
 
 export enum DrugSearchType {
-    brand_name = "Brand Name",
-    active_ingredients = "Active Ingredients",
-    nda_number = "NDA Number",
-    manufacturer = "Manufacturer"
+    brand_name = "brand name",
+    active_ingredients = "active ingredients",
+    nda_number = "NDA number",
+    manufacturer = "manufacturer"
 }

@@ -13,6 +13,7 @@ import { OpenFDADrug } from 'src/app/shared/services/open-fdadrug.interface';
 })
 export class SearchComponent implements OnInit {
   isLoadingResults = false;
+  searchStatus = 'begin typing to see search results below';
   searchQuery: SearchQuery = {
     searchQuery: '',
     searchType: 'brand_name'
@@ -31,23 +32,22 @@ export class SearchComponent implements OnInit {
     this.searchQuery = newSearchQuery;
     this.isLoadingResults = true;
     console.log(this.searchQuery);
-    // this.searchResults = this.searchResults.concat([{
-    //   brandName: "Lipitor",
-    //   manufacturer: "Big Pharama",
-    //   activeIngredients: ["this", "that", "the other"],
-    //   patentCount: 3,
-    //   labelCount: 4,
-    //   packagings: ['lipitor 25mg', 'lipitor 85mg', 'lipitor 15mg']
-    // }]);
+  
+    if (newSearchQuery.searchQuery.length > 3) {
+      this.searchStatus = 'searching...';
+      this.drugService.findDrug(this.searchQuery.searchQuery, this.searchQuery.searchType).subscribe((response: OpenFDADrug[]) => {
+        this.isLoadingResults = false;
+        this.searchResults = [];
 
-    this.drugService.findDrug(this.searchQuery.searchQuery, this.searchQuery.searchType).subscribe((response: OpenFDADrug[]) => {
-      this.isLoadingResults = false;
-      this.searchResults = [];
+        response.forEach((result: OpenFDADrug) => {
+          this.searchResults.push(result);
+        });
 
-      response.forEach((result: OpenFDADrug) => {
-        this.searchResults.push(result);
+        this.searchStatus =`found ${this.searchResults.length} drugs with a ${DrugSearchType[this.searchQuery.searchType as keyof typeof DrugSearchType]} matching "${this.searchQuery.searchQuery}"`
       });
-    });
+    } else {
+      this.searchStatus = `${newSearchQuery.searchQuery.length == 0 ? 'begin' : 'continue'} typing to see search results below`;
+    }
   }
 
 }

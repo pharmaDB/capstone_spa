@@ -26,6 +26,10 @@ export class SearchBarComponent implements OnInit {
     this.searchForm.controls['searchType'].setValue(searchType);    
   }
 
+  getDrugSearchTypeValue(drugSearchTypeKey: string) {
+    return DrugSearchType[drugSearchTypeKey as keyof typeof DrugSearchType];
+  }
+
   ngOnInit(): void {
     this.searchForm.valueChanges.subscribe((newVal: SearchQuery) => {
       this.onSearchQueryChange.emit(newVal);

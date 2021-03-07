@@ -1,6 +1,5 @@
 <div class="uk-container uk-container-xsmall">
     <div class="uk-margin uk-padding-small">
-        <hr>
         <div *ngIf="isLoadingResults" uk-spinner="ratio: 2"></div>
         <ul class="uk-list uk-list-large uk-list-divider">
             <li *ngFor="let searchResult of searchResults" class="searchResult uk-padding-xsmall">
@@ -17,7 +16,7 @@
                             <h1 class="uk-text-uppercase uk-text-small uk-text-bold uk-text-left uk-padding-remove-bottom uk-margin-remove">
                                 {{ searchResult.openfda.brand_name | shortestValueFromArray | truncate:[18, '...'] }} 
                                 <span uk-icon="icon: info; ratio: 1"></span>
-                                <div class="uk-padding-small" uk-dropdown="pos: bottom-left">
+                                <div class="uk-padding-small uk-width-medium" uk-dropdown="pos: bottom-left">
                                     <div>
                                         <p class="uk-text-small uk-margin-remove uk-text-normal">Brand names:</p>
                                         <ul class="uk-list uk-list-square uk-list-collapse uk-margin-remove">
@@ -49,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="uk-width-expand@m uk-width-expand@m uk-padding-xsmall uk-padding-remove-top uk-border-left uk-border-right">
+                    <div class="uk-width-expand@m uk-width-expand@m uk-padding-xsmall uk-padding-remove-top uk-dotted-border-left uk-dotted-border-right">
                         <div class="uk-text-left uk-text-small uk-text-light">Products</div>
                     </div>
                     <div class="uk-width-1-6@m">

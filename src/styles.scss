@@ -58,10 +58,14 @@
     padding: 5px !important;
 }
 
-.uk-border-left {
+.uk-dotted-border-left {
     border-left: 1px dotted #e5e5e5;
 }
 
-.uk-border-right {
+.uk-dotted-border-right {
     border-right: 1px dotted #e5e5e5;
+}
+
+.uk-dotted-border-bottom {
+    border-bottom: 1px dotted #e5e5e5;
 }

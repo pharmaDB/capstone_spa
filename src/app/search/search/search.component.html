@@ -1,2 +1,10 @@
 <app-search-bar (onSearchQueryChange)="onSearchQueryChange($event)"></app-search-bar>
+
+<div class="uk-container uk-container-xsmall">
+    <div class="uk-padding-small uk-padding-remove-bottom uk-text-center">
+        <span class="uk-text-italic uk-text-muted uk-text-small">{{ searchStatus }}</span>
+    </div>
+    <hr class="uk-margin-remove-top"/>
+</div>
+
 <app-search-results [searchResults]="searchResults" [isLoadingResults]="isLoadingResults"></app-search-results>
