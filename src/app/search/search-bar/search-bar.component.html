@@ -5,10 +5,15 @@
             <input formControlName="searchQuery" class="uk-search-input" type="search"
                 placeholder="Find a drug by it's {{ getDrugSearchTypeValue(searchForm.get('searchType')?.value) }}">
         </form>
-        <ul [formGroup]="searchForm" class="uk-subnav uk-subnav-pill" uk-switcher>
-            <li [ngClass]="drugSearchType.key === searchForm.get('searchType')?.value ? 'uk-active' : ''" *ngFor="let drugSearchType of drugSearchTypes | keyvalue">
-                <a (click)="onSearchTypeClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>
-            </li>
-        </ul>
+        <div class="uk-flex-center uk-padding-small" uk-grid>
+            <span class="uk-text-italic uk-text-muted uk-text-small uk-padding-xsmall">Search by:</span>
+            <div>
+                <ul [formGroup]="searchForm" class="uk-subnav uk-subnav-pill" uk-switcher>
+                    <li [ngClass]="drugSearchType.key === searchForm.get('searchType')?.value ? 'uk-active' : ''" *ngFor="let drugSearchType of drugSearchTypes | keyvalue">
+                        <a (click)="onSearchTypeClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

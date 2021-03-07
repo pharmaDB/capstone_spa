@@ -31,13 +31,13 @@ export class SearchComponent implements OnInit {
   onSearchQueryChange(newSearchQuery: SearchQuery) {
     this.searchQuery = newSearchQuery;
     this.isLoadingResults = true;
+    this.searchResults = [];
     console.log(this.searchQuery);
   
     if (newSearchQuery.searchQuery.length > 3) {
       this.searchStatus = 'searching...';
       this.drugService.findDrug(this.searchQuery.searchQuery, this.searchQuery.searchType).subscribe((response: OpenFDADrug[]) => {
         this.isLoadingResults = false;
-        this.searchResults = [];
 
         response.forEach((result: OpenFDADrug) => {
           this.searchResults.push(result);
