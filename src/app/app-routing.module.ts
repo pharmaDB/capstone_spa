@@ -6,7 +6,7 @@ import { DrugComponent } from './drug/drug/drug.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'drug/:NDANumber', component: DrugComponent },
+  { path: 'drugs/:NDANumber', component: DrugComponent },
 ]; // sets up routes constant where you define your routes
 
 // configures NgModule imports and exports

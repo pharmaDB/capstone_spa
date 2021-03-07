@@ -8,13 +8,15 @@ import { RouterModule } from '@angular/router';
  */
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShortestValueFromArrayPipe } from './pipes/shortest-value-from-array.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    ShortestValueFromArrayPipe
+    ShortestValueFromArrayPipe,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ShortestValueFromArrayPipe } from './pipes/shortest-value-from-array.pi
   ],
   exports: [
     NavbarComponent,
-    ShortestValueFromArrayPipe
+    ShortestValueFromArrayPipe,
+    TruncatePipe
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

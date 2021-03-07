@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { OpenFDADrug } from 'src/app/shared/services/open-fdadrug.interface';
 import { SearchResult } from '../search-result.interface';
 
@@ -11,10 +12,16 @@ export class SearchResultsComponent implements OnInit {
   @Input() searchResults: OpenFDADrug[];
   @Input() isLoadingResults: boolean;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     
+  }
+
+  goToDrug(drugNDANumber: string) {
+    this.router.navigate(['/drugs', drugNDANumber ]);
   }
 
   ngOnChanges(): void {

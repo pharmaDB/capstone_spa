@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShortestValueFromArrayPipe implements PipeTransform {
 
-  transform(value: string[], ...args: unknown[]): unknown {
+  transform(value: string[]): string {
     return value.reduce((a, b) => a.length <= b.length ? a : b);
   }
 
