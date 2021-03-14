@@ -19,7 +19,7 @@ export class DrugService {
    * @param searchType 
    */
   findDrug(searchQuery: string, searchType: string): Observable<any> {
-    return this.http.get(`http://localhost:7000/drugs?searchQuery=${searchQuery}&searchType=${searchType}`);
+    return this.http.get(`https://api.pharmadb.org/drugs?searchQuery=${searchQuery}&searchType=${searchType}`);
   }
 
   test() {
