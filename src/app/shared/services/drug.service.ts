@@ -22,7 +22,7 @@ export class DrugService {
     return this.http.get(`https://api.pharmadb.org/drugs?searchQuery=${searchQuery}&searchType=${searchType}`);
   }
 
-  test() {
-    console.log('test');
+  getDrugByApplicationNumber(applicationNumber: string): Observable<any> {
+    return this.http.get(`https://api.pharmadb.org/drugs/${applicationNumber}?splHistory=true&images=true&currentSplLabel=true`)
   }
 }

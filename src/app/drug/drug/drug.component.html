@@ -1,8 +1,12 @@
-<div class="uk-container-large">
+<div *ngIf="isPageLoading" class="uk-container-large">
     <div class="uk-position-center">
         <div class="uk-text-center">
         <div uk-spinner="ratio: 2"></div>
         <p class="uk-text-meta">Getting data for {{ndaNumber}}...</p>
         </div>
     </div>
+</div>
+
+<div class="uk-container uk-container-small">
+    <app-drug-header *ngIf="!isPageLoading" [drug]="drug"></app-drug-header>
 </div>

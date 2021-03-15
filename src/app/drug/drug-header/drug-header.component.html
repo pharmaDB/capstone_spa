@@ -1,0 +1,47 @@
+<div class="uk-margin-top" uk-grid>
+
+    <div class="uk-width-1-3@m">
+        <div class="uk-text-left">
+            <h1 class="uk-heading-small drug-header">{{ drug.metadata.brandName }}</h1>
+        </div>
+    </div>
+    <div class="uk-width-expand@m">
+        <div class="uk-text-right">
+            <div>
+                <span class="uk-label uk-background-muted uk-text-muted">{{ drug.applicationNumber }}</span>
+            </div>
+            <div>
+                <a href="#modal-center" uk-toggle><span uk-icon="image"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-center" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: 1:1; finite: true">
+
+            <ul class="uk-slideshow-items">
+                <li *ngFor="let image of drug.drugImages, let i = index">
+                    <img src="{{ image }}" alt="">
+                    <p class="drug-image-text">{{ i + 1 }} / {{ drug.drugImages.length }}</p>
+                </li>
+            </ul>
+
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+        </div>
+    </div>
+</div>
+<!-- 
+<div uk-slideshow>
+    <ul class="uk-slideshow-items">
+        <li>
+            <img src="https://rxpillimage.nlm.nih.gov/RxImage/image/images/gallery/original/00071-0156-23_RXNAVIMAGE10_741C3A41.jpg" width="100" height="100" alt="" uk-cover>
+        </li>
+    </ul>
+</div> -->

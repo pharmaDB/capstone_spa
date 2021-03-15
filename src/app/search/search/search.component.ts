@@ -21,9 +21,7 @@ export class SearchComponent implements OnInit {
 
   searchResults: OpenFDADrug[] = [];
 
-  constructor(private drugService: DrugService) {
-    drugService.test();
-  }
+  constructor(private drugService: DrugService) { }
 
   ngOnInit(): void {
   }
