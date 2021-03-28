@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="JavaScript/diff_match_patch_uncompressed.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
+  <script type="text/javascript" src="JavaScript/labelCompaire.js?r=9"></script>
+  <style>
+    .chart {
+        height: 40px;
+        position: relative;
+    }
+    .text-equal {
+            width: 85px;
+            background-color: gray;
+            position: absolute;
+        }
+    
+    .vis-item.orange {
+      background-color: gold;
+      border-color: orange;
+    }
+
+    .vis-item.lightgray {
+      background-color: lightgray;
+      border-color: gray;
+    }
+
+    .vis-item.vis-selected {
+      border-color:#ffc200;
+      background-color:#fff785;z-index:2
+    }
+
+    </style>
+</head>
+
+<body>
+
+  Drug Label A: <select id="drugLabelListA" name="drugLabelListA"></select><br/>
+  Drug Label B: <select id="drugLabelListB" name="drugLabelListB"></select><br/>
+  Section: <select id="sectionList" name="sectionList"><option>Indications and Usages</option></select><br/>
+  </br>
+  <input type="Radio" name="displayStyle" value="sideBySide">Side-by-side &nbsp;
+  <input type="Radio" name="displayStyle" value="together" checked>In-line
+  <br/><br/>
+  <button type="button" onclick="fetchAndDiffSelectedLabels()">Show differences</button>
+
+  <div id="diffTextDiv"></div>
+  <div id="diagramDiv" class="chart"></div>
+  
+  <div id="visualization"></div>
+  Command-click to select two dates.
+
+
+
+  <script type="text/javascript">
+
+    loadTimeline(document.getElementById("visualization"), document.getElementById("drugLabelListA"), document.getElementById("drugLabelListB"));
+
+
+    function fetchAndDiffSelectedLabels() {
+
+      fileAName = document.getElementById("drugLabelListA").value
+      fileBName = document.getElementById("drugLabelListB").value
+
+      getXML("labels/" + fileAName + ".xml", function(err, data) {
+        if (err !== null) {
+          alert("Something went wrong: " + err);
+        } else {
+
+          let textA = getSectionText(data);
+
+          getXML("labels/" + fileBName + ".xml", function(err, data) {
+            if (err !== null) {
+              alert("Something went wrong: " + err);
+            } else {
+
+              let textB = getSectionText(data);
+
+              diffText(document.getElementById('diffTextDiv'), textA, textB);
+            }
+          });
+          
+        }
+      });
+    }
+
+
+    function getSectionText(data) {
+
+      var parser = new DOMParser().parseFromString(data, "text/xml");
+
+      if (!parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title')) {
+        return "Error reading label";
+      }
+
+
+      let sectionTitle = parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title').innerHTML;
+      sectionTitle = sectionTitle.concat("<br/>");
+      
+      //scrape sections
+      var sectionText = "";
+
+      var sections = parser.querySelectorAll('document > component > structuredBody > component:nth-child(5) > section > component > section');
+  
+      for (i = 0; i < sections.length; i++) {
+        section = sections[i];
+        sectionText +=  section.querySelector('title').innerHTML; // scrape the title of section
+        sectionText += "<br/>";
+
+        text_element = section.querySelector('text');
+        paragraphs = text_element.querySelectorAll('paragraph'); //scrape paragraphs
+        for (var y = 0; y < paragraphs.length; y++) {
+          sectionText +=  (paragraphs[y].innerHTML);
+          sectionText += "<br/>";
+        }
+      }
+
+      return sectionTitle.concat(sectionText);
+    }
+
+  </script>
+
+
+  </body>
+</html>

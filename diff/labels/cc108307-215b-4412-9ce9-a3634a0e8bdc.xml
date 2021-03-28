@@ -1,0 +1,1598 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="http://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 http://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="cc108307-215b-4412-9ce9-a3634a0e8bdc"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN PRESCRIPTION DRUG LABEL"/>
+   <title>DEPO-MEDROL<sup>®</sup>
+      <br/>(methylprednisolone acetate injectable suspension, USP)</title>
+   <effectiveTime value="20130424"/>
+   <setId root="9a7b3837-e038-48bf-97e9-78ad463760dc"/>
+   <versionNumber value="10"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id extension="829076566" root="1.3.6.1.4.1.519.1"/>
+            <name>Pharmacia and Upjohn Company</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id extension="829076566" root="1.3.6.1.4.1.519.1"/>
+                        <name>Pharmacia and Upjohn Company</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C82401" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="API MANUFACTURE"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="0009-3475" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C82401" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="API MANUFACTURE"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="0009-3073" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="MANUFACTURE"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="0009-3475" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="MANUFACTURE"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="0009-3073" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C84731" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PACK"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="0009-3475" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C84731" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PACK"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="0009-3073" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section ID="DLDE">
+               <id root="e4ade29a-0bc5-4e2f-a4ff-0445e7cc2058"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL PRODUCT DATA ELEMENTS SECTION"/>
+               <effectiveTime value="20130424"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="0009-3073" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Depo-Medrol</name>
+                        <formCode code="C42995" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INJECTION, SUSPENSION"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>METHYLPREDNISOLONE ACETATE</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="40" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="43502P7F0P" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>METHYLPREDNISOLONE ACETATE</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="X4W7ZR7023" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>METHYLPREDNISOLONE</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <quantity>
+                              <numerator value="29" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="G2M7P15E5P" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POLYETHYLENE GLYCOL 3350</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="451W47IQ8X" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM CHLORIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="55X04QC32I" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM HYDROXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="QTT17582CB" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>HYDROCHLORIC ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="1" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43215" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="VIAL, SINGLE-DOSE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="0009-3073-01" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43233" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PACKAGE"/>
+                                 </containerPackagedProduct>
+                              </asContent>
+                           </containerPackagedProduct>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator value="1" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43215" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="VIAL, SINGLE-DOSE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="25" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="0009-3073-03" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43233" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PACKAGE"/>
+                                 </containerPackagedProduct>
+                              </asContent>
+                           </containerPackagedProduct>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="NDA011757" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73594" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="NDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="19590528"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C28161" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRAMUSCULAR"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38223" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRA-ARTICULAR"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38250" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRALESIONAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38198" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="SOFT TISSUE"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="0009-3475" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Depo-Medrol</name>
+                        <formCode code="C42995" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INJECTION, SUSPENSION"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>METHYLPREDNISOLONE ACETATE</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="80" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="43502P7F0P" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>METHYLPREDNISOLONE ACETATE</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="X4W7ZR7023" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>METHYLPREDNISOLONE</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <quantity>
+                              <numerator value="28" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="G2M7P15E5P" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POLYETHYLENE GLYCOL 3350</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="451W47IQ8X" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM CHLORIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="QTT17582CB" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>HYDROCHLORIC ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="55X04QC32I" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM HYDROXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="1" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43215" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="VIAL, SINGLE-DOSE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="0009-3475-01" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43233" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PACKAGE"/>
+                                 </containerPackagedProduct>
+                              </asContent>
+                           </containerPackagedProduct>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator value="1" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43215" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="VIAL, SINGLE-DOSE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="25" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="0009-3475-03" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43233" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PACKAGE"/>
+                                 </containerPackagedProduct>
+                              </asContent>
+                           </containerPackagedProduct>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="NDA011757" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73594" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="NDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="19590528"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C28161" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRAMUSCULAR"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38223" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRA-ARTICULAR"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38250" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRALESIONAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38198" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="SOFT TISSUE"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="6266ff82-2fcd-4f15-8d38-812b99af48dc"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <title/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">Single-Dose Vial</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Not For Intravenous Use</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20100723"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="d827ccdf-1dd6-4f9d-992e-482c92352e65"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>DESCRIPTION</title>
+               <text>
+                  <paragraph>DEPO-MEDROL is an anti-inflammatory glucocorticoid for intramuscular, intra-articular, soft tissue or intralesional injection. It is available as single-dose vials in two strengths: 40 mg/mL, 80 mg/mL.</paragraph>
+                  <paragraph>Each mL of these preparations contains:</paragraph>
+                  <table width="65%">
+                     <col align="left" width="60%"/>
+                     <col align="left" width="20%"/>
+                     <col align="left" width="20%"/>
+                     <tbody>
+                        <tr styleCode="Toprule">
+                           <td>Methylprednisolone acetate</td>
+                           <td>
+                              <content styleCode="bold">40 mg</content>
+                           </td>
+                           <td>
+                              <content styleCode="bold">80 mg</content>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Polyethylene glycol 3350</td>
+                           <td>29 mg</td>
+                           <td>28 mg</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td>Myristyl-gamma-picolinium chloride</td>
+                           <td>0.195 mg</td>
+                           <td>0.189 mg</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>Sodium Chloride was added to adjust tonicity.</paragraph>
+                  <paragraph>When necessary, pH was adjusted with sodium hydroxide and/or hydrochloric acid.</paragraph>
+                  <paragraph>The pH of the finished product remains within the USP specified range (e.g., 3.0 to 7.0.)</paragraph>
+                  <paragraph>The chemical name for methylprednisolone acetate is pregna-1,4-diene-3,20-dione, 21-(acetyloxy)-11,17-dihydroxy-6-methyl-,(6α,11β)- and the molecular weight is 416.51. The structural formula is represented below:</paragraph>
+                  <renderMultiMedia referencedObject="MM1"/>
+                  <paragraph>DEPO-MEDROL Sterile Aqueous Suspension contains methylprednisolone acetate which is the 6-methyl derivative of prednisolone. Methylprednisolone acetate is a white or practically white, odorless, crystalline powder which melts at about 215° with some decomposition. It is soluble in dioxane, sparingly soluble in acetone, alcohol, chloroform, and methanol, and slightly soluble in ether. It is practically insoluble in water.</paragraph>
+               </text>
+               <effectiveTime value="20120215"/>
+               <component>
+                  <observationMedia ID="MM1">
+                     <text>Chemical Structure</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="depo-medrol-01.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+               <component>
+                  <observationMedia ID="MM2">
+                     <text>Logo</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="depo-medrol-02.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="58cbe4c5-174d-4abe-8fcd-f825c3faa93e"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>CLINICAL PHARMACOLOGY</title>
+               <text>
+                  <paragraph>Glucocorticoids, naturally occurring and synthetic, are adrenocortical steroids.</paragraph>
+                  <paragraph>Naturally occurring glucocorticoids (hydrocortisone and cortisone), which also have salt retaining properties, are used in replacement therapy in adrenocortical deficiency states. Their synthetic analogs are used primarily for their anti-inflammatory effects in disorders of many organ systems.</paragraph>
+               </text>
+               <effectiveTime value="20100723"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="af76ce57-3232-403e-a839-78feaa210066"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>INDICATIONS AND USAGE</title>
+               <effectiveTime value="20120215"/>
+               <component>
+                  <section>
+                     <id root="b15cafa5-67b7-4a2d-9b83-477f4607e301"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>A. For Intramuscular Administration</title>
+                     <text>
+                        <paragraph>When oral therapy is not feasible and the strength, dosage form, and route of administration of the drug reasonably lend the preparation to the treatment of the condition, the intramuscular use of DEPO-MEDROL Sterile Aqueous Suspension is indicated as follows:</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Allergic States</content>: Control of severe or incapacitating allergic conditions intractable to adequate trials of conventional treatment in asthma, atopic dermatitis, contact dermatitis, drug hypersensitivity reactions, seasonal or perennial allergic rhinitis, serum sickness, transfusion reactions. </paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Dermatologic Diseases</content>:  Bullous dermatitis herpetiformis, exfoliative dermatitis, mycosis fungoides, pemphigus, severe erythema multiforme (Stevens-Johnson syndrome). 		 </paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Endocrine Disorders</content>: Primary or secondary adrenocortical insufficiency (hydrocortisone or cortisone is the drug of choice; synthetic analogs may be used in conjunction with mineralocorticoids where applicable; in infancy, mineralocorticoid supplementation is of particular importance), congenital adrenal hyperplasia, hypercalcemia associated with cancer, nonsupportive thyroiditis.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Gastrointestinal Diseases</content>:  To tide the patient over a critical period of the disease in regional enteritis (systemic therapy) and ulcerative colitis.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Hematologic Disorders</content>: Acquired (autoimmune) hemolytic anemia, congenital (erythroid) hypoplastic anemia (Diamond Blackfan anemia), pure red cell aplasia, select cases of secondary thrombocytopenia.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Miscellaneous</content>: Trichinosis with neurologic or myocardial involvement, tuberculous meningitis with subarachnoid block or impending block when used concurrently with appropriate antituberculous chemotherapy.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Neoplastic Diseases</content>:  For palliative management of: leukemias and lymphomas.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Nervous System</content>:  Acute exacerbations of multiple sclerosis; cerebral edema associated with primary or metastatic brain tumor or craniotomy.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Ophthalmic Diseases</content>:  Sympathetic opthalmia, temporal arteritis, uveitis, ocular inflammatory conditions unresponsive to topical corticosteroids.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Renal Diseases</content>:  To induce diuresis or remission of proteinuria in idiopathic nephrotic syndrome, or that due to lupus erythematosus.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Respiratory Diseases</content>: Berylliosis,  fulminating or disseminated pulmonary tuberculosis when used concurrently with appropriate antituberculous chemotherapy,  idiopathic eosinophilic pneumonias, symptomatic sarcoidosis. </paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Rheumatic Disorders</content>:  As adjunctive therapy for short-term administration (to tide the patient over an acute episode or exacerbation) in acute gouty arthritis; acute rheumatic carditis; ankylosing spondylitis; psoriatic arthritis; rheumatoid arthritis, including juvenile rheumatoid arthritis (selected cases may require low-dose maintenance therapy). For the treatment of dermatomyositis, polymyositis, and systemic lupus erythematosus.</paragraph>
+                     </text>
+                     <effectiveTime value="20120215"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="c2876114-5578-47a4-9d53-40c0693ba740"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>B. For Intra-articular Or Soft Tissue Administration</title>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">(See <linkHtml href="#Warnings">WARNINGS</linkHtml>)</content>
+                        </paragraph>
+                        <paragraph>DEPO-MEDROL is indicated as adjunctive therapy for short-term administration (to tide the patient over an acute episode or exacerbation) in acute gouty arthritis, acute and subacute bursitis, acute nonspecific tenosynovitis,  epicondylitis, rheumatoid arthritis,  synovitis of osteoarthritis.</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="e246dabf-7beb-450c-a539-77bd398af82c"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>C. For Intralesional Administration</title>
+                     <text>
+                        <paragraph>DEPO-MEDROL is indicated for intralesional use in alopecia areata, discoid lupus erythematosus; keloids, localized hypertrophic, infiltrated inflammatory lesions  of granuloma annulare, lichen planus, lichen simplex chronicus (neurodermatitis) and psoriatic plaques; necrobiosis lipoidica diabeticorum.</paragraph>
+                        <paragraph>DEPO-MEDROL also may be useful in cystic tumors of an aponeurosis or tendon (ganglia).</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Contra">
+               <id root="0c35ada4-23d3-483a-8dc9-72d23be8b355"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>CONTRAINDICATIONS</title>
+               <text>
+                  <paragraph>DEPO-MEDROL is contraindicated in patients with known hypersensitivity to the product and its constituents. </paragraph>
+                  <paragraph>Intramuscular corticosteroid preparations are contraindicated for idiopathic thrombocytopenic purpura.</paragraph>
+                  <paragraph>DEPO-MEDROL is contraindicated for intrathecal administration. This formulation of methylprednisolone acetate has been associated with reports of severe medical events when administered by this route. </paragraph>
+                  <paragraph>DEPO-MEDROL is contraindicated in systemic fungal infections, except when administered as an intra-articular injection for localized joint conditions (see <content styleCode="bold">
+                        <linkHtml href="#Fungal">WARNINGS: Infections, Fungal Infections</linkHtml>
+                     </content>).</paragraph>
+               </text>
+               <effectiveTime value="20120215"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Warnings">
+               <id root="e5672936-be6f-49e5-b2a3-c5cae2a37b83"/>
+               <code code="34071-1" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS SECTION"/>
+               <title>WARNINGS</title>
+               <effectiveTime value="20130424"/>
+               <component>
+                  <section>
+                     <id root="11cdc55f-3008-495f-bd9e-63de067890ca"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>General</title>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">This product is not suitable for multi-dose use. Following administration of the desired dose, any remaining suspension should be discarded.</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Injection of DEPO-MEDROL may result in dermal and/or subdermal changes forming depressions in the skin at the injection site.</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">In order to minimize the incidence of dermal and subdermal atrophy, care must be exercised not to exceed recommended doses in injections. Multiple small injections into the area of the lesion should be made whenever possible. The technique of intra-articular and intramuscular injection should include precautions against injection or leakage into the dermis. Injection into the deltoid muscle should be avoided because of a high incidence of subcutaneous atrophy.</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">It is critical that, during administration of DEPO-MEDROL, appropriate technique be used and care taken to ensure proper placement of drug.</content>
+                        </paragraph>
+                        <paragraph>Rare instances of anaphylactoid reactions have occurred in patients receiving corticosteroid therapy (see <content styleCode="bold">
+                              <linkHtml href="#AR">ADVERSE REACTIONS</linkHtml>
+                           </content>).</paragraph>
+                        <paragraph>Increased dosage of rapidly acting corticosteroids is indicated in patients on corticosteroid therapy subjected to any unusual stress before, during, and after the stressful situation.</paragraph>
+                        <paragraph>Results from one multicenter, randomized, placebo-controlled study with methylprednisolone hemisuccinate, an IV corticosteroid, showed an increase in early (at 2 weeks) and late (at 6 months) mortality in patients with cranial trauma who were determined not to have other clear indications for corticosteroid treatment. High doses of systemic corticosteroids, including DEPO-MEDROL, should not be used for the treatment of traumatic brain injury.</paragraph>
+                     </text>
+                     <effectiveTime value="20120215"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="043bca65-a8a6-431d-bc8d-5eff59b604b3"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Cardio-renal</title>
+                     <text>
+                        <paragraph>Average and large doses of corticosteroids can cause elevation of blood pressure, salt and water retention, and increased excretion of potassium. These effects are less likely to occur with synthetic derivatives when used in large doses. Dietary salt restriction and potassium supplementation may be necessary. All corticosteroids increase calcium excretion.</paragraph>
+                        <paragraph>Literature reports suggest an apparent association between use of corticosteroids and left ventricular free wall rupture after a recent myocardial infarction; therefore,  therapy with corticosteroids should be used with great caution in these patients.</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="afd2458e-2472-4851-977c-6cda8b1a6f28"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Endocrine</title>
+                     <text>
+                        <paragraph>Hypothalamic-pituitary adrenal (HPA) axis suppression. Cushing's syndrome, and hyperglycemia: Monitor patients for these conditions with chronic use.</paragraph>
+                        <paragraph>Corticosteroids can produce reversible HPA axis suppression with the potential for glucocorticosteroid insufficiency after withdrawal of treatment. Drug induced secondary adrenocortical insufficiency may be minimized by gradual reduction of dosage. This type of relative insufficiency may persist for months after discontinuation of therapy; therefore, in any situation of stress occurring during that period, hormone therapy should be reinstituted.</paragraph>
+                     </text>
+                     <effectiveTime value="20120215"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="8245c6e7-f776-40e5-a166-8cc6fc37a0f2"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Infections</title>
+                     <effectiveTime value="20130424"/>
+                     <component>
+                        <section>
+                           <id root="8bfa384e-488f-42d6-8001-0e3610d41a2a"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold italics">General</content>
+                              </paragraph>
+                              <paragraph>Persons who are on corticosteroids are more susceptible to infections than are healthy individuals. There may be decreased resistance and inability to localize infection when corticosteroids are used. Infections with any pathogen (viral, bacterial, fungal, protozoan, or helminthic) in any location of the body, may be associated with the use of corticosteroids alone or in combination with other immunosuppressive agents.</paragraph>
+                              <paragraph>These infections may be mild, but can be severe and at times fatal. With increasing doses of corticosteroids, the rate of occurrence of infectious complications increases. Do not use intra-articularly, intrabursally, or for intratendinous administration for local effect in the presence of an acute infection. Corticosteroids may mask some signs of infection and new infections may appear during their use.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section ID="Fungal">
+                           <id root="8c1073cd-f9bb-4248-bd62-15fcfc88b149"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold italics">Fungal Infections</content>
+                              </paragraph>
+                              <paragraph>Corticosteroids may exacerbate systemic fungal infections and therefore should not be used in the presence of such infections unless they are needed to control drug interactions. There have been cases reported in which concomitant use of amphotericin B and hydrocortisone was followed by cardiac enlargement and congestive heart failure (see <content styleCode="bold">
+                                    <linkHtml href="#Contra">CONTRAINDICATIONS</linkHtml>
+                                 </content> and <content styleCode="bold">
+                                    <linkHtml href="#Amphotericin_B">PRECAUTIONS: Drug Interactions, Amphotericin B injection and potassium-depleting agents</linkHtml>
+                                 </content>).</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="2ab32f1c-ab9e-475a-87c9-c16f72cb757b"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold italics">Special Pathogens</content>
+                              </paragraph>
+                              <paragraph>Latent disease may be activated or there may be an exacerbation of intercurrent infections due to pathogens, including those caused by <content styleCode="italics">Amoeba, Candida, Cryptococcus, Mycobacterium, Nocardia, Pneumocystis, </content> and <content styleCode="italics">Toxoplasma.</content>
+                              </paragraph>
+                              <paragraph>It is recommended that latent amebiasis or active amebiasis be ruled out before initiating corticosteroid therapy in any patient who has spent time in the tropics or in any patient with unexplained diarrhea.</paragraph>
+                              <paragraph>Similarly, corticosteroids should be used with great care in patients with known or suspected <content styleCode="italics">Strongyloides</content> (threadworm) infestation. In such patients, corticosteroid-induced immunosuppression may lead to <content styleCode="italics">Strongyloides </content>hyperinfection and dissemination with widespread larval migration, often accompanied by severe enterocolitis and potentially fatal gram-negative septicemia.</paragraph>
+                              <paragraph>Corticosteroids should not be used in cerebral malaria. There is currently no evidence of benefit from steroids in this condition.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="a4501a5e-d4d4-4ad3-b863-13d575532fd1"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold italics">Tuberculosis</content>
+                              </paragraph>
+                              <paragraph>The use of corticosteroids in active tuberculosis should be restricted to those cases of fulminating or disseminated tuberculosis in which the corticosteroid is used for the management of the disease in conjunction with an appropriate antituberculous regimen.</paragraph>
+                              <paragraph>If corticosteroids are indicated in patients with latent tuberculosis or tuberculin reactivity, close observation is necessary, as reactivation of the disease may occur. During prolonged corticosteroid therapy, these patients should receive chemoprophylaxis.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section ID="Vaccination">
+                           <id root="e4d0d17d-a085-46a2-b32b-ce949b2c2202"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold italics">Vaccinations</content>
+                              </paragraph>
+                              <paragraph>
+                                 <content styleCode="bold">Administration of live or live, attenuated vaccines is contraindicated in patients receiving immunosuppressive doses of corticosteroids. Killed or inactivated vaccines may be administered. However, the response to such vaccines cannot be predicted. </content>
+                              </paragraph>
+                              <paragraph>Immunization procedures may be undertaken in patients who are receiving corticosteroids as replacement therapy (e.g., for Addison's disease).</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="363527c4-a29d-495d-816f-d82f82d90c92"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold italics">Viral Infections</content>
+                              </paragraph>
+                              <paragraph>Chicken pox and measles can have a more serious or even fatal course in pediatric and adult patients on corticosteroids. In pediatric and adult patients who have not had these diseases, particular care should be taken to avoid exposure. The contribution of the underlying disease and/or prior corticosteroid treatment to the risk is also not known. If exposed to chicken pox, prophylaxis with varicella zoster immune globulin (VZIG) may be indicated. If exposed to measles, prophylaxis with immunoglobulin (IG) may be indicated (see the respective package inserts for complete VZIG and IG prescribing information). If chicken pox develops, treatment with antiviral agents should be considered.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="a4272caf-25d7-4eb4-be45-2a43b4474f48"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Ophthalmic</title>
+                     <text>
+                        <paragraph>Use of corticosteroids may produce posterior subcapsular cataracts, glaucoma with possible damage to the optic nerves, and may enhance the establishment of secondary ocular infections due to bacteria, fungi, or viruses. The use of systemic corticosteroids is not recommended in the treatment of optic neuritis and may lead to an increase in the risk of new episodes. Corticosteroids should be used cautiously in patients with ocular herpes simplex because of corneal perforation. Corticosteroids should not be used in active ocular herpes simplex.</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="8433ba83-7cbc-4b21-b5d0-ea407f9a99b2"/>
+               <code code="42232-9" codeSystem="2.16.840.1.113883.6.1" displayName="PRECAUTIONS SECTION"/>
+               <title>PRECAUTIONS</title>
+               <effectiveTime value="20130424"/>
+               <component>
+                  <section>
+                     <id root="4841f9d9-4932-4372-baed-fced895410e4"/>
+                     <code code="34072-9" codeSystem="2.16.840.1.113883.6.1" displayName="GENERAL PRECAUTIONS SECTION"/>
+                     <title>General</title>
+                     <text>
+                        <paragraph>This product, like many other corticosteroids, is sensitive to heat. Therefore, it should not be autoclaved when it is desirable to sterilize the exterior of the vial.</paragraph>
+                        <paragraph>The lowest possible dose of corticosteroid should be used to control the condition under treatment. When reduction in dosage is possible, the reduction should be gradual.</paragraph>
+                        <paragraph>Since complications of treatment with glucocorticosteroids are dependent on the size of the dose and the duration of treatment, a risk/benefit decision must be made in each individual case as to dose and duration of treatment and as to whether daily or intermittent therapy should be used.</paragraph>
+                        <paragraph>Karposi's sarcoma has been reported to occur in patients receiving corticosteroid therapy, most often for chronic conditions. Discontinuation of corticosteroids may result in clinical improvement.</paragraph>
+                     </text>
+                     <effectiveTime value="20120215"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="e12fe72a-3e53-4e0f-b4ed-ca744767805f"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Cardio-renal</title>
+                     <text>
+                        <paragraph>As sodium retention with resultant edema and potassium loss may occur in patients receiving corticosteroids, these agents should be used with caution in patients with congestive heart failure or renal insufficiency.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="bad45378-71fc-4b69-b014-e6d08ef41ee2"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Endocrine</title>
+                     <text>
+                        <paragraph>Drug-induced secondary adrenocortical insufficiency may be minimized by gradual reduction of dosage. This type of relative insufficiency may persist for months after discontinuation of therapy; therefore, in any situation of stress occurring during that period, hormone therapy should be reinstituted. Since mineralocorticoid secretion may be impaired, salt and/or a mineralocorticoid should be administered concurrently.</paragraph>
+                        <paragraph>Metabolic clearance of corticosteroids is decreased in hypothyroid patients and increased in hyperthyroid patients. Changes in thyroid status of the patient may necessitate adjustment in dosage.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="feedbdfc-b351-4422-b883-64ae6ca8fc82"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Gastrointestinal</title>
+                     <text>
+                        <paragraph>Steroids should be used with caution in active or latent peptic ulcers, diverticulitis, fresh intestinal anastomoses, and nonspecific ulcerative colitis, since they may increase the risk of perforation.</paragraph>
+                        <paragraph>Signs of peritoneal irritation following gastrointestinal perforation in patients receiving corticosteroids may be minimal or absent.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="74e1886c-9436-4e5f-930f-0ae90d66559e"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Parenteral Administration</title>
+                     <text>
+                        <paragraph>Intra-articularly injected corticosteroids may be systemically absorbed.</paragraph>
+                        <paragraph>Appropriate examination of any joint fluid present is necessary to exclude a septic process.</paragraph>
+                        <paragraph>A marked increase in pain accompanied by local swelling, further restriction of joint motion, fever, and malaise are suggestive of septic arthritis. If this complication occurs and diagnosis of sepsis is confirmed, appropriate antimicrobial therapy should be instituted.</paragraph>
+                        <paragraph>Injection of a steroid into an infected site is to be avoided. Local injection of a steroid into a previously infected joint is not usually recommended.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="b07d2d56-d009-4370-8238-9942e5dbe38e"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Musculoskeletal</title>
+                     <text>
+                        <paragraph>Corticosteroids decrease bone formation and increase bone resorption both through their effect on calcium regulation (e.g., decreasing absorption and increasing excretion) and inhibition of osteoblast function. This, together with a decrease in the protein matrix of the bone secondary to an increase in protein catabolism, and reduced sex hormone production, may lead to an inhibition of bone growth in pediatric patients and the development of osteoporosis at any age. Special consideration should be given to patients at  increased risk of osteoporosis (i.e., postmenopausal women) before initiating corticosteroid therapy.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="647d5ab1-7c3e-4687-83d1-1e2ec7f8674b"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Neuro-psychiatric</title>
+                     <text>
+                        <paragraph>Although controlled clinical trials have shown corticosteroids to be effective in speeding the resolution of acute exacerbations of multiple sclerosis, they do not show that corticosteroids affect the ultimate outcome or natural history of the disease. The studies do show that relatively high doses of corticosteroids are necessary to demonstrate a significant effect (see <content styleCode="bold">
+                              <linkHtml href="#Dosage">DOSAGE AND ADMINISTRATION</linkHtml>
+                           </content>).</paragraph>
+                        <paragraph>An acute myopathy has been observed with the use of high doses of corticosteroids, most often occurring in patients with disorders of neuromuscular transmission (e.g., myasthenia gravis), or in patients receiving concomitant therapy with neuromuscular blocking drugs (e.g., pancuronium). This acute myopathy is generalized, may involve ocular and respiratory muscles, and may result in quadriparesis. Elevation of creatine kinase may occur. Clinical improvement or recovery after stopping corticosteroids may require weeks to years.</paragraph>
+                        <paragraph>Psychic derangements may appear when corticosteroids are used, ranging from euphoria, insomnia, mood swings, personality changes, and severe depression to frank psychotic manifestations. Also, existing emotional instability or psychotic tendencies may be aggravated by corticosteroids.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="c1cc5f86-5823-4a56-b193-5cebd7fd5422"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Ophthalmic</title>
+                     <text>
+                        <paragraph>Intraocular pressure may become elevated in some individuals. If steroid therapy is continued long-term, intraocular pressure should be monitored.</paragraph>
+                        <paragraph>Corticosteroids should be used cautiously in patients with ocular herpes simplex for fear of corneal perforation.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="9604a8a6-5ef1-4487-afa7-b1ccc4619d1e"/>
+                     <code code="34076-0" codeSystem="2.16.840.1.113883.6.1" displayName="INFORMATION FOR PATIENTS SECTION"/>
+                     <title>Information for the Patient</title>
+                     <text>
+                        <paragraph>Patients should be warned not to discontinue the use of corticosteroids abruptly or without medical supervision, to advise any medical attendants that they are taking corticosteroids and to seek medical advice at once should they develop a fever or other signs of infection.</paragraph>
+                        <paragraph>Persons who are on corticosteroids should be warned to avoid exposure to chicken pox or measles. Patients should also be advised that if they are exposed, medical advice should be sought without delay.</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="f2b809a3-3d24-44fd-80ce-4ba0cc215735"/>
+                     <code code="34073-7" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG INTERACTIONS SECTION"/>
+                     <title>Drug Interactions </title>
+                     <effectiveTime value="20130424"/>
+                     <component>
+                        <section>
+                           <id root="bc111fed-5ec2-4fe8-aa79-5b36f1b03ce9"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Aminoglutethimide: </content>Aminoglutethimide may lead to a loss of corticosteroid-induced adrenal suppression.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section ID="Amphotericin_B">
+                           <id root="0aa45dd3-e424-432c-95ab-a21bf1f6e6bf"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Amphotericin B injection and potassium-depleting agents: </content>When corticosteroids are administered concomitantly with potassium depleting agents (e.g., amphotericin B, diuretics), patients should be observed closely for development of hypokalemia. There have been cases reported in which concomitant use of amphotericin B and hydrocortisone was followed by cardiac enlargement and congestive heart failure. </paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="e1582605-6641-4298-96ab-c96b3f5ef3e5"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Antibiotics: </content>Macrolide antibiotics have been reported to cause a significant decrease in corticosteroid clearance (see <content styleCode="bold">
+                                    <linkHtml href="#Hepatic_Enzyme">PRECAUTIONS: Drug Interactions, Hepatic Enzyme Inhibitors</linkHtml>
+                                 </content>). </paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="ab24cd2e-b8ce-4568-82ee-42fa240cdd9f"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Anticholinesterases: </content>Concomitant use of anticholinesterase agents and corticosteroids may produce severe weakness in patients with myasthenia gravis. If possible, anticholinesterase agents should be withdrawn at least 24 hours before initiating corticosteroid therapy.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="95388fb7-7364-468a-97ab-265d70ee1d72"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Anticoagulants</content>, <content styleCode="italics">oral: </content>Coadministration of corticosteroids and warfarin usually results in inhibition of response to warfarin, although there have been some conflicting reports. Therefore, coagulation indices should be monitored frequently to maintain the desired anticoagulant effect.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="a8097eb6-979f-412a-b5ee-a79b9a272fd4"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Antidiabetics: </content>Because corticosteroids may increase blood glucose concentration, dosage adjustments of antidiabetic agents may be required. </paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="b64fb952-9b5f-4606-ba23-88b776764136"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Antitubercular drugs: </content>Serum concentrations of isoniazid may be decreased. </paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="e2c9d830-711d-4170-b727-ec2de5e0c133"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Cholestyramine: </content>Cholestyramine may increase the clearance of oral corticosteroids.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="b2eefb5f-5ace-457f-b9ab-0c9516bc01e4"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Cyclosporine: </content>Increased activity of both cyclosporine and corticosteroids may occur when the two are used concurrently. Convulsions have been reported with this concurrent use. </paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="a3c854a7-9230-4e40-9351-1a4eee2ecbbf"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Digitalis glycosides: </content>Patients on digitalis glycosides may be at risk of arrhythmias due to hypokalemia.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="6e596dc3-cdc5-492e-8502-d0946ebee6f6"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Estrogens, including oral contraceptives: </content>Estrogens may decrease the hepatic metabolism of certain corticosteroids, thereby increasing their effect.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="cb3f43c4-c906-443b-aa83-78b738f5b70e"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Hepatic Enzyme Inducers (e.g., barbiturates, phenytoin, carbamazepine, rifampin): </content>Drugs which induce cytochrome P450 3A4 enzyme activity may enhance the metabolism of corticosteroids and require that the dosage of the corticosteroid be increased.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section ID="Hepatic_Enzyme">
+                           <id root="d154acff-ded5-4367-b17f-d842c7ec5f8c"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Hepatic Enzyme Inhibitors (e.g., ketoconazole, macrolide antibiotics such as erythromycin and troleandomycin): </content>Drugs which inhibit cytochrome P450 3A4 have the potential to result in increased plasma concentrations of corticosteroids.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="314a4794-9c00-4201-a703-60cfad4632cd"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Ketoconazole</content>: Ketoconazole has been reported to significantly decrease the metabolism of certain corticosteroids by up to 60%, leading to an increased risk of corticosteroid side effects.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="25972939-4fc3-45b6-a5cc-fc895f014c6e"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Nonsteroidal anti-inflammatory drugs (NSAIDs)</content>: Concomitant use of aspirin (or other nonsteroidal anti-inflammatory agents) and corticosteroids increases the risk of gastrointestinal side effects. Aspirin should be used cautiously in conjunction with corticosteroids in hypoprothrombinemia. The clearance of salicylates may be increased with concurrent use of corticosteroids.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="6354c4d4-77cb-4b05-9a95-2f796500a453"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Skin tests</content>: Corticosteroids may suppress reactions to skin tests.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="1451f82b-fb84-4565-aca5-a097a0b8d664"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="italics">Vaccines</content>: Patients on prolonged corticosteroid therapy may exhibit a diminished response to toxoids and live or inactivated vaccines due to inhibition of antibody response. Corticosteroids may also potentiate the replication of some organisms contained in live attenuated vaccines. Routine administration of vaccines or toxoids should be deferred until corticosteroid therapy is discontinued if possible (see <content styleCode="bold">
+                                    <linkHtml href="#Vaccination">WARNINGS: Infections, Vaccinations</linkHtml>
+                                 </content>).</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="ab67cbc3-7232-456c-8798-ddabde812bf3"/>
+                     <code code="34083-6" codeSystem="2.16.840.1.113883.6.1" displayName="CARCINOGENESIS &amp; MUTAGENESIS &amp; IMPAIRMENT OF FERTILITY SECTION"/>
+                     <title>Carcinogenesis, Mutagenesis, Impairment of Fertility</title>
+                     <text>
+                        <paragraph>No adequate studies have been conducted in animals to determine whether corticosteroids have a potential for carcinogenesis or mutagenesis. </paragraph>
+                        <paragraph>Steroids may increase or decrease motility and number of spermatozoa in some patients.</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="0abc53c6-4618-4e66-9c8f-889b95755790"/>
+                     <code code="42228-7" codeSystem="2.16.840.1.113883.6.1" displayName="PREGNANCY SECTION"/>
+                     <title>Pregnancy: Teratogenic Effects: Pregnancy Category C</title>
+                     <effectiveTime value="20130424"/>
+                     <component>
+                        <section>
+                           <id root="8d0f3acc-85b9-454f-8d74-657f46199a73"/>
+                           <code code="34077-8" codeSystem="2.16.840.1.113883.6.1" displayName="TERATOGENIC EFFECTS SECTION"/>
+                           <title/>
+                           <effectiveTime value="20130424"/>
+                           <component>
+                              <section>
+                                 <id root="ab509a10-66b0-4945-9565-d06223e7f891"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <text>
+                                    <paragraph>Corticosteroids have been shown to be teratogenic in many species when given in doses equivalent to the human dose. Animal studies in which corticosteroids have been given to pregnant mice, rats, and rabbits have yielded an increased incidence of cleft palate in the offspring. There are no adequate and well-controlled studies in pregnant women. Corticosteroids should be used during pregnancy only if the potential benefit justifies the potential risk to the fetus. Infants born to mothers who have received corticosteroids during pregnancy should be carefully observed for signs of hypoadrenalism.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20100723"/>
+                              </section>
+                           </component>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="e21be4c4-0ec1-41d2-bec6-6ba689d80649"/>
+                     <code code="34080-2" codeSystem="2.16.840.1.113883.6.1" displayName="NURSING MOTHERS SECTION"/>
+                     <title>Nursing Mothers</title>
+                     <text>
+                        <paragraph>Systemically administered corticosteroids appear in human milk and could suppress growth, interfere with endogenous corticosteroid production, or cause other untoward effects. Because of the potential for serious adverse reactions in nursing infants from corticosteroids, a decision should be made whether to discontinue nursing or discontinue the drug, taking into account the importance of the drug to the mother.</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="a5101c67-adb4-42cb-8b56-b88baa354ff1"/>
+                     <code code="34081-0" codeSystem="2.16.840.1.113883.6.1" displayName="PEDIATRIC USE SECTION"/>
+                     <title>Pediatric Use</title>
+                     <text>
+                        <paragraph>The efficacy and safety of corticosteroids in the pediatric population are based on the well-established course of effect of corticosteroids which is similar in pediatric and adult populations. Published studies provide evidence of efficacy and safety in pediatric patients for the treatment of nephritic syndrome (patients &gt;2 years of age) and aggressive lymphomas and leukemias (patients &gt;1 month of age). Other indications for pediatric use of corticosteroids (e.g., severe asthma and wheezing) are based on adequate and well-controlled clinical trials conducted in adults, on the premises that the course of the diseases and their pathophysiology are considered to be substantially similar in both populations. </paragraph>
+                        <paragraph>The adverse effects of corticosteroids in pediatric patients are similar to those in adults (see <content styleCode="bold">
+                              <linkHtml href="#AR">ADVERSE REACTIONS</linkHtml>
+                           </content>). Like adults, pediatric patients should be carefully observed with frequent measurements of blood pressure, weight, height, intraocular pressure, and clinical evaluation for the presence of infection, psychosocial disturbances, thromboembolism, peptic ulcers, cataracts, and osteoporosis. Pediatric patients who are treated with corticosteroids by any route, including systemically administered corticosteroids, may experience a decrease in their growth velocity. This negative impact of corticosteroids on growth has been observed at low systemic doses and in the absence of laboratory evidence of HPA axis suppression (i.e., cosyntropin stimulation and basal cortisol plasma levels). Growth velocity may therefore be a more sensitive indicator of systemic corticosteroid exposure in pediatric patients than some commonly used tests of HPA axis function. The linear growth of pediatric patients treated with corticosteroids should be monitored, and the potential growth effects of prolonged treatment should be weighed against clinical benefits obtained and the availability of treatment alternatives. In order to minimize the potential growth effects of corticosteroids, pediatric patients should be titrated to the lowest effective dose.</paragraph>
+                     </text>
+                     <effectiveTime value="20120215"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="1ad99058-6bb3-41d2-8e8a-6407b445c228"/>
+                     <code code="34082-8" codeSystem="2.16.840.1.113883.6.1" displayName="GERIATRIC USE SECTION"/>
+                     <title>Geriatric Use</title>
+                     <text>
+                        <paragraph>Clinical studies did not include sufficient numbers of subjects aged 65 and over to determine whether they respond differently from younger subjects. Other reported clinical experience has not identified differences in responses between the elderly and younger patients. In general, dose selection for an elderly patient should be cautious, usually starting at the low end of the dosing range, reflecting the greater frequency of decreased hepatic, renal, or cardiac function, and of concomitant disease or other drug therapy. </paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="AR">
+               <id root="41bf739f-333c-456b-87bb-e16a2955640e"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>ADVERSE REACTIONS</title>
+               <text>
+                  <paragraph>The following adverse reactions have been reported with DEPO-MEDROL or other corticosteroids:</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">
+                        <content styleCode="italics">Allergic reactions</content>: </content>Allergic or hypersensitivity reactions, anaphylactoid reaction, anaphylaxis, angioedema.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Cardiovascular</content>:  Bradycardia, cardiac arrest, cardiac arrhythmias, cardiac enlargement, circulatory collapse, congestive heart failure, fat embolism, hypertension, hypertrophic cardiomyopathy in premature infants, myocardial rupture following recent myocardial infarction (see <content styleCode="bold">
+                        <linkHtml href="#Warnings">WARNINGS</linkHtml>
+                     </content>), pulmonary edema, syncope, tachycardia, thromboembolism, thrombophlebitis, vasculitis.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Dermatologic</content>:  Acne, allergic dermatitis, cutaneous and subcutaneous atrophy, dry scaly skin, ecchymoses and petechiae, edema, erythema, hyperpigmentation, hypopigmentation, impaired wound healing, increased sweating, rash, sterile abscess, striae, suppressed reactions to skin tests, thin fragile skin, thinning scalp hair, urticaria.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Endocrine</content>:  Decreased carbohydrate and glucose tolerance, development of cushingoid state, glycosuria, hirsutism, hypertrichosis, increased requirements for insulin or oral hypoglycemic agents in diabetes, manifestations of latent diabetes mellitus, menstrual irregularities, secondary adrenocortical and pituitary unresponsiveness (particularly in times of stress, as in trauma, surgery, or illness), suppression of growth in pediatric patients.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Fluid and electrolyte disturbances</content>:  Congestive heart failure in susceptible patients, fluid retention, hypokalemic alkalosis, potassium loss, sodium retention.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Gastrointestinal</content>:  Abdominal distention, bowel/bladder dysfunction (after intrathecal administration), elevation in serum liver enzyme levels (usually reversible upon discontinuation), hepatomegaly, increased appetite, nausea, pancreatitis, peptic ulcer with possible subsequent perforation and hemorrhage, perforation of the small and large intestine (particularly in patients with inflammatory bowel disease), ulcerative esophagitis.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Metabolic</content>:  Negative nitrogen balance due to protein catabolism.</paragraph>
+                  <paragraph ID="AR_Musculoskeletal">
+                     <content styleCode="bold italics">Musculoskeletal</content>:  Aseptic necrosis of femoral and humeral heads, calcinosis (following intra-articular or intra-lesional use), Charcot-like arthropathy, loss of muscle mass, muscle weakness, osteoporosis, pathologic fracture of long bones, postinjection flare (following intra-articular use), steroid myopathy, tendon rupture, vertebral compression fractures.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Neurologic/Psychiatric</content>:  Convulsions, depression, emotional instability, euphoria, headache, increased intracranial pressure with papilledema (pseudotumor cerebri) usually following discontinuation of treatment, insomnia, mood swings, neuritis, neuropathy, paresthesia, personality changes, psychic disorders, vertigo.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Ophthalmic</content>:  Exophthalmoses, glaucoma, increased intraocular pressure, posterior subcapsular cataracts.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Other</content>:  Abnormal fat deposits, decreased resistance to infection, hiccups, increased or decreased motility and number of spermatozoa, injection site infections following non-sterile administration (see <content styleCode="bold">
+                        <linkHtml href="#Warnings">WARNINGS</linkHtml>
+                     </content>), malaise, moon face, weight gain.</paragraph>
+               </text>
+               <effectiveTime value="20120215"/>
+               <component>
+                  <section>
+                     <id root="63e9322d-05c5-4274-8f84-89962b26f84f"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title/>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">The following adverse reactions have been reported with the following routes of administration:</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold italics">Intrathecal/Epidural</content>:  Arachnoiditis, bowel/bladder dysfunction, headache, meningitis, parapareisis/paraplegia, seizures, sensory disturbances.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold italics">Intranasal</content>:  Allergic reactions, rhinitis, temporary/permanent visual impairment including blindness.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold italics">Ophthalmic</content>:  Increased intraocular pressure, infection, ocular and periocular inflammation including allergic reactions, residue or slough at injection site, temporary/permanent visual impairment including blindness.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold italics">Miscellaneous injection sites</content> (scalp, tonsillar fauces, sphenopalatine ganglion):  blindness.</paragraph>
+                     </text>
+                     <effectiveTime value="20120215"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="8afa16d8-c055-40d0-ad28-e9d1871c243c"/>
+               <code code="34088-5" codeSystem="2.16.840.1.113883.6.1" displayName="OVERDOSAGE SECTION"/>
+               <title>OVERDOSAGE</title>
+               <text>
+                  <paragraph>Treatment of acute overdosage is by supportive and symptomatic therapy. For chronic overdosage in the face of severe disease requiring continuous steroid therapy, the dosage of the corticosteroid may be reduced only temporarily, or alternate day treatment may be introduced.</paragraph>
+               </text>
+               <effectiveTime value="20120215"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Dosage">
+               <id root="56e148b7-1b80-40c7-82f5-7e1c09fefb5f"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>DOSAGE AND ADMINISTRATION</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">Because of possible physical incompatibilities, DEPO-MEDROL Sterile Aqueous Suspension should not be diluted or mixed with other solutions.</content>
+                  </paragraph>
+                  <paragraph>The initial dosage of parenterally administered DEPO-MEDROL will vary from 4 to 120 mg, depending on the specific disease entity being treated. However, in certain overwhelming, acute, life-threatening situations, administration in dosages exceeding the usual dosages may be justified and may be in multiples of the oral dosages. </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">It Should Be Emphasized that Dosage Requirements Are Variable and Must Be Individualized on the Basis of the Disease Under Treatment and the Response of the Patient.</content>  After a favorable response is noted, the proper maintenance dosage should be determined by decreasing the initial drug dosage in small decrements at appropriate time intervals until the lowest dosage which will maintain an adequate clinical response is reached. Situations which may make dosage adjustments necessary are changes in clinical status secondary to remissions or exacerbations in the disease process, the patient's individual drug responsiveness, and the effect of patient exposure to stressful situations not directly related to the disease entity under treatment. In this latter situation, it may be necessary to increase the dosage of the corticosteroid for a period of time consistent with the patient's condition. If after long-term therapy the drug is to be stopped, it is recommended that it be withdrawn gradually rather than abruptly.</paragraph>
+               </text>
+               <effectiveTime value="20130424"/>
+               <component>
+                  <section>
+                     <id root="9a8d1f02-2c61-49db-b607-151c5d1d35d6"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>A. Administration for Local Effect</title>
+                     <text>
+                        <paragraph>Therapy with DEPO-MEDROL does not obviate the need for the conventional measures usually employed. Although this method of treatment will ameliorate symptoms, it is in no sense a cure and the hormone has no effect on the cause of the inflammation.</paragraph>
+                     </text>
+                     <effectiveTime value="20130424"/>
+                     <component>
+                        <section>
+                           <id root="debd9822-0c31-4925-a25b-988af3d7e122"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">1. Rheumatoid Arthritis and Osteoarthritis</content>. The dose for intra-articular administration depends upon the size of the joint and varies with the severity of the condition in the individual patient. In chronic cases, injections may be repeated at intervals ranging from one to five or more weeks, depending upon the degree of relief obtained from the initial injection. The doses in the following table are given as a general guide:</paragraph>
+                              <table width="75%">
+                                 <col width="33%" align="left"/>
+                                 <col width="34%" align="left"/>
+                                 <col width="33%" align="left"/>
+                                 <thead>
+                                    <tr>
+                                       <th>
+                                          <content styleCode="italics">Size of Joint</content>
+                                       </th>
+                                       <th valign="top">
+                                          <content styleCode="italics">Examples</content>
+                                       </th>
+                                       <th>
+                                          <content styleCode="italics">Range of Dosage</content>
+                                       </th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr styleCode="Botrule">
+                                       <td valign="middle">Large</td>
+                                       <td>Knees<br/> Ankles<br/> Shoulders</td>
+                                       <td>20 to 80 mg</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td valign="middle">Medium</td>
+                                       <td>Elbows<br/> Wrists</td>
+                                       <td>10 to 40 mg</td>
+                                    </tr>
+                                    <tr>
+                                       <td valign="middle">Small</td>
+                                       <td>Metacarpophalangeal<br/> Interphalangeal<br/> Sternoclavicular<br/> Acromioclavicular</td>
+                                       <td>4 to 10 mg</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                           <component>
+                              <section>
+                                 <id root="dca55f22-729f-4b29-a2d0-65898d184678"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <text>
+                                    <paragraph>
+                                       <content styleCode="bold">Procedure: </content>It is recommended that the anatomy of the joint involved be reviewed before attempting intra-articular injection. In order to obtain the full anti-inflammatory effect, it is important that the injection be made into the synovial space. Employing the same sterile technique as for a lumbar puncture, a sterile 20 to 24 gauge needle (on a dry syringe) is quickly inserted into the synovial cavity. Procaine infiltration is elective. The aspiration of only a few drops of joint fluid proves the joint space has been entered by the needle. <content styleCode="italics">The injection site for each joint is determined by that location where the synovial cavity is most superficial and most free of large vessels and nerves. </content>With the needle in place, the aspirating syringe is removed and replaced by a second syringe containing the desired amount of DEPO-MEDROL. The plunger is then pulled outward slightly to aspirate synovial fluid and to make sure the needle is still in the synovial space. After injection, the joint is moved gently a few times to aid mixing of the synovial fluid and the suspension. The site is covered with a small sterile dressing.</paragraph>
+                                    <paragraph>Suitable sites for intra-articular injection are the knee, ankle, wrist, elbow, shoulder, phalangeal, and hip joints. Since difficulty is not infrequently encountered in entering the hip joint, precautions should be taken to avoid any large blood vessels in the area. Joints not suitable for injection are those that are anatomically inaccessible such as the spinal joints and those like the sacroiliac joints that are devoid of synovial space. Treatment failures are most frequently the result of failure to enter the joint space. Little or no benefit follows injection into surrounding tissue. If failures occur when injections into the synovial spaces are certain, as determined by aspiration of fluid, repeated injections are usually futile. </paragraph>
+                                    <paragraph>If a local anesthetic is used prior to injection of DEPO-MEDROL, the anesthetic package insert should be read carefully and all the precautions observed.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20130424"/>
+                              </section>
+                           </component>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="94add50b-b035-469f-9f0e-66ae8540a684"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">2. Bursitis</content>. The area around the injection site is prepared in a sterile way and a wheal at the site made with 1 percent procaine hydrochloride solution. A 20 to 24 gauge needle attached to a dry syringe is inserted into the bursa and the fluid aspirated. The needle is left in place and the aspirating syringe changed for a small syringe containing the desired dose. After injection, the needle is withdrawn and a small dressing applied.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="549da4f6-2a35-4d75-ba18-6ee3c28d05f4"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">3. Miscellaneous: Ganglion, Tendinitis, Epicondylitis.</content> In the treatment of conditions such as tendinitis or tenosynovitis, care should be taken following application of a suitable antiseptic to the overlying skin to inject the suspension into the tendon sheath rather than into the substance of the tendon. The tendon may be readily palpated when placed on a stretch. When treating conditions such as epicondylitis, the area of greatest tenderness should be outlined carefully and the suspension infiltrated into the area. For ganglia of the tendon sheaths, the suspension is injected directly into the cyst. In many cases, a single injection causes a marked decrease in the size of the cystic tumor and may effect disappearance. The usual sterile precautions should be observed, of course, with each injection.</paragraph>
+                              <paragraph>The dose in the treatment of the various conditions of the tendinous or bursal structures listed above varies with the condition being treated and ranges from 4 to 30 mg. In recurrent or chronic conditions, repeated injections may be necessary.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="3f1b4402-7833-4123-ab2f-7f2bc33fa787"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">4. Injections for Local Effect in Dermatologic Conditions</content>. Following cleansing with an appropriate antiseptic such as 70% alcohol, 20 to 60 mg of the suspension is injected into the lesion. It may be necessary to distribute doses ranging from 20 to 40 mg by repeated local injections in the case of large lesions. Care should be taken to avoid injection of sufficient material to cause blanching since this may be followed by a small slough. One to four injections are usually employed, the intervals between injections varying with the type of lesion being treated and the duration of improvement produced by the initial injection.</paragraph>
+                           </text>
+                           <effectiveTime value="20130424"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="46cf7a36-e56f-49f7-8653-c18371baf62a"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>B. Administration for Systemic Effect</title>
+                     <text>
+                        <paragraph>The intramuscular dosage will vary with the condition being treated. When employed as a temporary substitute for oral therapy, a single injection during each 24-hour period of a dose of the suspension equal to the total daily oral dose of MEDROL<sup>®</sup> Tablets (methylprednisolone tablets, USP) is usually sufficient. When a prolonged effect is desired, the weekly dose may be calculated by multiplying the daily oral dose by 7 and given as a single intramuscular injection.</paragraph>
+                        <paragraph>In pediatric patients, the initial dose of methylprednisolone may vary depending on the specific disease entity being treated. Dosage must be individualized according to the severity of the disease and response of the patient. The recommended dosage may be reduced for pediatric patients, but dosage should be governed by the severity of the condition rather than by strict adherence to the ratio indicated by age or body weight.</paragraph>
+                        <paragraph>In patients with the <content styleCode="bold">adrenogenital syndrome</content>, a single intramuscular injection of 40 mg every two weeks may be adequate. For maintenance of patients with <content styleCode="bold">rheumatoid arthritis</content>, the weekly intramuscular dose will vary from 40 to 120 mg. The usual dosage for patients with <content styleCode="bold">dermatologic lesions </content>benefited by systemic corticoid therapy is 40 to 120 mg of methylprednisolone acetate administered intramuscularly at weekly intervals for one to four weeks. In acute severe dermatitis due to poison ivy, relief may result within 8 to 12 hours following intramuscular administration of a single dose of 80 to 120 mg. In chronic contact dermatitis, repeated injections at 5 to 10 day intervals may be necessary. In seborrheic dermatitis, a weekly dose of 80 mg may be adequate to control the condition.</paragraph>
+                        <paragraph>Following intramuscular administration of 80 to 120 mg to asthmatic patients, relief may result within 6 to 48 hours and persist for several days to two weeks. Similarly, in patients with allergic rhinitis (hay fever), an intramuscular dose of 80 to 120 mg may be followed by relief of coryzal symptoms within six hours persisting for several days to three weeks.</paragraph>
+                        <paragraph>If signs of stress are associated with the condition being treated, the dosage of the suspension should be increased. If a rapid hormonal effect of maximum intensity is required, the intravenous administration of highly soluble methylprednisolone sodium succinate is indicated.</paragraph>
+                        <paragraph>In treatment of acute exacerbations of multiple sclerosis, daily doses of 160 mg of methylprednisolone for a week followed by 64 mg every other day for 1 month have been shown to be effective. </paragraph>
+                        <paragraph>
+									For the purpose of comparison, the following is the equivalent milligram dose of the various glucocorticoids:
+								</paragraph>
+                        <table width="50%">
+                           <col align="left" width="50%"/>
+                           <col align="left" width="50%"/>
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">
+                                    <content styleCode="italics">Cortisone, 25</content>
+                                 </td>
+                                 <td styleCode="Rrule">
+                                    <content styleCode="italics">Triamcinolone, 4</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">
+                                    <content styleCode="italics">Hydrocortisone, 20</content>
+                                 </td>
+                                 <td styleCode="Rrule">
+                                    <content styleCode="italics">Paramethasone, 2</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">
+                                    <content styleCode="italics">Prednisolone, 5</content>
+                                 </td>
+                                 <td styleCode="Rrule">
+                                    <content styleCode="italics">Betamethasone, 0.75</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">
+                                    <content styleCode="italics">Prednisone, 5</content>
+                                 </td>
+                                 <td styleCode="Rrule">
+                                    <content styleCode="italics">Dexamethasone, 0.75</content>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule">
+                                    <content styleCode="italics">Methylprednisolone, 4</content>
+                                 </td>
+                                 <td styleCode="Rrule"/>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>These dose relationships apply only to oral or intravenous administration of these compounds. When these substances or their derivatives are injected intramuscularly or into joint spaces, their relative properties may be greatly altered.</paragraph>
+                     </text>
+                     <effectiveTime value="20120215"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="ba0ca24a-cb24-42a8-bf91-0d0edcdb7ac7"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>HOW SUPPLIED</title>
+               <text>
+                  <paragraph>DEPO-MEDROL Sterile Aqueous Suspension is available as single-dose vials in the following strengths and package sizes:</paragraph>
+                  <table width="75%">
+                     <col align="left" width="20%"/>
+                     <col align="left" width="30%"/>
+                     <col align="left" width="20%"/>
+                     <col align="left" width="30%"/>
+                     <thead>
+                        <tr>
+                           <th colspan="2">40 mg per mL </th>
+                           <th colspan="2"> 80 mg per mL</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>1 mL vials</td>
+                           <td>NDC 0009-3073-01 </td>
+                           <td>1 mL vials </td>
+                           <td>NDC 0009-3475-01</td>
+                        </tr>
+                        <tr>
+                           <td>25 × 1 mL vials</td>
+                           <td>NDC 0009-3073-03 </td>
+                           <td>25 × 1 mL vials  </td>
+                           <td>NDC 0009-3475-03</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <effectiveTime value="20100723"/>
+               <component>
+                  <section>
+                     <id root="c22983c4-d60d-418f-aeef-6f38934e74b9"/>
+                     <code code="44425-7" codeSystem="2.16.840.1.113883.6.1" displayName="STORAGE AND HANDLING SECTION"/>
+                     <title/>
+                     <text>
+                        <paragraph>Store at controlled room temperature 20° to 25°C (68° to 77°F) [see USP].</paragraph>
+                     </text>
+                     <effectiveTime value="20100723"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="b07177e4-9f5d-404c-a584-c357f94e3bce"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <title/>
+               <text>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM2"/>
+                  </paragraph>
+                  <paragraph>LAB-0160-7.0<br/>February 2012</paragraph>
+               </text>
+               <effectiveTime value="20120215"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="c4d217b1-ec51-48c6-a718-eada34458ff6"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PRINCIPAL DISPLAY PANEL - 40 mg Vial Label</title>
+               <text>
+                  <paragraph>NDC 0009-3073-01</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">1 mL Single-Dose Vial<br/>Depo-Medrol<sup>®</sup>
+                     </content>
+                  </paragraph>
+                  <paragraph>(methylprednisolone<br/>acetate injectable<br/>suspension, USP)</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">40 mg/mL</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+                  <renderMultiMedia referencedObject="MM3"/>
+               </text>
+               <effectiveTime value="20130424"/>
+               <component>
+                  <observationMedia ID="MM3">
+                     <text>PRINCIPAL DISPLAY PANEL - 40 mg Vial Label</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="depo-medrol-03.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="d25738bd-88fb-474c-981e-b6c26ed8a875"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PRINCIPAL DISPLAY PANEL - 40 mg Vial Carton</title>
+               <text>
+                  <paragraph>NDC 0009-3073-03<br/>Contains 25 of NDC 0009-3073-01</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">25—1 mL Single-Dose Vials<br/>Depo-Medrol<sup>®</sup>
+                     </content>
+                  </paragraph>
+                  <paragraph>(methylprednisolone acetate<br/>injectable suspension, USP)</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">40 mg/mL</content>
+                  </paragraph>
+                  <paragraph>For intramuscular, intrasynovial and soft tissue injection only<br/>NOT for IV use</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Pfizer Injectables</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+                  <renderMultiMedia referencedObject="MM4"/>
+               </text>
+               <effectiveTime value="20130424"/>
+               <component>
+                  <observationMedia ID="MM4">
+                     <text>PRINCIPAL DISPLAY PANEL - 25-40 mg Vial Carton</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="depo-medrol-04.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="1ede1bfc-0d3f-4cae-a712-957ced146679"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PRINCIPAL DISPLAY PANEL - 80 mg Vial Label</title>
+               <text>
+                  <paragraph>NDC 0009-3475-01</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">1 mL Single-Dose Vial<br/>Depo-Medrol<sup>®</sup>
+                     </content>
+                  </paragraph>
+                  <paragraph>(methylprednisolone<br/>acetate injectable<br/>suspension, USP)</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">80 mg/mL</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+                  <renderMultiMedia referencedObject="MM5"/>
+               </text>
+               <effectiveTime value="20130424"/>
+               <component>
+                  <observationMedia ID="MM5">
+                     <text>PRINCIPAL DISPLAY PANEL - 80 mg Vial Label</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="depo-medrol-05.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="5116e808-5149-4536-913e-32555d3a444e"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PRINCIPAL DISPLAY PANEL - 80 mg Vial Carton</title>
+               <text>
+                  <paragraph>NDC 0009-3475-03<br/>Contains 25 of NDC 0009-3475-01</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">25—1 mL Single-Dose Vials<br/>Depo-Medrol<sup>®</sup>
+                     </content>
+                  </paragraph>
+                  <paragraph>(methylprednisolone acetate<br/>injectable suspension, USP)</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">80 mg/mL</content>
+                  </paragraph>
+                  <paragraph>For intramuscular, intrasynovial and soft tissue injection only<br/>NOT for IV use</paragraph>
+                  <paragraph>
+                     <content styleCode="bold italics">Pfizer Injectables</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+                  <renderMultiMedia referencedObject="MM6"/>
+               </text>
+               <effectiveTime value="20130424"/>
+               <component>
+                  <observationMedia ID="MM6">
+                     <text>PRINCIPAL DISPLAY PANEL - 25-80 mg Vial Carton</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="depo-medrol-06.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

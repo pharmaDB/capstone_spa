@@ -1,0 +1,92 @@
+[
+  {
+    "id": "9A7B3837-E038-48BF-97E9-78AD463760DC",
+    "content": "Nov 22, 2006",
+    "start": "2006-11-22",
+    "className" : "lightgray"
+  },
+  {
+    "id": "32d75586-1bc4-4bb1-9e76-a518b33d3841",
+    "content": "Dec 17, 2009",
+    "start": "2009-12-17T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id:" : "4bb5a891-592d-4633-86ab-d486117f5841",
+    "content": "Apr 07, 2010",
+    "start": "2010-04-07T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "52137cab-db3a-493a-858d-e356521ec14c",
+    "content": "Apr 28, 2010",
+    "start": "2010-04-28T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "cc108307-215b-4412-9ce9-a3634a0e8bdc",
+    "content": "Apr 30, 2013",
+    "start": "2013-04-30T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "cc8bc5e5-2e70-48ad-bc81-e4cc5d869173",
+    "content": "Jun 10, 2014",
+    "start": "2014-06-10T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "436dfa26-1390-4e21-bbef-361a7b7a21e5",
+    "content": "Jul 23, 2014",
+    "start": "2014-07-23T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "0f1820e6-28cb-4dd7-89ee-00583ebab35d",
+    "content": "Feb 06, 2017",
+    "start": "2017-02-06T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "ac905fe7-4f72-459e-8aa5-377c8ffec7ec",
+    "content": "Oct 24, 2017",
+    "start": "2017-10-24T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "ef240a4d-6ebb-4d79-933d-0ac0280a945d",
+    "content": "Jan 12, 2018",
+    "start": "2018-01-12T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "0ec4dcc9-7b4b-4f61-9c22-3fa49119e8ee",
+    "content": "Aug 21, 2018",
+    "start": "2018-08-21T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "15bdde84-cd73-405d-8fe3-710f75df0ecd",
+    "content": "Sep 06, 2018",
+    "start": "2018-09-06T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "b1905eab-c923-41f7-8e76-10537c0782ea",
+    "content": "Jan 22, 2019",
+    "start": "2019-01-22T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "e3934d92-2215-4a43-bf9d-0a6d343a7d77",
+    "content": "Dec 09, 2020",
+    "start": "2020-12-09T00:00:00",
+    "className" : "lightgray"
+  },
+  {
+    "id": "97ba8d8c-7a73-497f-b2d7-d777a33ad7ac",
+    "content": "Mar 15, 2021",
+    "start": "2021-03-15T00:00:00",
+    "className" : "lightgray"
+  }
+]
