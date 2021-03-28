@@ -69,3 +69,24 @@
 .uk-dotted-border-bottom {
     border-bottom: 1px dotted #e5e5e5;
 }
+
+// Styling for the vis js timeline library
+.vis-timeline {
+  border: none !important;
+}
+
+.timeline-patent-identifier {
+  border-radius: 1000px !important;
+  background: #d8eafc;
+  color: #1e87f0;
+  border-color: #1e87f0;
+  cursor: pointer;
+}
+
+.timeline-label-identifier {
+  border-radius: 1000px !important;
+  background: #edfbf6;
+  color: #32d296;
+  border-color: #32d296;
+  cursor: pointer;
+}

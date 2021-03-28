@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   searchQuery: SearchQuery = {
     searchQuery: '',
     searchType: 'brand_name'
-  }
+  };
 
   searchResults: OpenFDADrug[] = [];
 
@@ -25,13 +25,13 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-  onSearchQueryChange(newSearchQuery: SearchQuery) {
+
+  onSearchQueryChange(newSearchQuery: SearchQuery): void {
     this.searchQuery = newSearchQuery;
     this.isLoadingResults = true;
     this.searchResults = [];
     console.log(this.searchQuery);
-  
+
     if (newSearchQuery.searchQuery.length > 3) {
       this.searchStatus = 'searching...';
       this.drugService.findDrug(this.searchQuery.searchQuery, this.searchQuery.searchType).subscribe((response: OpenFDADrug[]) => {
@@ -41,10 +41,10 @@ export class SearchComponent implements OnInit {
           this.searchResults.push(result);
         });
 
-        this.searchStatus =`found ${this.searchResults.length} drugs with a ${DrugSearchType[this.searchQuery.searchType as keyof typeof DrugSearchType]} matching "${this.searchQuery.searchQuery}"`
+        this.searchStatus = `found ${this.searchResults.length} drugs with a ${DrugSearchType[this.searchQuery.searchType as keyof typeof DrugSearchType]} matching "${this.searchQuery.searchQuery}"`;
       });
     } else {
-      this.searchStatus = `${newSearchQuery.searchQuery.length == 0 ? 'begin' : 'continue'} typing to see search results below`;
+      this.searchStatus = `${newSearchQuery.searchQuery.length === 0 ? 'begin' : 'continue'} typing to see search results below`;
     }
   }
 

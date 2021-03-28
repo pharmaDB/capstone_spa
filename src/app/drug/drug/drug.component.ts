@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import { DrugService } from '../../shared/services/drug.service';
+import {DrugService} from '../../shared/services/drug.service';
+import {DrugViewMode} from '../drug-view-mode.enum';
+import {DrugViewConfig} from '../drug-view-config.interface';
 
 @Component({
   selector: 'app-drug',
@@ -9,14 +11,19 @@ import { DrugService } from '../../shared/services/drug.service';
   styleUrls: ['./drug.component.scss']
 })
 export class DrugComponent implements OnInit {
+  drugViewConfig: DrugViewConfig = { drugViewMode: DrugViewMode.none };
   isPageLoading = true;
   ndaNumber: string;
   drug: any;
 
   constructor(
     private route: ActivatedRoute,
-    private drugService: DrugService,
+    private drugService: DrugService
   ) { }
+
+  onDrugViewChange(drugViewConfig: DrugViewConfig): void {
+    this.drugViewConfig = drugViewConfig;
+  }
 
   ngOnInit() {
     this.ndaNumber = this.route.snapshot.params.NDANumber;

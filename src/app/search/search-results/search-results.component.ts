@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { OpenFDADrug } from 'src/app/shared/services/open-fdadrug.interface';
-import { SearchResult } from '../search-result.interface';
 
 @Component({
   selector: 'app-search-results',
@@ -17,10 +16,10 @@ export class SearchResultsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  goToDrug(drugNDANumber: string) {
+  goToDrug(drugNDANumber: string): void {
     this.router.navigate(['/drugs', drugNDANumber ]);
   }
 
