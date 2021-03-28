@@ -28,41 +28,32 @@
 <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
 
   <!-- welcome/what to do well -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.none)">
+  <div *ngIf="(!textWindowOne && !textWindowTwo)">
     <article class="uk-article">
     <div class="uk-placeholder uk-text-center uk-margin-large">Select a patent or a label from the timeline to begin</div>
     </article>
   </div>
 
   <!-- Label -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.label) || (drugViewConfig.drugViewMode === drugViewMode.label_label) || (drugViewConfig.drugViewMode === drugViewMode.label_patent)">
+  <div *ngIf="(textWindowOne)">
     <article class="uk-article">
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Label ID (timeline ID {{ drugViewConfig.inViewLabelOne.id }})</a></h1>
+      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
 
-      <p>{{ drugViewConfig.inViewLabelOne.data}}</p>
+      <p>{{ textWindowOne }}</p>
 
     </article>
   </div>
 
   <!-- label -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.label_label)">
+  <div *ngIf="(textWindowTwo)">
     <article class="uk-article">
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Label Two (timeline id {{ drugViewConfig.inViewLabelTwo.id }})</a></h1>
+      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
 
-      <p>{{ drugViewConfig.inViewLabelTwo.data }}</p>
+      <p>{{ textWindowTwo }}</p>
 
     </article>
   </div>
 
-  <!-- patent -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.label_patent) || (drugViewConfig.drugViewMode === drugViewMode.patent)">
-    <article class="uk-article">
-
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Patent (timeline id {{ drugViewConfig.inViewPatent.id }})</a></h1>
-      <p>{{ drugViewConfig.inViewPatent.data}}</p>
-
-    </article>
-  </div>
 </div>

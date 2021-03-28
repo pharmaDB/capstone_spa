@@ -9,7 +9,8 @@ import {DrugViewMode} from '../drug-view-mode.enum';
 })
 export class DrugTextComponent implements OnInit {
   drugViewMode = DrugViewMode;
-  @Input() drugViewConfig: DrugViewConfig;
+  @Input() textWindowOne: string | undefined;
+  @Input() textWindowTwo: string | undefined;
 
   constructor() { }
 

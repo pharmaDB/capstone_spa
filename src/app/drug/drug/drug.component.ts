@@ -15,6 +15,8 @@ export class DrugComponent implements OnInit {
   isPageLoading = true;
   ndaNumber: string;
   drug: any;
+  textWindowOne: string | undefined;
+  textWindowTwo: string | undefined;
 
   timelineItems = [
     {id: 1, content: 'P', start: '2007-04-20', group: 'patent', className: 'timeline-patent-identifier', title: 'tooltip', data: 'patent one. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'},
@@ -32,7 +34,33 @@ export class DrugComponent implements OnInit {
 
   onDrugViewChange(drugViewConfig: DrugViewConfig): void {
     this.drugViewConfig = drugViewConfig;
+    switch (this.drugViewConfig.drugViewMode) {
+      case DrugViewMode.label: {
+        this.textWindowOne = this.drugViewConfig.inViewLabelOne.data;
+        this.textWindowTwo = undefined;
+        break;
+      }
+      case DrugViewMode.patent: {
+        this.textWindowOne = this.drugViewConfig.inViewPatent.data;
+        this.textWindowTwo = undefined;
+        break;
+      }
+      case DrugViewMode.label_patent: {
+        this.textWindowOne = this.drugViewConfig.inViewLabelOne.data;
+        this.textWindowTwo = this.drugViewConfig.inViewPatent.data;
+        break;
+      }
+      case DrugViewMode.label_label: {
+        this.textWindowOne = this.drugViewConfig.inViewLabelOne.data;
+        this.textWindowTwo = this.drugViewConfig.inViewLabelTwo.data;
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
+
 
   ngOnInit() {
     this.ndaNumber = this.route.snapshot.params.NDANumber;
