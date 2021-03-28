@@ -10,7 +10,7 @@
 <div *ngIf="!isPageLoading" class="uk-container uk-container-small">
     <app-drug-header [drug]="drug"></app-drug-header>
     <app-drug-text [drugViewConfig]="drugViewConfig"></app-drug-text>
-    <app-drug-timeline (onDrugViewChange)="onDrugViewChange($event)"></app-drug-timeline>
+    <app-drug-timeline (onDrugViewChange)="onDrugViewChange($event)" [timelineItems]="timelineItems"></app-drug-timeline>
 </div>
 
 <!--<script type="text/javascript">-->
