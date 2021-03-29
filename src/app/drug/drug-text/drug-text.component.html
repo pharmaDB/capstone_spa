@@ -28,72 +28,32 @@
 <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
 
   <!-- welcome/what to do well -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.none)">
+  <div *ngIf="(!textWindowOne && !textWindowTwo)">
     <article class="uk-article">
     <div class="uk-placeholder uk-text-center uk-margin-large">Select a patent or a label from the timeline to begin</div>
     </article>
   </div>
 
   <!-- Label -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.label) || (drugViewConfig.drugViewMode === drugViewMode.label_label) || (drugViewConfig.drugViewMode === drugViewMode.label_patent)">
+  <div *ngIf="(textWindowOne)">
     <article class="uk-article">
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Label ID (timeline ID {{ drugViewConfig.labelOneIdentifier }})</a></h1>
+      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
 
-      <p class="uk-article-meta">Written by <a href="#">Super User</a> on 12 April 2012. Posted in <a href="#">Blog</a></p>
-
-      <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <div class="uk-grid-small uk-child-width-auto" uk-grid>
-        <div>
-          <a class="uk-button uk-button-text" href="#">Read more</a>
-        </div>
-      </div>
+      <p>{{ textWindowOne }}</p>
 
     </article>
   </div>
 
   <!-- label -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.label_label)">
+  <div *ngIf="(textWindowTwo)">
     <article class="uk-article">
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Label Two (timeline id {{ drugViewConfig.labelTwoIdentifier }})</a></h1>
+      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
 
-      <p class="uk-article-meta">Written by <a href="#">Super User</a> on 12 April 2012. Posted in <a href="#">Blog</a></p>
-
-      <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <div class="uk-grid-small uk-child-width-auto" uk-grid>
-        <div>
-          <a class="uk-button uk-button-text" href="#">Read more</a>
-        </div>
-      </div>
+      <p>{{ textWindowTwo }}</p>
 
     </article>
   </div>
 
-  <!-- patent -->
-  <div *ngIf="(drugViewConfig.drugViewMode === drugViewMode.label_patent) || (drugViewConfig.drugViewMode === drugViewMode.patent)">
-    <article class="uk-article">
-
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Patent (timeline id {{ drugViewConfig.patentIdentifier }})</a></h1>
-
-      <p class="uk-article-meta">Written by <a href="#">Super User</a> on 12 April 2012. Posted in <a href="#">Blog</a></p>
-
-      <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <div class="uk-grid-small uk-child-width-auto" uk-grid>
-        <div>
-          <a class="uk-button uk-button-text" href="#">Read more</a>
-        </div>
-      </div>
-
-    </article>
-  </div>
 </div>
