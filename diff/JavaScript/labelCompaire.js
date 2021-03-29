@@ -3,8 +3,8 @@ const INSERT = 1;
 const DELETE = -1;
 const EQUAL = 0;
 
-const NODE_SPACING = 150;
-const NODE_WIDTH = 100;
+const NODE_SPACING = 250;
+const NODE_WIDTH = 200;
 
 //using the constants for the keys was causing a problem, no idea why
 const OPColors = {"-1": "pink", "1": "lightgreen", "0": "lightgray"};
@@ -84,27 +84,16 @@ function populateListFromJSON(data, list) {
  * @param {string} text1 
  * @param {string} text2 
  */
-function diffText(diffDivElement, text1, text2) {
-    
-    let dmp = new diff_match_patch();
-
-    //compute the diff
-    dmp.Diff_Timeout = 5;
-    dmp.Diff_EditCost = 4;
-
-    let diffNodes = dmp.diff_main(text1, text2);
-    dmp.diff_cleanupSemantic(diffNodes);
-    diffDivElement.innerHTML = dmp.diff_prettyHtml(diffNodes) + "<br><br>";
-
-    //removing for now, questionable value
-    //diagrapDiff(diffNodes);
-    
-  }
+function diffText(diffDivElement, dmp, diffNodes) {
+  diffDivElement.innerHTML = dmp.diff_prettyHtml(diffNodes) + "<br><br>";    
+}
 
 
-
-  function diagrapDiff(diffNodes) {
-
+  /**
+   * 
+   * @param {*} diffNodes 
+   */
+  function diagrapDiff(container, diffNodes) {
 
     //build the data for the visualization
     let nodeDataArray = []; // array of data for the nodes
@@ -173,7 +162,6 @@ function diffText(diffDivElement, text1, text2) {
       }
     }
 
-    var container = document.getElementById("diagramDiv");
     var data = {
       nodes: nodeDataArray,
       edges: linkDataArray
@@ -187,7 +175,7 @@ function diffText(diffDivElement, text1, text2) {
         nodes: {
           shape: "box",
           margin: 10,
-          widthConstraint: { maximum: 200 },
+          widthConstraint: { maximum: 400 },
         },
         physics: { enabled: false },
       };
@@ -212,8 +200,6 @@ function diffText(diffDivElement, text1, text2) {
       } else {
 
         //console.log("data", data);
-        //populateListFromJSON(data, document.getElementById("drugLabelListA"));
-        //populateListFromJSON(data, document.getElementById("drugLabelListB"));
         populateListFromJSON(data, listA);
         populateListFromJSON(data, listB);
 
@@ -251,3 +237,138 @@ function diffText(diffDivElement, text1, text2) {
     });
   }
 
+
+
+  function fetchAndDiffSelectedLabels() {
+
+    document.getElementById('diffTextDiv').innerHTML = "";
+    document.getElementById('diffTextDivA').innerHTML = "";
+    document.getElementById('diffTextDivB').innerHTML = "";
+    document.getElementById("diagramDiv").innerHTML = "";
+    document.getElementById("diagramDiv").style.height = "0px";
+
+    fileAName = document.getElementById("drugLabelListA").value
+    fileBName = document.getElementById("drugLabelListB").value
+
+    getXML("labels/" + fileAName + ".xml", function(err, data) {
+      if (err !== null) {
+        alert("Something went wrong: " + err);
+      } else {
+
+        let textA = getSectionText(data);
+
+        getXML("labels/" + fileBName + ".xml", function(err, data) {
+          if (err !== null) {
+            alert("Something went wrong: " + err);
+          } else {
+
+            let textB = getSectionText(data);
+            
+            //diff the two text blocks
+            let dmp = new diff_match_patch();
+
+            //compute the diff
+            dmp.Diff_Timeout = 5;
+            dmp.Diff_EditCost = 4;
+          
+            let diffNodes = dmp.diff_main(textA, textB);
+            dmp.diff_cleanupSemantic(diffNodes);
+
+
+            //grab the radio buttons so we know what type of visualization to use
+            let sideBySideElement = document.getElementById("sideBySide");
+            let diagramElement = document.getElementById("diagram");
+
+            if (sideBySideElement.checked == true) {
+              diffTextSideBySide(document.getElementById('diffTextDivA'), document.getElementById('diffTextDivB'), diffNodes);
+            }
+            else {
+              if (diagramElement.checked == true) {
+                let container = document.getElementById('diagramDiv');
+                container.style.height = "1200px";
+                diagrapDiff(container, diffNodes);
+              }
+              else {
+                diffText(document.getElementById("diffTextDiv"), dmp, diffNodes);
+              }              
+            }
+            
+          }
+        });
+        
+      }
+    });
+  }
+
+
+
+  /**
+   * Diff givven text and display in two different divs.
+   * 
+   * @param {div element} diffDivElementA 
+   * @param {div element} diffDivElementB 
+   * @param {String} text1 
+   * @param {String} text2 
+   */
+  function diffTextSideBySide(diffDivElementA, diffDivElementB, diffNodes) {
+
+    let outputA = "";
+    let outputB = "";
+
+    for (let index = 0; index < diffNodes.length; index++) {
+      let op = diffNodes[index][0];    // Operation (insert, delete, equal)
+      let data = diffNodes[index][1];  // Text of change.
+
+      if (op == DELETE) {          
+        outputA += "<span class='text-delete'>" + data +"</span>";
+      }
+
+      if (op == INSERT) {          
+        outputB += "<span class='text-insert'>" + data +"</span>";
+      }
+
+      if (op == EQUAL) {
+        outputA += data;
+        outputB += data;
+      }
+
+    }
+
+    diffDivElementA.innerHTML = outputA;
+    diffDivElementB.innerHTML = outputB;    
+  }
+
+
+
+  function getSectionText(data) {
+
+    var parser = new DOMParser().parseFromString(data, "text/xml");
+
+    if (!parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title')) {
+      return "Error reading label";
+    }
+
+
+    let sectionTitle = parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title').innerHTML;
+    sectionTitle = sectionTitle.concat("<br/>");
+    
+    //scrape sections
+    var sectionText = "";
+
+    var sections = parser.querySelectorAll('document > component > structuredBody > component:nth-child(5) > section > component > section');
+
+    for (i = 0; i < sections.length; i++) {
+      section = sections[i];
+      sectionText +=  section.querySelector('title').innerHTML; // scrape the title of section
+      sectionText += "<br/>";
+
+      text_element = section.querySelector('text');
+      paragraphs = text_element.querySelectorAll('paragraph'); //scrape paragraphs
+      for (var y = 0; y < paragraphs.length; y++) {
+        sectionText +=  (paragraphs[y].innerHTML);
+        sectionText += "<br/>";
+      }
+    }
+
+    return sectionTitle.concat(sectionText);
+  }

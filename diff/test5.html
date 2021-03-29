@@ -5,17 +5,22 @@
   <script type="text/javascript" src="https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
-  <script type="text/javascript" src="JavaScript/labelCompaire.js?r=9"></script>
+  <script type="text/javascript" src="JavaScript/labelCompaire.js?r=26"></script>
   <style>
-    .chart {
-        height: 40px;
-        position: relative;
+
+    .text-delete {
+      background-color: pink;
     }
+
+    .text-insert {
+      background-color: lightgreen;
+    }
+
     .text-equal {
-            width: 85px;
-            background-color: gray;
-            position: absolute;
-        }
+      width: 85px;
+      background-color: gray;
+      position: absolute;
+    }
     
     .vis-item.orange {
       background-color: gold;
@@ -41,14 +46,25 @@
   Drug Label B: <select id="drugLabelListB" name="drugLabelListB"></select><br/>
   Section: <select id="sectionList" name="sectionList"><option>Indications and Usages</option></select><br/>
   </br>
-  <input type="Radio" name="displayStyle" value="sideBySide">Side-by-side &nbsp;
-  <input type="Radio" name="displayStyle" value="together" checked>In-line
+  <input type="Radio" name="displayStyle" id="sideBySide">Side-by-side &nbsp;
+  <input type="Radio" name="displayStyle" id="together" checked>In-line &nbsp;
+  <input type="Radio" name="displayStyle" id="diagram">Diagram &nbsp;
+
   <br/><br/>
   <button type="button" onclick="fetchAndDiffSelectedLabels()">Show differences</button>
 
   <div id="diffTextDiv"></div>
-  <div id="diagramDiv" class="chart"></div>
   
+  <table>
+    <tr>
+      <td><div id="diffTextDivA"></div></td>
+      <td><div id="diffTextDivB"></div></td>
+    </tr>
+  </table>
+  
+  <div id="diffTextDiv"></div>
+  <div id="diagramDiv"></div>
+
   <div id="visualization"></div>
   Command-click to select two dates.
 
@@ -57,68 +73,6 @@
   <script type="text/javascript">
 
     loadTimeline(document.getElementById("visualization"), document.getElementById("drugLabelListA"), document.getElementById("drugLabelListB"));
-
-
-    function fetchAndDiffSelectedLabels() {
-
-      fileAName = document.getElementById("drugLabelListA").value
-      fileBName = document.getElementById("drugLabelListB").value
-
-      getXML("labels/" + fileAName + ".xml", function(err, data) {
-        if (err !== null) {
-          alert("Something went wrong: " + err);
-        } else {
-
-          let textA = getSectionText(data);
-
-          getXML("labels/" + fileBName + ".xml", function(err, data) {
-            if (err !== null) {
-              alert("Something went wrong: " + err);
-            } else {
-
-              let textB = getSectionText(data);
-
-              diffText(document.getElementById('diffTextDiv'), textA, textB);
-            }
-          });
-          
-        }
-      });
-    }
-
-
-    function getSectionText(data) {
-
-      var parser = new DOMParser().parseFromString(data, "text/xml");
-
-      if (!parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title')) {
-        return "Error reading label";
-      }
-
-
-      let sectionTitle = parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title').innerHTML;
-      sectionTitle = sectionTitle.concat("<br/>");
-      
-      //scrape sections
-      var sectionText = "";
-
-      var sections = parser.querySelectorAll('document > component > structuredBody > component:nth-child(5) > section > component > section');
-  
-      for (i = 0; i < sections.length; i++) {
-        section = sections[i];
-        sectionText +=  section.querySelector('title').innerHTML; // scrape the title of section
-        sectionText += "<br/>";
-
-        text_element = section.querySelector('text');
-        paragraphs = text_element.querySelectorAll('paragraph'); //scrape paragraphs
-        for (var y = 0; y < paragraphs.length; y++) {
-          sectionText +=  (paragraphs[y].innerHTML);
-          sectionText += "<br/>";
-        }
-      }
-
-      return sectionTitle.concat(sectionText);
-    }
 
   </script>
 
