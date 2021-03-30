@@ -85,7 +85,29 @@ function populateListFromJSON(data, list) {
  * @param {string} text2 
  */
 function diffText(diffDivElement, dmp, diffNodes) {
-  diffDivElement.innerHTML = dmp.diff_prettyHtml(diffNodes) + "<br><br>";    
+  //diffDivElement.innerHTML = dmp.diff_prettyHtml(diffNodes) + "<br><br>";    
+
+  let output = "";
+
+  for (let index = 0; index < diffNodes.length; index++) {
+    let op = diffNodes[index][0];    // Operation (insert, delete, equal)
+    let data = diffNodes[index][1];  // Text of change.
+
+    if (op == DELETE) {          
+      output += "<span class='text-delete'>" + data +"</span>";
+    }
+
+    if (op == INSERT) {          
+      output += "<span class='text-insert'>" + data +"</span>";
+    }
+
+    if (op == EQUAL) {
+      output += data;
+    }
+
+  }
+
+  diffDivElement.innerHTML = output;
 }
 
 
@@ -175,7 +197,7 @@ function diffText(diffDivElement, dmp, diffNodes) {
         nodes: {
           shape: "box",
           margin: 10,
-          widthConstraint: { maximum: 400 },
+          widthConstraint: { maximum: 200 },
         },
         physics: { enabled: false },
       };
@@ -350,7 +372,7 @@ function diffText(diffDivElement, dmp, diffNodes) {
 
 
     let sectionTitle = parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title').innerHTML;
-    sectionTitle = sectionTitle.concat("<br/>");
+    sectionTitle = sectionTitle.concat("<br/><br/>");
     
     //scrape sections
     var sectionText = "";
@@ -360,13 +382,13 @@ function diffText(diffDivElement, dmp, diffNodes) {
     for (i = 0; i < sections.length; i++) {
       section = sections[i];
       sectionText +=  section.querySelector('title').innerHTML; // scrape the title of section
-      sectionText += "<br/>";
+      sectionText += "<br/><br/>";
 
       text_element = section.querySelector('text');
       paragraphs = text_element.querySelectorAll('paragraph'); //scrape paragraphs
       for (var y = 0; y < paragraphs.length; y++) {
-        sectionText +=  (paragraphs[y].innerHTML);
-        sectionText += "<br/>";
+        sectionText +=  (paragraphs[y].innerHTML);//.replace(/(<([^>]+)>)/gi, "");
+        sectionText += "<br/><br/>";
       }
     }
 

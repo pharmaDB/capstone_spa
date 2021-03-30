@@ -5,7 +5,7 @@
   <script type="text/javascript" src="https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
-  <script type="text/javascript" src="JavaScript/labelCompaire.js?r=26"></script>
+  <script type="text/javascript" src="JavaScript/labelCompaire.js?r=32"></script>
   <style>
 
     .text-delete {
@@ -42,16 +42,16 @@
 
 <body>
 
-  Drug Label A: <select id="drugLabelListA" name="drugLabelListA"></select><br/>
-  Drug Label B: <select id="drugLabelListB" name="drugLabelListB"></select><br/>
-  Section: <select id="sectionList" name="sectionList"><option>Indications and Usages</option></select><br/>
-  </br>
+  Drug Label A: <select id="drugLabelListA" name="drugLabelListA"></select><br/><br/>
+  Drug Label B: <select id="drugLabelListB" name="drugLabelListB"></select><br/><br/>
+  Section: <select id="sectionList" name="sectionList"><option>Indications and Usages</option></select><br/></br>
   <input type="Radio" name="displayStyle" id="sideBySide">Side-by-side &nbsp;
   <input type="Radio" name="displayStyle" id="together" checked>In-line &nbsp;
   <input type="Radio" name="displayStyle" id="diagram">Diagram &nbsp;
 
   <br/><br/>
   <button type="button" onclick="fetchAndDiffSelectedLabels()">Show differences</button>
+  <br/><br/>
 
   <div id="diffTextDiv"></div>
   
