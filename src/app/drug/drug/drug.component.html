@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div *ngIf="!isPageLoading" class="uk-container uk-container-small">
+<div *ngIf="!isPageLoading" class="uk-container uk-container-large">
     <app-drug-header [drug]="drug"></app-drug-header>
     <app-drug-text [textWindowOne]="textWindowOne" [textWindowTwo]="textWindowTwo"></app-drug-text>
     <app-drug-timeline (onDrugViewChange)="onDrugViewChange($event)" [timelineItems]="timelineItems"></app-drug-timeline>

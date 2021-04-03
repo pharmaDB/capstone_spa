@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {DrugViewConfig} from '../drug-view-config.interface';
 import {DrugViewMode} from '../drug-view-mode.enum';
 
@@ -9,12 +9,14 @@ import {DrugViewMode} from '../drug-view-mode.enum';
 })
 export class DrugTextComponent implements OnInit {
   drugViewMode = DrugViewMode;
-  @Input() textWindowOne: string | undefined;
-  @Input() textWindowTwo: string | undefined;
+  @Input() textWindowOne: any | undefined;
+  @Input() textWindowTwo: any | undefined;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.textWindowOne);
+    this.textWindowOne
   }
 
 }

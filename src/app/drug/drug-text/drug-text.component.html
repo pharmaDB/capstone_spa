@@ -36,24 +36,46 @@
 
   <!-- Label -->
   <div *ngIf="(textWindowOne)">
-    <article class="uk-article">
+    <span *ngIf="(textWindowOne.group === 'label')">
+      <article class="uk-article">
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
+        <h1 class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Drug Label</h1>
 
-      <p>{{ textWindowOne }}</p>
+        <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">{{ textWindowOne.data.published_date }} | {{ textWindowOne.data.spl_id }}</p>
+        <section *ngFor="let section of textWindowOne.data.sections">
+          <p class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">{{ section.name }}</p>
 
-    </article>
+          <p class="proximaNovaRegular uk-margin-remove-top">{{ section.text }}</p>
+        </section>
+
+      </article>
+    </span>
+
+    <span *ngIf="(textWindowOne.group === 'patent')">
+      Patent Window one
+    </span>
   </div>
 
   <!-- label -->
   <div *ngIf="(textWindowTwo)">
-    <article class="uk-article">
+    <span *ngIf="(textWindowTwo.group === 'label')">
+      <article class="uk-article">
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
+        <h1 class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Drug Label</h1>
 
-      <p>{{ textWindowTwo }}</p>
+        <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">{{ textWindowTwo.data.published_date }} | {{ textWindowTwo.data.spl_id }}</p>
+        <section *ngFor="let section of textWindowTwo.data.sections">
+          <p class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">{{ section.name }}</p>
 
-    </article>
+          <p class="proximaNovaRegular uk-margin-remove-top">{{ section.text }}</p>
+        </section>
+
+      </article>
+    </span>
+
+    <span *ngIf="(textWindowOne.group === 'patent')">
+      Patent Window two
+    </span>
   </div>
 
 </div>
