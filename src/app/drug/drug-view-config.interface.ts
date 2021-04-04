@@ -5,6 +5,12 @@ export interface DrugViewConfig {
   inViewLabelOne?: any;
   inViewLabelTwo?: any;
   inViewPatent?: any;
+  labelDiff?: {
+    sections: {
+      name: string;
+      diff: any;
+    }[]
+  };
   // labelOneIdentifier?: string;
   // labelTwoIdentifier?: string;
   // patentIdentifier?: string;

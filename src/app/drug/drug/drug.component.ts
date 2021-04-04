@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
+import {DiffMatchPatch} from 'diff-match-patch-ts';
+import * as _ from 'lodash';
 
 import {DrugService} from '../../shared/services/drug.service';
 import {DrugViewMode} from '../drug-view-mode.enum';
@@ -12,55 +14,59 @@ import {DrugViewConfig} from '../drug-view-config.interface';
   styleUrls: ['./drug.component.scss']
 })
 export class DrugComponent implements OnInit {
-  drugViewConfig: DrugViewConfig = { drugViewMode: DrugViewMode.none };
-  timelineItems: any[] = [];
+  drugViewConfig: DrugViewConfig = {
+    drugViewMode: DrugViewMode.none,
+    inViewLabelOne: undefined,
+    inViewLabelTwo: undefined,
+    labelDiff: undefined,
+    inViewPatent: undefined
+  };
+  timelineItems: TimelineItem[] = [];
   isPageLoading = true;
   ndaNumber: string;
   drug: any;
-  textWindowOne: string | undefined;
-  textWindowTwo: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private drugService: DrugService
   ) { }
 
+  onPatentClaimTagClicked(patentClaim: any): void {
+    this.onDrugViewChange({
+      drugViewMode: DrugViewMode.label_patent,
+      inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+      inViewPatent: 'wefewf'});
+  }
+
   onDrugViewChange(drugViewConfig: DrugViewConfig): void {
     this.drugViewConfig = drugViewConfig;
-    switch (this.drugViewConfig.drugViewMode) {
-      case DrugViewMode.label: {
-        this.textWindowOne = this.drugViewConfig.inViewLabelOne;
-        this.textWindowTwo = undefined;
-        console.log(this.textWindowOne);
-        break;
-      }
-      case DrugViewMode.patent: {
-        this.textWindowOne = this.drugViewConfig.inViewPatent;
-        this.textWindowTwo = undefined;
-        break;
-      }
-      case DrugViewMode.label_patent: {
-        this.textWindowOne = this.drugViewConfig.inViewLabelOne;
-        this.textWindowTwo = this.drugViewConfig.inViewPatent;
-        break;
-      }
-      case DrugViewMode.label_label: {
-        this.textWindowOne = this.drugViewConfig.inViewLabelOne;
-        this.textWindowTwo = this.drugViewConfig.inViewLabelTwo;
-        break;
-      }
-      default: {
-        break;
-      }
+
+    if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {
+      this.isPageLoading = true;
+      const labelSectionDiffs: { name: string, diff: any}[] = [];
+      drugViewConfig.inViewLabelOne.data.sections.forEach((section: any) => {
+        const labelTwoSection = _.find(drugViewConfig.inViewLabelTwo.data.sections, (labelTwoSec: any) => {
+          return labelTwoSec.name === section.name;
+        });
+
+        const diffTool = new DiffMatchPatch();
+        const diff = diffTool.diff_main(section.text, labelTwoSection.text);
+        diffTool.diff_cleanupSemantic(diff);
+        labelSectionDiffs.push({ name: section.name, diff });
+      });
+
+      this.drugViewConfig.labelDiff = {
+        sections: labelSectionDiffs
+      };
+      this.isPageLoading = false;
     }
   }
 
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.ndaNumber = this.route.snapshot.params.NDANumber;
 
     this.drugService.getDrugByApplicationNumber(this.ndaNumber).subscribe((response) => {
-      this.isPageLoading = false;
+      // this.isPageLoading = false;
       this.drug = response;
 
       this.drug.drugLabels.forEach((label: any) => {
@@ -88,9 +94,24 @@ export class DrugComponent implements OnInit {
         };
         this.timelineItems.push(timelinePatent);
       });
+
+      //this.drugService.processDrugLabelDiffs(this.drug.drugLabels);
+      this.isPageLoading = false;
     });
   }
 
+}
+
+
+
+export interface TimelineItem {
+  id: string;
+  content: string;
+  start: string;
+  group: string;
+  className: string;
+  title: string;
+  // data: any;
 }
 
 //

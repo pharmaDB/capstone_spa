@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angul
 import * as _ from 'lodash';
 import {DrugViewConfig} from '../drug-view-config.interface';
 import {DrugViewMode} from '../drug-view-mode.enum';
+import {TimelineItem} from '../drug/drug.component';
 
 declare var vis:any;
 
@@ -12,7 +13,8 @@ declare var vis:any;
 })
 export class DrugTimelineComponent implements OnInit {
   @Output() onDrugViewChange = new EventEmitter<DrugViewConfig>();
-  @Input() timelineItems: any;
+  @Input() timelineItems: TimelineItem[];
+  @Input() drugViewConfig: DrugViewConfig;
   timeline: any;
   selectedTimelineItems: string[] = [];
 
@@ -36,7 +38,6 @@ export class DrugTimelineComponent implements OnInit {
       });
 
       if (itemToBeAdded?.group === 'patent' && currentlySelectedItem?.group === 'patent') {
-        console.log('clear');
         this.selectedTimelineItems = []; // clear the previous patent selected
       }
     }
@@ -109,7 +110,7 @@ export class DrugTimelineComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log('initing');
     // Configuration for the Timeline
     var options = {
       zoomable: false,
@@ -123,8 +124,9 @@ export class DrugTimelineComponent implements OnInit {
 
     // Create a Timeline
     this.timeline = new vis.Timeline(this.element.nativeElement, new vis.DataSet(this.timelineItems), options);
-
+    let previousSelectedItem = '';
     this.timeline.on('select', (event: any) => {
+      console.log(event.items[0]);
 
       // this event is also fired on empty space clicks, no item is selected and so clear all
       if (event.items.length === 0 ) {
@@ -133,7 +135,18 @@ export class DrugTimelineComponent implements OnInit {
         });
         return;
       }
-      this.onItemSelectionHandler(event.items[0]);
+
+      // in the event of a double event firing, we loose state for the timeline and it resets itself with the most
+      // recent and incorrect event. To avoid this, if a duplicate even it detected then the item/selection in the
+      // event is ignored and instead the timelines selection is 'set' again with the values already in the
+      // selectedTimelineItems array (ie the items that have already been selected). This fix incorporates the
+      // entire proceeding if/else statement and the var previousSelectedItem
+      if (event.items[0] !== previousSelectedItem) {
+        this.onItemSelectionHandler(event.items[0]);
+        previousSelectedItem = event.items[0];
+      } else {
+        this.timeline.setSelection(this.selectedTimelineItems);
+      }
     });
   }
 
