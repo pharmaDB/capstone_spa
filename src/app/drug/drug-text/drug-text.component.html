@@ -1,59 +1,71 @@
-<!--<div>-->
-<!--  <div uk-margin>-->
-<!--    <button class="uk-button uk-button-default uk-button-small uk-margin-small-left uk-margin-small-right" type="button">View</button>-->
-<!--    <div uk-dropdown>-->
-<!--      <ul class="uk-nav uk-dropdown-nav">-->
-<!--        <li class="uk-nav-header">Labels</li>-->
-<!--        <li><a href="#">Label Publication Date or version 1</a></li>-->
-<!--        <li><a href="#">Label Publication Date or version 2</a></li>-->
-<!--        <li class="uk-nav-divider"></li>-->
-<!--        <li class="uk-nav-header">Patent Claim Sets</li>-->
-<!--        <li><a href="#">Patent claims patent number 1</a></li>-->
-<!--        <li><a href="#">Patent claims patnet number 2</a></li>-->
-<!--      </ul>-->
-<!--    </div>-->
-
-<!--    <button class="uk-button uk-button-default uk-button-small uk-margin-small-left uk-margin-small-right" type="button">Compare</button>-->
-<!--    <div uk-dropdown>-->
-<!--      <ul class="uk-nav uk-dropdown-nav">-->
-<!--        <li><a href="#">Compare labels</a></li>-->
-<!--        <li><a href="#">Compare label to claims</a></li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<hr class="" />-->
-
-
 <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
 
   <!-- welcome/what to do well -->
-  <div *ngIf="(!textWindowOne && !textWindowTwo)">
+  <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.none)">
     <article class="uk-article">
     <div class="uk-placeholder uk-text-center uk-margin-large">Select a patent or a label from the timeline to begin</div>
     </article>
   </div>
 
   <!-- Label -->
-  <div *ngIf="(textWindowOne)">
-    <article class="uk-article">
+  <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.label)">
+    <span>
+      <article class="uk-article">
+        <h1 class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Label</h1>
+        <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">{{ drugViewConfig.inViewLabelOne.data.published_date }} | {{ drugViewConfig.inViewLabelOne.data.spl_id }}</p>
+        <section *ngFor="let section of drugViewConfig.inViewLabelOne.data.sections" class="uk-padding-small patent-relation-border-box uk-margin-small-bottom">
+          <p class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">
+            {{ section.name }}
+            <span (click)="patentClaimTagClickHandler()" class="uk-label uk-background-muted uk-text-muted uk-margin-small-right uk-margin-small-left pointer">Patent 12123 Claim 23423</span>
+            <span (click)="patentClaimTagClickHandler()" class="uk-label uk-background-muted uk-text-muted uk-margin-small-right uk-margin-small-left pointer">Patent 12123 Claim 23423</span>
+          </p>
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
+          <p class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom" [innerHTML]="section.text"></p>
+        </section>
 
-      <p>{{ textWindowOne }}</p>
-
-    </article>
+      </article>
+    </span>
   </div>
 
-  <!-- label -->
-  <div *ngIf="(textWindowTwo)">
-    <article class="uk-article">
+  <!-- label diff -->
+  <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.label_label)">
+    <span>
+      <article class="uk-article">
+        <h1 class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Compare Labels</h1>
+        <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">{{ drugViewConfig.inViewLabelOne.data.published_date }} | {{ drugViewConfig.inViewLabelOne.data.spl_id }}</p>
+        <section *ngFor="let section of drugViewConfig.labelDiff!.sections" class="uk-padding-small patent-relation-border-box uk-margin-small-bottom">
+          <p class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">
+            {{ section.name }}
+            <span (click)="patentClaimTagClickHandler()" class="uk-label uk-background-muted uk-text-muted uk-margin-small-right uk-margin-small-left pointer">Patent 12123 Claim 23423</span>
+            <span (click)="patentClaimTagClickHandler()" class="uk-label uk-background-muted uk-text-muted uk-margin-small-right uk-margin-small-left pointer">Patent 12123 Claim 23423</span>
+          </p>
+          <span *ngFor="let diffElement of section.diff">
+            <span [ngClass]="{'diff-deleted-text': diffElement[0] === -1, 'diff-added-text':diffElement[0] === 1 }" [innerHTML]="diffElement[1]">
+              {{ diffElement[1] }} {{ diffElement[1] }} efwefwefwefwf
+            </span>
+          </span>
+<!--          <p class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom" [innerHTML]="section.text"></p>-->
+        </section>
 
-      <h1 class="uk-article-title"><a class="uk-link-reset" href="">Header</a></h1>
-
-      <p>{{ textWindowTwo }}</p>
-
-    </article>
+      </article>
+    </span>
   </div>
 
+  <!-- Drug Patent -->
+  <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.label_patent)" class="uk-width-1-3@m">
+    <span>
+      <article class="uk-article">
+        <h1 class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Patent</h1>
+        <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">{{ drugViewConfig.inViewLabelOne.data.published_date }} | {{ drugViewConfig.inViewLabelOne.data.spl_id }}</p>
+        <section *ngFor="let section of drugViewConfig.inViewLabelOne.data.sections" class="uk-padding-small patent-relation-border-box uk-margin-small-bottom">
+          <p class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">
+            {{ section.name }}
+          </p>
+
+          <p class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom" [innerHTML]="section.text"></p>
+        </section>
+
+      </article>
+    </span>
+  </div>
 </div>
