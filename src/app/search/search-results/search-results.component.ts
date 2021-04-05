@@ -23,8 +23,4 @@ export class SearchResultsComponent implements OnInit {
     this.router.navigate(['/drugs', drugNDANumber ]);
   }
 
-  ngOnChanges(): void {
-    console.log(this.searchResults);
-  }
-
 }

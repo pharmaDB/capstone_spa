@@ -1,11 +1,11 @@
-<div class="uk-container uk-container-xsmall">
+<div class="uk-container uk-container-small">
     <div class="uk-margin uk-padding-small">
         <ul class="uk-list uk-list-large uk-list-divider">
             <li *ngFor="let searchResult of searchResults" class="searchResult uk-padding-xsmall">
                 <div class="uk-text-center uk-grid-column-collapse" uk-grid>
                     <!-- <div class="uk-width-1-5@m">
                         <div class="uk-background-muted">
-                            <img 
+                            <img
                             src="https://thumbnails.texastribune.org/fAe_I1MxlEnUnAElR_X67laIskU=/850x570/smart/filters:quality(75)/https://static.texastribune.org/media/images/Pills.jpg"
                             width="80" height="80" alt="">
                         </div>
@@ -13,7 +13,7 @@
                     <div class="uk-width-1-3@m">
                         <div class="uk-padding-small uk-padding-remove-top">
                             <h1 class="uk-text-uppercase uk-text-small uk-text-bold uk-text-left uk-padding-remove-bottom uk-margin-remove">
-                                {{ searchResult.openfda.brand_name | shortestValueFromArray | truncate:[18, '...'] }} 
+                                {{ searchResult.openfda.brand_name | shortestValueFromArray | truncate:[18, '...'] }}
                                 <span uk-icon="icon: info; ratio: 1"></span>
                                 <div class="uk-padding-small uk-width-medium" uk-dropdown="pos: bottom-left">
                                     <div>
@@ -42,18 +42,25 @@
                                 </div>
                             </div>
                             <div class="uk-text-left">
-                                <span class="uk-label uk-margin-small-right uk-background-muted uk-text-muted">0 Labels</span>
-                                <span class="uk-label uk-background-muted uk-text-muted">0 Patents</span>
+<!--                                <span class="uk-label uk-margin-small-right uk-background-muted uk-text-muted">0 Labels</span>-->
+<!--                                <span class="uk-label uk-background-muted uk-text-muted">0 Patents</span>-->
                             </div>
                         </div>
                     </div>
                     <div class="uk-width-expand@m uk-width-expand@m uk-padding-xsmall uk-padding-remove-top uk-dotted-border-left uk-dotted-border-right">
-                        <div class="uk-text-left uk-text-small uk-text-light">Products</div>
+                        <div class="uk-text-left uk-text-small uk-text-light">Active Ingredients</div>
+                        <div class="uk-padding-remove">
+                          <div>
+                            <ul class="uk-list uk-margin-remove-bottom">
+                              <li *ngFor="let substance_name of searchResult.openfda.substance_name" class="uk-text-lowercase uk-text-small uk-text-muted uk-text-left uk-margin-remove-top">{{ substance_name }}</li>
+                            </ul>
+                          </div>
+                        </div>
                     </div>
                     <div class="uk-width-1-6@m">
-                        <div class="uk-padding-small uk-padding-remove">
+                        <div class="uk-padding-remove">
                             <div class="uk-margin-small-bottom">
-                                <span class="uk-text-uppercase uk-text-small uk-text-light uk-text-muted uk-text-right uk-padding-remove-bottom uk-margin-remove">
+                                <span class="uk-text-small uk-text-light uk-text-muted uk-text-right uk-padding-remove-bottom uk-margin-remove">
                                     {{ searchResult.application_number }}
                                 </span>
                             </div>
@@ -80,6 +87,6 @@
                 </div>
             </span>
         </dl> -->
-        
+
     </div>
 </div>
