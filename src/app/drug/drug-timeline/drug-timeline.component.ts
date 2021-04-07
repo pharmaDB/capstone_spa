@@ -105,6 +105,7 @@ export class DrugTimelineComponent implements OnInit {
       drugViewMode: nextDrugViewMode,
       inViewLabelOne: nextLabelOneIdentifier,
       inViewLabelTwo: nextLabelTwoIdentifier,
+      isPatentInView: false,
       inViewPatent: nextPatentIdentifier
     });
   }
@@ -131,7 +132,8 @@ export class DrugTimelineComponent implements OnInit {
       // this event is also fired on empty space clicks, no item is selected and so clear all
       if (event.items.length === 0 ) {
         this.onDrugViewChange.emit({
-          drugViewMode: DrugViewMode.none
+          drugViewMode: DrugViewMode.none,
+          isPatentInView: false,
         });
         return;
       }

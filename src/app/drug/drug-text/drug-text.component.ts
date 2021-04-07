@@ -9,15 +9,21 @@ import { DrugViewMode } from '../drug-view-mode.enum';
 })
 export class DrugTextComponent implements OnInit, OnChanges {
   @Output() onPatentClaimTagClicked = new EventEmitter<any>();
+  @Output() onClosePatentViewClicked = new EventEmitter<any>();
   @Input() drugViewConfig: DrugViewConfig;
 
   constructor() { }
 
-  patentClaimTagClickHandler(): void {
+  patentClaimTagClickHandler(patentNumber: string, claimNumber: number): void {
+    console.log(patentNumber, claimNumber);
     this.onPatentClaimTagClicked.emit({
-      patent_number: '123123',
-      claim_number: 'wefwef'
+      patent_number: patentNumber,
+      claim_number: claimNumber
     });
+  }
+
+  closePatentViewClickHandler(): void {
+    this.onClosePatentViewClicked.emit();
   }
 
   public get DrugViewMode(): typeof DrugViewMode {

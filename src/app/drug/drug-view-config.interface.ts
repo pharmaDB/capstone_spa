@@ -4,6 +4,7 @@ export interface DrugViewConfig {
   drugViewMode: DrugViewMode;
   inViewLabelOne?: any;
   inViewLabelTwo?: any;
+  isPatentInView: boolean;
   inViewPatent?: any;
   labelDiff?: {
     sections: {

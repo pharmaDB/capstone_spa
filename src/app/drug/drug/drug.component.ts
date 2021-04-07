@@ -19,30 +19,44 @@ export class DrugComponent implements OnInit {
     inViewLabelOne: undefined,
     inViewLabelTwo: undefined,
     labelDiff: undefined,
+    isPatentInView: false,
     inViewPatent: undefined
   };
   timelineItems: TimelineItem[] = [];
   isPageLoading = true;
+  isTextLoading = false;
   ndaNumber: string;
   drug: any;
 
   constructor(
     private route: ActivatedRoute,
-    private drugService: DrugService
+    private drugService: DrugService,
   ) { }
 
-  onPatentClaimTagClicked(patentClaim: any): void {
+  onPatentClaimTagClicked(event: any): void {
+    const patent = _.find(this.drug.drugPatents, (p: any) => p.patent_number === event.patent_number);
+    const claim = _.find(patent.claims, (c: any) => c.claim_number === event.claim_number);
+
     this.onDrugViewChange({
-      drugViewMode: DrugViewMode.label_patent,
+      drugViewMode: this.drugViewConfig.drugViewMode,
       inViewLabelOne: this.drugViewConfig.inViewLabelOne,
-      inViewPatent: 'wefewf'});
+      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+      isPatentInView: true,
+      inViewPatent: claim});
+  }
+
+  onClosePatentViewClicked(): void {
+    this.onDrugViewChange({
+      drugViewMode: this.drugViewConfig.drugViewMode,
+      inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+      isPatentInView: false,
+      inViewPatent: undefined});
   }
 
   onDrugViewChange(drugViewConfig: DrugViewConfig): void {
     this.drugViewConfig = drugViewConfig;
-
     if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {
-      this.isPageLoading = true;
       const labelSectionDiffs: { name: string, diff: any}[] = [];
       drugViewConfig.inViewLabelOne.data.sections.forEach((section: any) => {
         const labelTwoSection = _.find(drugViewConfig.inViewLabelTwo.data.sections, (labelTwoSec: any) => {
@@ -58,7 +72,6 @@ export class DrugComponent implements OnInit {
       this.drugViewConfig.labelDiff = {
         sections: labelSectionDiffs
       };
-      this.isPageLoading = false;
     }
   }
 
