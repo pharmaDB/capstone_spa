@@ -11,6 +11,7 @@ export interface DrugViewConfig {
     sections: {
       name: string;
       diff: any;
+      scores?: any;
     }[]
   };
   // labelOneIdentifier?: string;

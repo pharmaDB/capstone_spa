@@ -59,7 +59,7 @@ export class DrugComponent implements OnInit {
   onDrugViewChange(drugViewConfig: DrugViewConfig): void {
     this.drugViewConfig = drugViewConfig;
     if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {
-      const labelSectionDiffs: { name: string, diff: any}[] = [];
+      const labelSectionDiffs: { name: string, scores?: any[], diff: any}[] = [];
       drugViewConfig.inViewLabelOne.data.sections.forEach((section: any) => {
         const labelTwoSection = _.find(drugViewConfig.inViewLabelTwo.data.sections, (labelTwoSec: any) => {
           return labelTwoSec.name === section.name;
@@ -68,7 +68,9 @@ export class DrugComponent implements OnInit {
         const diffTool = new DiffMatchPatch();
         const diff = diffTool.diff_main(section.text, labelTwoSection.text);
         diffTool.diff_cleanupSemantic(diff);
-        labelSectionDiffs.push({ name: section.name, diff });
+        console.log('labelTwoSection');
+        console.log(labelTwoSection);
+        labelSectionDiffs.push({ name: section.name, scores: labelTwoSection.scores, diff });
       });
 
       this.drugViewConfig.labelDiff = {
