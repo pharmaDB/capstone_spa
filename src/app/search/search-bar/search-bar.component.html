@@ -15,15 +15,15 @@
                 </ul>
             </div>
         </div>
-        <div *ngIf="searchResults.length > 0" class="uk-flex-center uk-padding-small uk-margin-remove-top" uk-grid>
-          <span class="uk-text-italic uk-text-muted uk-text-small uk-padding-xsmall">Sort by:</span>
-          <div>
-            <ul [formGroup]="searchForm" class="uk-subnav uk-subnav-pill" uk-switcher>
-              <li [ngClass]="drugSearchType.key === searchForm.get('sortParameter')?.value ? 'uk-active' : ''" *ngFor="let drugSearchType of drugSearchTypes | keyvalue">
-                <a (click)="onSortParameterClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+<!--        <div *ngIf="searchResults.length > 0" class="uk-flex-center uk-padding-small uk-margin-remove-top" uk-grid>-->
+<!--          <span class="uk-text-italic uk-text-muted uk-text-small uk-padding-xsmall">Sort by:</span>-->
+<!--          <div>-->
+<!--            <ul [formGroup]="searchForm" class="uk-subnav uk-subnav-pill" uk-switcher>-->
+<!--              <li [ngClass]="drugSearchType.key === searchForm.get('sortParameter')?.value ? 'uk-active' : ''" *ngFor="let drugSearchType of drugSearchTypes | keyvalue">-->
+<!--                <a (click)="onSortParameterClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
     </div>
 </div>

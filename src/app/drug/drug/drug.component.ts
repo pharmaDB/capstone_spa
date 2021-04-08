@@ -42,6 +42,7 @@ export class DrugComponent implements OnInit {
       inViewLabelOne: this.drugViewConfig.inViewLabelOne,
       inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
       isPatentInView: true,
+      inViewPatentNumber: patent.patent_number,
       inViewPatent: claim});
   }
 
@@ -51,6 +52,7 @@ export class DrugComponent implements OnInit {
       inViewLabelOne: this.drugViewConfig.inViewLabelOne,
       inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
       isPatentInView: false,
+      inViewPatentNumber: undefined,
       inViewPatent: undefined});
   }
 

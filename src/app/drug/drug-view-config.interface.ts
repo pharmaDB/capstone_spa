@@ -6,6 +6,7 @@ export interface DrugViewConfig {
   inViewLabelTwo?: any;
   isPatentInView: boolean;
   inViewPatent?: any;
+  inViewPatentNumber?: any;
   labelDiff?: {
     sections: {
       name: string;

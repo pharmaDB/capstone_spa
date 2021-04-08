@@ -15,7 +15,7 @@
         <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
           <span>Label version {{ drugViewConfig.inViewLabelOne.data.spl_version }}, published on {{ drugViewConfig.inViewLabelOne.data.published_date }}</span>
           <span class="float-right">
-            <a target="_blank" href="{{'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=' + drugViewConfig.inViewLabelOne.data.setid + '&version=' + drugViewConfig.inViewLabelOne.data.spl_version}}">
+            <a target="_blank" href="{{'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=' + drugViewConfig.inViewLabelOne.data.set_id + '&version=' + drugViewConfig.inViewLabelOne.data.spl_version}}">
               View entire label on DailyMed
               <span uk-icon="icon: arrow-right;"></span>
             </a>
@@ -71,13 +71,13 @@
     <span>
       <article class="uk-article">
         <h1 class="uk-article-title proximaNovaThin uk-margin-remove-bottom">
-          Patent
+          Patent {{ drugViewConfig.inViewPatentNumber }}
           <span (click)="closePatentViewClickHandler()" class="float-right uk-link uk-article-meta" uk-icon="icon: close;"></span>
         </h1>
         <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
           Claim Number {{ drugViewConfig.inViewPatent.claim_number }}
           <span class="float-right">
-            <a target="_blank" href="{{'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=' + drugViewConfig.inViewLabelOne.data.setid + '&version=' + drugViewConfig.inViewLabelOne.data.spl_version}}">
+            <a target="_blank" href="{{'https://patents.google.com/patent/US' + drugViewConfig.inViewPatentNumber + '/en'}}">
               View entire patent on Google Patents
               <span uk-icon="icon: arrow-right;"></span>
             </a>
