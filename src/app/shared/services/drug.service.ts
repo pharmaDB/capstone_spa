@@ -167,6 +167,12 @@ export interface DrugLabel {
 export interface DrugLabelSection {
   name: string;
   text: string;
+  scores?: {
+    patentNumber: string;
+    claimNumber: number;
+    parentClaimNumbers: number[],
+    score: number
+  }[];
 }
 
 

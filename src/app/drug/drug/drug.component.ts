@@ -19,31 +19,47 @@ export class DrugComponent implements OnInit {
     inViewLabelOne: undefined,
     inViewLabelTwo: undefined,
     labelDiff: undefined,
+    isPatentInView: false,
     inViewPatent: undefined
   };
   timelineItems: TimelineItem[] = [];
   isPageLoading = true;
+  isTextLoading = false;
   ndaNumber: string;
   drug: any;
 
   constructor(
     private route: ActivatedRoute,
-    private drugService: DrugService
+    private drugService: DrugService,
   ) { }
 
-  onPatentClaimTagClicked(patentClaim: any): void {
+  onPatentClaimTagClicked(event: any): void {
+    const patent = _.find(this.drug.drugPatents, (p: any) => p.patent_number === event.patent_number);
+    const claim = _.find(patent.claims, (c: any) => c.claim_number === event.claim_number);
+
     this.onDrugViewChange({
-      drugViewMode: DrugViewMode.label_patent,
+      drugViewMode: this.drugViewConfig.drugViewMode,
       inViewLabelOne: this.drugViewConfig.inViewLabelOne,
-      inViewPatent: 'wefewf'});
+      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+      isPatentInView: true,
+      inViewPatentNumber: patent.patent_number,
+      inViewPatent: claim});
+  }
+
+  onClosePatentViewClicked(): void {
+    this.onDrugViewChange({
+      drugViewMode: this.drugViewConfig.drugViewMode,
+      inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+      isPatentInView: false,
+      inViewPatentNumber: undefined,
+      inViewPatent: undefined});
   }
 
   onDrugViewChange(drugViewConfig: DrugViewConfig): void {
     this.drugViewConfig = drugViewConfig;
-
     if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {
-      this.isPageLoading = true;
-      const labelSectionDiffs: { name: string, diff: any}[] = [];
+      const labelSectionDiffs: { name: string, scores?: any[], diff: any}[] = [];
       drugViewConfig.inViewLabelOne.data.sections.forEach((section: any) => {
         const labelTwoSection = _.find(drugViewConfig.inViewLabelTwo.data.sections, (labelTwoSec: any) => {
           return labelTwoSec.name === section.name;
@@ -52,13 +68,14 @@ export class DrugComponent implements OnInit {
         const diffTool = new DiffMatchPatch();
         const diff = diffTool.diff_main(section.text, labelTwoSection.text);
         diffTool.diff_cleanupSemantic(diff);
-        labelSectionDiffs.push({ name: section.name, diff });
+        console.log('labelTwoSection');
+        console.log(labelTwoSection);
+        labelSectionDiffs.push({ name: section.name, scores: labelTwoSection.scores, diff });
       });
 
       this.drugViewConfig.labelDiff = {
         sections: labelSectionDiffs
       };
-      this.isPageLoading = false;
     }
   }
 
