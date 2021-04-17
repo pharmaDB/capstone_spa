@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { DiffMatchPatch } from 'diff-match-patch-ts';
-import { catchError, retry } from 'rxjs/operators';
-
-import { DrugSearchType } from '../../search/drug-search-type.enum';
-import { OpenFDADrug } from './open-fdadrug.interface';
 import * as _ from 'lodash';
+import {OpenFDADrug} from './open-fdadrug.interface';
+
+/**
+ * The DrugService is the primary (and currently only) service responsible for the
+ * web applications interfacing with the backend web application API. From this
+ * service requests can be made for drug search queries and well as for drug
+ * information which can include drug metadata, drug labels and drug patents
+ */
 
 @Injectable({
   providedIn: 'root'
@@ -16,22 +20,28 @@ export class DrugService {
   constructor(private http: HttpClient) { }
 
   /**
-   *
-   * @param searchQuery
-   * @param searchType
+   * Find an drug based on the provided search query and the search type
+   * @param searchQuery String: the query by which a drug will be sought
+   * @param searchType String: field the query will be applied to (brand_name, active_ingredients, application_number, or manufacturer_name)
+   * @returns Observable<OpenFDADrug[]>: an array of matching drugs and their metadata in the OpenFDADrug typing
    */
-  findDrug(searchQuery: string, searchType: string): Observable<any> {
-    return this.http.get(`https://api.pharmadb.org/drugs?searchQuery=${searchQuery}&searchType=${searchType}`);
+  findDrug(searchQuery: string, searchType: string): Observable<OpenFDADrug[]> {
+    return this.http.get(`https://api.pharmadb.org/drugs?searchQuery=${searchQuery}&searchType=${searchType}`) as Observable<OpenFDADrug[]>;
   }
 
-  getDrugByApplicationNumber(applicationNumber: string): Observable<any> {
+  /**
+   * Get all of a Drug data using the drugs NDA number
+   * @param ndaNumber string: the NDA number of the drug being fetched. Must be a valid FDA NDA Number associated with an FDA drug
+   * @returns TODO: add a return typing for this request
+   */
+  getDrugByApplicationNumber(ndaNumber: string): Observable<any> {
     const getCurrentSplLabel = false;
     const getSPLHistoryMetadata = false;
     const getImages = true;
     const getLabels = true;
     const getPatents = true;
 
-    return this.http.get(`https://api.pharmadb.org/drugs/${applicationNumber}?splHistory=${getSPLHistoryMetadata}&images=${getImages}&currentSplLabel=${getCurrentSplLabel}&labels=${getLabels}&patents=${getPatents}`);
+    return this.http.get(`https://api.pharmadb.org/drugs/${ndaNumber}?splHistory=${getSPLHistoryMetadata}&images=${getImages}&currentSplLabel=${getCurrentSplLabel}&labels=${getLabels}&patents=${getPatents}`);
   }
 
   /**
@@ -89,67 +99,18 @@ export class DrugService {
     return drugLabelDiffs;
   }
 }
-//   processDrugLabelDiffs(drugLabels: any): DrugLabelDiff[] {
-//     const drugLabelDiffs: DrugLabelDiff[] = [];
-//
-//     // sort the drug labels by date of publication
-//     drugLabels.sort((a: any, b: any) => {
-//       const dateA = new Date(a.published_date);
-//       const dateB = new Date(b.published_date);
-//       return dateA.getTime() - dateB.getTime();
-//     });
-//
-//     // for each drug label...
-//     drugLabels.forEach((firstLabel: any, index: number) => {
-//
-//       // if theres no next label then exit, otherwise get the next label
-//       if (drugLabels[ index + 1] === undefined) {
-//         console.log('Diff calculation completed');
-//         return;
-//       }
-//       const secondLabel = drugLabels[ index + 1];
-//
-//       // create the label diff object now that the second label has been fetched
-//       const labelDiff: DrugLabelDiff = {
-//         firstLabelSplId: firstLabel.spl_id,
-//         secondLabelSplId: secondLabel.spl_id,
-//         sections: [ ]
-//       };
-//
-//       console.log(`Calculating diff between label with publication date ${firstLabel.published_date} and label with publication date ${secondLabel.published_date}`);
-//
-//
-//       firstLabel.sections.forEach((firstLabelSection: DrugLabelSection) => {
-//
-//         // get the corresponding section in the next drug label
-//         const secondLabelSection = _.find(secondLabel.sections, (section: DrugLabelSection) => {
-//           return section.name === firstLabelSection.name;
-//         });
-//
-//         const diffingTool = new DiffMatchPatch();
-//         const diffs = diffingTool.diff_main(firstLabelSection.text, secondLabelSection.text);
-//         diffingTool.diff_cleanupSemantic(diffs);
-//         const onePageHtmlSectionsWithDiffs = diffingTool.diff_prettyHtml(diffs).replace(/&para;/g, '').replace(/<br>/g, '');
-//         labelDiff.sections.push({
-//           name: firstLabelSection.name,
-//           firstLabelSectionText: firstLabelSection.text,
-//           secondLabelSectionText: secondLabelSection.text,
-//           htmlFormattedDiff: diffs
-//         });
-//       });
-//
-//       drugLabelDiffs.push(labelDiff);
-//     });
-//     console.log(drugLabelDiffs);
-//     return drugLabelDiffs;
-//   }
-// }
 
-// export interface Drug {
-//
-// }
-//
 
+/**
+ * BELOW
+ * Types/Interfaces Directly Related to objects fetched via the Drug Service
+ */
+
+/**
+ * DrugLabel represents the Label associated with a Drugs NDA Number and
+ * includes identifiers for the fetched, previous and next labels as well
+ * as diffs between the fetched and previous labels and published dates
+ */
 export interface DrugLabel {
   application_numbers: string[];
   published_date: string;
@@ -159,23 +120,32 @@ export interface DrugLabel {
   spl_version: string;
 }
 
-//
-// export interface DrugPatent {
-//
-// }
-
+/**
+ * DrugLabelSection represents a subsection of the drug label and includes
+ * that sections header name, body text, diff against the previous label
+ * and the relatives scores against patents
+ */
 export interface DrugLabelSection {
   name: string;
   text: string;
-  scores?: {
-    patentNumber: string;
-    claimNumber: number;
-    parentClaimNumbers: number[],
-    score: number
-  }[];
+  scores?: DrugLabelSectionPatentScore[];
 }
 
+/**
+ * DrugLabelSectionPatentScore represents the ML scoring a portion of the
+ * drug label has against any relevant patent claims.
+ */
+export interface DrugLabelSectionPatentScore {
+  patentNumber: string;
+  claimNumber: number;
+  parentClaimNumbers: number[];
+  score: number;
+}
 
+/**
+ * DrugLabelDiff represents the differences between the label fetched and
+ * the previous version of that label
+ */
 export interface DrugLabelDiff {
   originalLabelSplId: string;
   mutatedLabelSplId: string;
