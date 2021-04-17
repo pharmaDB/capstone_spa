@@ -1,92 +1,81 @@
 <div class="uk-container uk-container-small">
-    <div class="uk-margin uk-padding-small">
-        <ul class="uk-list uk-list-large uk-list-divider">
-            <li *ngFor="let searchResult of searchResults" class="searchResult uk-padding-xsmall">
-                <div class="uk-text-center uk-grid-column-collapse" uk-grid>
-                    <!-- <div class="uk-width-1-5@m">
-                        <div class="uk-background-muted">
-                            <img
-                            src="https://thumbnails.texastribune.org/fAe_I1MxlEnUnAElR_X67laIskU=/850x570/smart/filters:quality(75)/https://static.texastribune.org/media/images/Pills.jpg"
-                            width="80" height="80" alt="">
-                        </div>
-                    </div> -->
-                    <div class="uk-width-1-3@m">
-                        <div class="uk-padding-small uk-padding-remove-top">
-                            <h1 class="uk-text-uppercase uk-text-small uk-text-bold uk-text-left uk-padding-remove-bottom uk-margin-remove">
-                                {{ searchResult.openfda.brand_name | shortestValueFromArray | truncate:[18, '...'] }}
-                                <span uk-icon="icon: info; ratio: 1"></span>
-                                <div class="uk-padding-small uk-width-medium" uk-dropdown="pos: bottom-left">
-                                    <div>
-                                        <p class="uk-text-small uk-margin-remove uk-text-normal">Brand names:</p>
-                                        <ul class="uk-list uk-list-square uk-list-collapse uk-margin-remove">
-                                            <li *ngFor="let brand_name of searchResult.openfda.brand_name" class="uk-text-muted uk-text-light">{{ brand_name }}</li>
-                                        </ul>
-                                        <hr>
-                                        <p class="uk-text-small uk-margin-remove uk-text-normal">Generic names:</p>
-                                        <ul class="uk-list uk-list-square uk-list-collapse uk-margin-remove">
-                                            <li *ngFor="let brand_name of searchResult.openfda.generic_name" class="uk-text-muted uk-text-light">{{ brand_name }}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </h1>
-                            <div class="uk-text-small uk-text-muted uk-text-left uk-margin-remove">
-                                {{ searchResult.openfda.manufacturer_name | shortestValueFromArray | truncate:[20, '...'] }}
-                                <span uk-icon="icon: info; ratio: 1"></span>
-                                <div class="uk-padding-small" uk-dropdown="pos: bottom-left">
-                                    <div>
-                                        <p class="uk-text-small uk-margin-remove uk-text-normal">Manufacturer names:</p>
-                                        <ul class="uk-list uk-list-square uk-list-collapse uk-margin-remove">
-                                            <li *ngFor="let manufacturer_name of searchResult.openfda.manufacturer_name" class="uk-text-muted uk-text-light">{{ manufacturer_name }}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="uk-text-left">
-<!--                                <span class="uk-label uk-margin-small-right uk-background-muted uk-text-muted">0 Labels</span>-->
-<!--                                <span class="uk-label uk-background-muted uk-text-muted">0 Patents</span>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-width-expand@m uk-width-expand@m uk-padding-xsmall uk-padding-remove-top uk-dotted-border-left uk-dotted-border-right">
-                        <div class="uk-text-left uk-text-small uk-text-light">Active Ingredients</div>
-                        <div class="uk-padding-remove">
-                          <div>
-                            <ul class="uk-list uk-margin-remove-bottom">
-                              <li *ngFor="let substance_name of searchResult.openfda.substance_name" class="uk-text-lowercase uk-text-small uk-text-muted uk-text-left uk-margin-remove-top">{{ substance_name }}</li>
-                            </ul>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="uk-width-1-6@m">
-                        <div class="uk-padding-remove">
-                            <div class="uk-margin-small-bottom">
-                                <span class="uk-text-small uk-text-light uk-text-muted uk-text-right uk-padding-remove-bottom uk-margin-remove">
-                                    {{ searchResult.application_number }}
-                                </span>
-                            </div>
-                            <div>
-                                <a class="uk-button uk-button-default uk-margin-small-top" (click)="goToDrug(searchResult.application_number)">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- {{ searchResult.openfda.brand_name | shortestValueFromArray }}
-                {{ searchResult.openfda.manufacturer_name | shortestValueFromArray }} -->
-            </li>
-        </ul>
-        <!-- <dl class="uk-description-list uk-description-list-divider">
-            <span *ngFor="let searchResult of searchResults">
-                <div class="uk-grid-medium uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-comment-avatar"
-                            src="https://thumbnails.texastribune.org/fAe_I1MxlEnUnAElR_X67laIskU=/850x570/smart/filters:quality(75)/https://static.texastribune.org/media/images/Pills.jpg"
-                            width="80" height="80" alt="">
-                    </div>
-                <dt class="listHeader">{{ searchResult.openfda.brand_name | shortestValueFromArray }}</dt>
-                <dd>{{ searchResult.openfda.manufacturer_name | shortestValueFromArray }}</dd>
-                </div>
-            </span>
-        </dl> -->
+  <div class="uk-margin uk-padding-small">
+    <ul class="uk-list uk-list-large uk-list-divider">
 
-    </div>
+      <!-- BEGIN search result entry -->
+      <li *ngFor="let searchResult of searchResults" class="searchResult uk-padding-xsmall">
+        <div class="uk-text-center uk-grid-column-collapse" uk-grid>
+          <div class="uk-width-1-3@m">
+            <div class="uk-padding-small uk-padding-remove-top">
+              <h1
+                class="uk-text-uppercase uk-text-small uk-text-bold uk-text-left uk-padding-remove-bottom uk-margin-remove">
+                {{ searchResult.openfda.brand_name | shortestValueFromArray | truncate:[18, '...'] }}
+                <span uk-icon="icon: info; ratio: 1"></span>
+                <div class="uk-padding-small uk-width-medium" uk-dropdown="pos: bottom-left">
+                  <div>
+                    <p class="uk-text-small uk-margin-remove uk-text-normal">Brand names:</p>
+                    <ul class="uk-list uk-list-square uk-list-collapse uk-margin-remove">
+                      <li *ngFor="let brand_name of searchResult.openfda.brand_name"
+                          class="uk-text-muted uk-text-light">{{ brand_name }}</li>
+                    </ul>
+                    <hr>
+                    <p class="uk-text-small uk-margin-remove uk-text-normal">Generic names:</p>
+                    <ul class="uk-list uk-list-square uk-list-collapse uk-margin-remove">
+                      <li *ngFor="let brand_name of searchResult.openfda.generic_name"
+                          class="uk-text-muted uk-text-light">{{ brand_name }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </h1>
+              <div class="uk-text-small uk-text-muted uk-text-left uk-margin-remove">
+                {{ searchResult.openfda.manufacturer_name | shortestValueFromArray | truncate:[20, '...'] }}
+                <span uk-icon="icon: info; ratio: 1"></span>
+                <div class="uk-padding-small" uk-dropdown="pos: bottom-left">
+                  <div>
+                    <p class="uk-text-small uk-margin-remove uk-text-normal">Manufacturer names:</p>
+                    <ul class="uk-list uk-list-square uk-list-collapse uk-margin-remove">
+                      <li *ngFor="let manufacturer_name of searchResult.openfda.manufacturer_name"
+                          class="uk-text-muted uk-text-light">{{ manufacturer_name }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="uk-text-left">
+                <span class="uk-label uk-margin-small-right uk-background-muted uk-text-muted">0 Labels</span>
+                <span class="uk-label uk-background-muted uk-text-muted">0 Patents</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="uk-width-expand@m uk-width-expand@m uk-padding-xsmall uk-padding-remove-top uk-dotted-border-left uk-dotted-border-right">
+            <div class="uk-text-left uk-text-small uk-text-light">Active Ingredients</div>
+            <div class="uk-padding-remove">
+              <div>
+                <ul class="uk-list uk-margin-remove-bottom">
+                  <li *ngFor="let substance_name of searchResult.openfda.substance_name"
+                      class="uk-text-lowercase uk-text-small uk-text-muted uk-text-left uk-margin-remove-top">{{ substance_name }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="uk-width-1-6@m">
+            <div class="uk-padding-remove">
+              <div class="uk-margin-small-bottom">
+                <span
+                  class="uk-text-small uk-text-light uk-text-muted uk-text-right uk-padding-remove-bottom uk-margin-remove">
+                  {{ searchResult.application_number }}
+                </span>
+              </div>
+              <div>
+                <a class="uk-button uk-button-default uk-margin-small-top"
+                   (click)="goToDrug(searchResult.application_number)">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <!-- END search result entry -->
+
+    </ul>
+  </div>
 </div>

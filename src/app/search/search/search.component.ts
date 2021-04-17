@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchQuery } from '../search-query.interface';
-import { SearchResult } from '../search-result.interface';
+import { SearchResult, SearchQuery } from '../search.interface';
 import * as _ from 'lodash';
 
 import { DrugService } from '../../shared/services/drug.service';

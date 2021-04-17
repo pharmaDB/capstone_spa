@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { SearchQuery } from '../search-query.interface';
+import { SearchQuery } from '../search.interface';
 import { DrugSearchType } from '../drug-search-type.enum';
 import {OpenFDADrug} from '../../shared/services/open-fdadrug.interface';
 
