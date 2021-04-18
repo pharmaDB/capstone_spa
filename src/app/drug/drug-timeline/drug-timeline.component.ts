@@ -6,6 +6,13 @@ import {TimelineItem} from '../drug/drug.component';
 
 declare var vis: any;
 
+/**
+ * DrugTimeline Component
+ * The DrugTimeline component is responsible for managing the timeline that's rendered in the DrugComponent view (this components parent).
+ * It creates the visJS powered timeline and handles all the events from the timeline by creating DrugViewConfig objects and propagating
+ * them up to the parent component (DrugComponent) where appropriate state changes are made and passed along to other child components of
+ * the DrugComponent.
+ */
 @Component({
   selector: 'app-drug-timeline',
   templateUrl: './drug-timeline.component.html',
