@@ -1,10 +1,15 @@
+
+<!-- SearchBar component -->
 <app-search-bar (onSearchQueryChange)="onSearchQueryChange($event)" [searchResults]="searchResults"></app-search-bar>
 
+<!-- BEGIN search status text -->
 <div class="uk-container uk-container-small uk-margin-medium uk-margin-remove-bottom">
     <div class="uk-padding-small uk-padding-remove-bottom uk-text-center">
         <span class="uk-text-italic uk-text-muted uk-text-small">{{ searchStatus }}</span>
     </div>
     <hr class="uk-margin-remove-top"/>
 </div>
+<!-- END search status text -->
 
+<!-- SearchResults component -->
 <app-search-results [searchResults]="searchResults" [isLoadingResults]="isLoadingResults"></app-search-results>
