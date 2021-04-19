@@ -142,7 +142,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 2102380275,
+  "duration": 2102179532,
   "status": "passed"
 });
 formatter.match({
@@ -155,7 +155,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 273074243,
+  "duration": 5143251097,
   "status": "passed"
 });
 formatter.match({
@@ -168,7 +168,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 124827441,
+  "duration": 156216300,
   "status": "passed"
 });
 formatter.match({
@@ -181,14 +181,14 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3023422729,
+  "duration": 3025964158,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 78421596,
+  "duration": 80321394,
   "status": "passed"
 });
 formatter.scenario({
@@ -243,7 +243,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1260541759,
+  "duration": 1437379128,
   "status": "passed"
 });
 formatter.match({
@@ -256,7 +256,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 215508425,
+  "duration": 244462900,
   "status": "passed"
 });
 formatter.match({
@@ -269,7 +269,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 143274558,
+  "duration": 133899976,
   "status": "passed"
 });
 formatter.match({
@@ -282,14 +282,14 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3029117758,
+  "duration": 3024697900,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 58061566,
+  "duration": 60951359,
   "status": "passed"
 });
 formatter.scenario({
@@ -344,7 +344,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1338374588,
+  "duration": 1336304311,
   "status": "passed"
 });
 formatter.match({
@@ -357,7 +357,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 225644668,
+  "duration": 242528665,
   "status": "passed"
 });
 formatter.match({
@@ -370,7 +370,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 146743908,
+  "duration": 162654626,
   "status": "passed"
 });
 formatter.match({
@@ -383,14 +383,14 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3024700123,
+  "duration": 3034780407,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 56620545,
+  "duration": 59643043,
   "status": "passed"
 });
 });
