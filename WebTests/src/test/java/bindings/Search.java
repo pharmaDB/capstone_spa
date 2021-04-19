@@ -27,7 +27,10 @@ public class Search {
         ActiveIngredientsLink,
         NDANumberLink,
         NameLink,
-        ManufacturerLink
+        ManufacturerLink,
+        DrugDetailListResult,
+        DrugDetailListViewButton,
+        DrugDetailPageTitleLabel,
     }
 
 
@@ -39,6 +42,9 @@ public class Search {
         put(WebElementId.NDANumberLink, "atY2kK4KuC");
         put(WebElementId.NameLink, "atY2kK4KuC");
         put(WebElementId.ManufacturerLink, "atY2kK4KuC");
+        put(WebElementId.DrugDetailListResult, "atxAiOfZWmd2");
+        put(WebElementId.DrugDetailListViewButton, "atHh0sP8uJ");
+        put(WebElementId.DrugDetailPageTitleLabel, "atxMt5NQIk");
     }};
 
 
@@ -68,7 +74,7 @@ public class Search {
      * Starting point for most if not tests.  Creates the webDriver and opens the browser to the home page
      * */
     @Given("^that i am on the pharma website$")
-    public void startOnHomePage() throws Throwable {
+    public void startOnHomePage() {
         driver = new SafariDriver();
         driver.manage().timeouts().implicitlyWait(sleepSeconds, TimeUnit.SECONDS);
         driver.manage().window().setSize(new Dimension(1200, 900));
@@ -155,6 +161,45 @@ public class Search {
 
 
     /**
+     * Finds teh "view" button for the given NDA and clicks it.
+     *
+     * @param nda NDA number click the view button for
+     * */
+    @Then("^i click view for NDA (.*)$")
+    public void clickView(String nda) throws Throwable {
+
+      List<WebElement> elements = findElementsById(WebElementId.DrugDetailListResult);
+
+      assertNotNull("Did not find search results", elements);
+
+      for (WebElement element : elements) {
+        String text = element.getText();
+
+        if (text.contains(nda)) {
+          WebElement viewButton = element.findElement(By.id(webElements.get(WebElementId.DrugDetailListViewButton)));
+
+          assertNotNull("Could not find view button", viewButton);
+
+          viewButton.click();
+          return;
+        }
+      }
+    }
+
+
+    @Then("^i see the drug name (.*)$")
+    public void findDrugNameAsPage(String drugName) throws Throwable {
+
+      WebElement label = findElementById(WebElementId.DrugDetailPageTitleLabel);
+
+      assertNotNull("Could not find drug label", label);
+
+      assertTrue("Drug name is wrong", label.getText().toUpperCase().equals(drugName));
+    }
+
+
+
+    /**
      * Quits the driver.  Should be the last step in the tests.
      * */
     @Then("^quit$")
@@ -171,12 +216,9 @@ public class Search {
      * @param elementId     id of the element to find
      * @return              found WebElement or null
      * */
-    private WebElement findElementById(WebElementId elementId) throws Throwable {
-
+    private WebElement findElementById(WebElementId elementId) {
         WebDriverWait wait = new WebDriverWait(driver, sleepSeconds);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(webElements.get(elementId))));
-
-        return  element;
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(webElements.get(elementId))));
     }
 
 
@@ -187,12 +229,10 @@ public class Search {
      * @param elementId     id of the element to find
      * @return              found List of WebElements or null
      * */
-    private List<WebElement> findElementsById(WebElementId elementId) throws Throwable {
+    private List<WebElement> findElementsById(WebElementId elementId) {
 
         WebDriverWait wait = new WebDriverWait(driver, sleepSeconds);
-        List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(webElements.get(elementId))));
-
-        return  elements;
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(webElements.get(elementId))));
     }
 
 
@@ -208,9 +248,12 @@ public class Search {
         //get the id for this text
         WebElementId elementId = webElementsByText.get(label);
 
-        //get the element from the page
+        assertNotNull("Could not find search type", elementId);
+
+        //get all the elements with the search type id, there are several
         List<WebElement> elements = findElementsById(elementId);
 
+        //look at the text for the label we want
         for (WebElement element : elements) {
 
             String text = element.getText().toUpperCase();

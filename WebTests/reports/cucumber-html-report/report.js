@@ -13,31 +13,41 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "line": 8,
-  "name": "search by name",
+  "line": 6,
+  "name": "view drug details",
   "description": "",
-  "id": "search;search-by-name",
+  "id": "search;view-drug-details",
   "type": "scenario_outline",
   "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 9,
+  "line": 7,
   "name": "that i am on the pharma website",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 10,
+  "line": 8,
   "name": "i search by \u003csearchType\u003e",
   "keyword": "When "
 });
 formatter.step({
-  "line": 11,
+  "line": 9,
   "name": "i enter \u003csearchTerm\u003e into the search box",
   "keyword": "When "
 });
 formatter.step({
-  "line": 12,
+  "line": 10,
   "name": "i should have \u003cresultCount\u003e items",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 11,
+  "name": "i click view for NDA \u003cnda\u003e",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 12,
+  "name": "i see the drug name \u003cdrugName\u003e",
   "keyword": "Then "
 });
 formatter.step({
@@ -49,52 +59,49 @@ formatter.examples({
   "line": 15,
   "name": "",
   "description": "",
-  "id": "search;search-by-name;",
+  "id": "search;view-drug-details;",
   "rows": [
     {
       "cells": [
         "searchType",
         "searchTerm",
-        "resultCount"
+        "resultCount",
+        "nda",
+        "drugName"
       ],
       "line": 16,
-      "id": "search;search-by-name;;1"
+      "id": "search;view-drug-details;;1"
     },
     {
       "cells": [
         "NAME",
         "sulfate",
-        "30"
+        "30",
+        "NDA021146",
+        "ATROPINE SULFATE"
       ],
       "line": 17,
-      "id": "search;search-by-name;;2"
-    },
-    {
-      "cells": [
-        "NDA NUMBER",
-        "NDA012462",
-        "1"
-      ],
-      "line": 18,
-      "id": "search;search-by-name;;3"
+      "id": "search;view-drug-details;;2"
     },
     {
       "cells": [
         "MANUFACTURER",
         "Greenstone",
-        "81"
+        "81",
+        "NDA020702",
+        "LIPITOR"
       ],
-      "line": 19,
-      "id": "search;search-by-name;;4"
+      "line": 18,
+      "id": "search;view-drug-details;;3"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
   "line": 17,
-  "name": "search by name",
+  "name": "view drug details",
   "description": "",
-  "id": "search;search-by-name;;2",
+  "id": "search;view-drug-details;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -105,12 +112,12 @@ formatter.scenario({
   ]
 });
 formatter.step({
-  "line": 9,
+  "line": 7,
   "name": "that i am on the pharma website",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 10,
+  "line": 8,
   "name": "i search by NAME",
   "matchedColumns": [
     0
@@ -118,7 +125,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "line": 11,
+  "line": 9,
   "name": "i enter sulfate into the search box",
   "matchedColumns": [
     1
@@ -126,10 +133,26 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "line": 12,
+  "line": 10,
   "name": "i should have 30 items",
   "matchedColumns": [
     2
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 11,
+  "name": "i click view for NDA NDA021146",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 12,
+  "name": "i see the drug name ATROPINE SULFATE",
+  "matchedColumns": [
+    4
   ],
   "keyword": "Then "
 });
@@ -142,7 +165,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 2102179532,
+  "duration": 2558456977,
   "status": "passed"
 });
 formatter.match({
@@ -155,7 +178,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 5143251097,
+  "duration": 256681323,
   "status": "passed"
 });
 formatter.match({
@@ -168,7 +191,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 156216300,
+  "duration": 133183850,
   "status": "passed"
 });
 formatter.match({
@@ -181,21 +204,47 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3025964158,
+  "duration": 3026622448,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "NDA021146",
+      "offset": 21
+    }
+  ],
+  "location": "Search.clickView(String)"
+});
+formatter.result({
+  "duration": 359539551,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "ATROPINE SULFATE",
+      "offset": 20
+    }
+  ],
+  "location": "Search.findDrugNameAsPage(String)"
+});
+formatter.result({
+  "duration": 1636797107,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 80321394,
+  "duration": 73262143,
   "status": "passed"
 });
 formatter.scenario({
   "line": 18,
-  "name": "search by name",
+  "name": "view drug details",
   "description": "",
-  "id": "search;search-by-name;;3",
+  "id": "search;view-drug-details;;3",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -206,113 +255,12 @@ formatter.scenario({
   ]
 });
 formatter.step({
-  "line": 9,
+  "line": 7,
   "name": "that i am on the pharma website",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 10,
-  "name": "i search by NDA NUMBER",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 11,
-  "name": "i enter NDA012462 into the search box",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 12,
-  "name": "i should have 1 items",
-  "matchedColumns": [
-    2
-  ],
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 13,
-  "name": "quit",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "Search.startOnHomePage()"
-});
-formatter.result({
-  "duration": 1437379128,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "NDA NUMBER",
-      "offset": 12
-    }
-  ],
-  "location": "Search.setSearchType(String)"
-});
-formatter.result({
-  "duration": 244462900,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "NDA012462",
-      "offset": 8
-    }
-  ],
-  "location": "Search.enterSearchTerm(String)"
-});
-formatter.result({
-  "duration": 133899976,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "1",
-      "offset": 14
-    }
-  ],
-  "location": "Search.checkSearchResultItemCount(String)"
-});
-formatter.result({
-  "duration": 3024697900,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Search.quit()"
-});
-formatter.result({
-  "duration": 60951359,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 19,
-  "name": "search by name",
-  "description": "",
-  "id": "search;search-by-name;;4",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@run"
-    }
-  ]
-});
-formatter.step({
-  "line": 9,
-  "name": "that i am on the pharma website",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 10,
+  "line": 8,
   "name": "i search by MANUFACTURER",
   "matchedColumns": [
     0
@@ -320,7 +268,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "line": 11,
+  "line": 9,
   "name": "i enter Greenstone into the search box",
   "matchedColumns": [
     1
@@ -328,10 +276,26 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "line": 12,
+  "line": 10,
   "name": "i should have 81 items",
   "matchedColumns": [
     2
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 11,
+  "name": "i click view for NDA NDA020702",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 12,
+  "name": "i see the drug name LIPITOR",
+  "matchedColumns": [
+    4
   ],
   "keyword": "Then "
 });
@@ -344,7 +308,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1336304311,
+  "duration": 1342466840,
   "status": "passed"
 });
 formatter.match({
@@ -357,7 +321,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 242528665,
+  "duration": 237016168,
   "status": "passed"
 });
 formatter.match({
@@ -370,7 +334,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 162654626,
+  "duration": 158808653,
   "status": "passed"
 });
 formatter.match({
@@ -383,14 +347,40 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3034780407,
+  "duration": 3028850964,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "NDA020702",
+      "offset": 21
+    }
+  ],
+  "location": "Search.clickView(String)"
+});
+formatter.result({
+  "duration": 907652113,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "LIPITOR",
+      "offset": 20
+    }
+  ],
+  "location": "Search.findDrugNameAsPage(String)"
+});
+formatter.result({
+  "duration": 1321833056,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 59643043,
+  "duration": 56136925,
   "status": "passed"
 });
 });
