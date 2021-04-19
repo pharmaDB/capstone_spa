@@ -1,0 +1,327 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 17,
+        "name": "search by name",
+        "description": "",
+        "id": "search;search-by-name;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2102380275,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 273074243,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "i search by NAME",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NAME",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 124827441,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "i enter sulfate into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sulfate",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3023422729,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "i should have 30 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "30",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 78421596,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 18,
+        "name": "search by name",
+        "description": "",
+        "id": "search;search-by-name;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1260541759,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 215508425,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "i search by NDA NUMBER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA NUMBER",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 143274558,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "i enter NDA012462 into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA012462",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3029117758,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "i should have 1 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 58061566,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 19,
+        "name": "search by name",
+        "description": "",
+        "id": "search;search-by-name;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1338374588,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 225644668,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "i search by MANUFACTURER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "MANUFACTURER",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 146743908,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "i enter Greenstone into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Greenstone",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3024700123,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "i should have 81 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "81",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 56620545,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      }
+    ],
+    "name": "search",
+    "description": "",
+    "id": "search",
+    "keyword": "Feature",
+    "uri": "search.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@run"
+      }
+    ]
+  }
+]
