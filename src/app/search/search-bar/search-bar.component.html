@@ -1,29 +1,28 @@
 <div class="uk-container uk-container-medium">
-    <div class="uk-margin uk-padding-large uk-padding-remove-bottom">
-        <form [formGroup]="searchForm" class="uk-search uk-search-default uk-width-1-1">
-            <span uk-search-icon></span>
-            <input formControlName="searchQuery" class="uk-search-input" type="search"
-                placeholder="Find a drug by it's {{ getDrugSearchTypeValue(searchForm.get('searchType')?.value) }}">
-        </form>
-        <div class="uk-flex-center uk-padding-small" uk-grid>
-            <span class="uk-text-italic uk-text-muted uk-text-small uk-padding-xsmall">Search by:</span>
-            <div>
-                <ul [formGroup]="searchForm" class="uk-subnav uk-subnav-pill" uk-switcher>
-                    <li [ngClass]="drugSearchType.key === searchForm.get('searchType')?.value ? 'uk-active' : ''" *ngFor="let drugSearchType of drugSearchTypes | keyvalue">
-                        <a (click)="onSearchTypeClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-<!--        <div *ngIf="searchResults.length > 0" class="uk-flex-center uk-padding-small uk-margin-remove-top" uk-grid>-->
-<!--          <span class="uk-text-italic uk-text-muted uk-text-small uk-padding-xsmall">Sort by:</span>-->
-<!--          <div>-->
-<!--            <ul [formGroup]="searchForm" class="uk-subnav uk-subnav-pill" uk-switcher>-->
-<!--              <li [ngClass]="drugSearchType.key === searchForm.get('sortParameter')?.value ? 'uk-active' : ''" *ngFor="let drugSearchType of drugSearchTypes | keyvalue">-->
-<!--                <a (click)="onSortParameterClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </div>-->
-<!--        </div>-->
+  <div class="uk-margin uk-padding-large uk-padding-remove-bottom">
+
+    <!-- BEGIN form for user input of the search query string -->
+    <form [formGroup]="searchForm" class="uk-search uk-search-default uk-width-1-1">
+      <span uk-search-icon></span>
+      <input id="atdYsOfMSP" formControlName="searchQuery" class="uk-search-input" type="search"
+             placeholder="Find a drug by it's {{ getDrugSearchTypeValue(searchForm.get('searchType')?.value) }}">
+    </form>
+    <!-- END form for user input of the search query string -->
+
+    <div class="uk-flex-center uk-padding-small" uk-grid>
+      <span class="uk-text-italic uk-text-muted uk-text-small uk-padding-xsmall">Search by:</span>
+      <div>
+
+        <!-- BEGIN selector to determine which parameter is being queried -->
+        <ul [formGroup]="searchForm" class="uk-subnav uk-subnav-pill" uk-switcher>
+          <li [ngClass]="drugSearchType.key === searchForm.get('searchType')?.value ? 'uk-active' : ''"
+              *ngFor="let drugSearchType of drugSearchTypes | keyvalue">
+            <a id="atY2kK4KuC" (click)="onSearchTypeClicked(drugSearchType.key)">{{ drugSearchType.value }}</a>
+          </li>
+        </ul>
+        <!-- END selector to determine which parameter is being queried -->
+
+      </div>
     </div>
+  </div>
 </div>
