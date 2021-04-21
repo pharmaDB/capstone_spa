@@ -20,8 +20,9 @@ import static org.junit.Assert.assertTrue;
 
 public class Search {
 
-    //names for web elements that are used in the tests
-    private enum WebElementId {
+
+  //names for web elements that are used in the tests
+    private enum WebElementName {
         SearchField,
         SearchResultText,
         ActiveIngredientsLink,
@@ -31,30 +32,36 @@ public class Search {
         DrugDetailListResult,
         DrugDetailListViewButton,
         DrugDetailPageTitleLabel,
+        TimeLineItem,
+        DiffedText
     }
 
 
+
     //mapping of web elements to the html id tag
-    private final HashMap<WebElementId, String> webElements =  new HashMap<WebElementId, String>() {{
-        put(WebElementId.SearchField, "atdYsOfMSP");
-        put(WebElementId.SearchResultText, "atiYG2MUSc");
-        put(WebElementId.ActiveIngredientsLink, "atY2kK4KuC");
-        put(WebElementId.NDANumberLink, "atY2kK4KuC");
-        put(WebElementId.NameLink, "atY2kK4KuC");
-        put(WebElementId.ManufacturerLink, "atY2kK4KuC");
-        put(WebElementId.DrugDetailListResult, "atxAiOfZWmd2");
-        put(WebElementId.DrugDetailListViewButton, "atHh0sP8uJ");
-        put(WebElementId.DrugDetailPageTitleLabel, "atxMt5NQIk");
+    private final HashMap<WebElementName, By> webElements =  new HashMap<WebElementName, By>() {{
+        put(WebElementName.SearchField, By.id("atdYsOfMSP"));
+        put(WebElementName.SearchResultText, By.id("atiYG2MUSc"));
+        put(WebElementName.ActiveIngredientsLink, By.id("atY2kK4KuC"));
+        put(WebElementName.NDANumberLink, By.id("atY2kK4KuC"));
+        put(WebElementName.NameLink, By.id("atY2kK4KuC"));
+        put(WebElementName.ManufacturerLink, By.id("atY2kK4KuC"));
+        put(WebElementName.DrugDetailListResult, By.id("atxAiOfZWmd2"));
+        put(WebElementName.DrugDetailListViewButton, By.id("atHh0sP8uJ"));
+        put(WebElementName.DrugDetailPageTitleLabel, By.id("atxMt5NQIk"));
+        put(WebElementName.TimeLineItem, By.className("vis-item-content"));
+        put(WebElementName.DiffedText, By.id("at4RU3MWs4"));
     }};
+
 
 
     //the features sometime need to find an element based on the text of a web element
     //this maps text to a named web element
-    private final HashMap<String, WebElementId> webElementsByText = new HashMap<String, WebElementId>() {{
-        put("ACTIVE INGREDIENTS", WebElementId.ActiveIngredientsLink);
-        put("NDA NUMBER", WebElementId.NDANumberLink);
-        put("NAME", WebElementId.NameLink);
-        put("MANUFACTURER", WebElementId.ManufacturerLink);
+    private final HashMap<String, WebElementName> webElementsByText = new HashMap<String, WebElementName>() {{
+        put("ACTIVE INGREDIENTS", WebElementName.ActiveIngredientsLink);
+        put("NDA NUMBER", WebElementName.NDANumberLink);
+        put("NAME", WebElementName.NameLink);
+        put("MANUFACTURER", WebElementName.ManufacturerLink);
     }};
 
 
@@ -91,7 +98,7 @@ public class Search {
      * @param labelText Text to search for
      * */
     @When("^i should have (.*) element on the screen$")
-    public void testForElementByText(String labelText) throws Throwable {
+    public void testForElementByText(String labelText) {
 
         WebElement element = findSearchTypeButtonByLabel(labelText);
 
@@ -106,10 +113,10 @@ public class Search {
      * @param searchTerm    Text to enter into the search box
      * */
     @When("^i enter (.*) into the search box$")
-    public void enterSearchTerm(String searchTerm) throws Throwable {
+    public void enterSearchTerm(String searchTerm) {
 
         //find the search box
-        WebElement searchBox = findElementById(WebElementId.SearchField);
+        WebElement searchBox = findElementById(WebElementName.SearchField);
 
         //text the search box was found
         assertNotNull("Search box not found", searchBox);
@@ -126,7 +133,7 @@ public class Search {
      * @param labelText The text displayed on the page for the desired Search Type
      * */
     @When("^i search by (.*)$")
-    public void setSearchType(String labelText) throws Throwable {
+    public void setSearchType(String labelText) {
 
         WebElement element = findSearchTypeButtonByLabel(labelText);
 
@@ -151,11 +158,11 @@ public class Search {
         Thread.sleep(sleepSeconds * 1000);
 
 
-        WebElement searchResultText = findElementById(WebElementId.SearchResultText);
+        WebElement searchResultText = findElementById(WebElementName.SearchResultText);
 
         assertNotNull("Search results text not found", searchResultText);
 
-        assertTrue(searchResultText.getText().contains(itemCount));
+        assertTrue("Unexpected number of search results in label", searchResultText.getText().contains(itemCount));
     }
 
 
@@ -165,10 +172,10 @@ public class Search {
      *
      * @param nda NDA number click the view button for
      * */
-    @Then("^i click view for NDA (.*)$")
-    public void clickView(String nda) throws Throwable {
+    @When("^i click view for NDA (.*)$")
+    public void clickView(String nda) {
 
-      List<WebElement> elements = findElementsById(WebElementId.DrugDetailListResult);
+      List<WebElement> elements = findElementsById(WebElementName.DrugDetailListResult);
 
       assertNotNull("Did not find search results", elements);
 
@@ -176,7 +183,7 @@ public class Search {
         String text = element.getText();
 
         if (text.contains(nda)) {
-          WebElement viewButton = element.findElement(By.id(webElements.get(WebElementId.DrugDetailListViewButton)));
+          WebElement viewButton = findElementById(WebElementName.DrugDetailListViewButton);
 
           assertNotNull("Could not find view button", viewButton);
 
@@ -187,14 +194,44 @@ public class Search {
     }
 
 
-    @Then("^i see the drug name (.*)$")
-    public void findDrugNameAsPage(String drugName) throws Throwable {
 
-      WebElement label = findElementById(WebElementId.DrugDetailPageTitleLabel);
+    /**
+     * Looks for a specified drug name on the page.
+     * */
+    @Then("^i see the drug name (.*)$")
+    public void findDrugNameOnPage(String drugName) throws Throwable {
+
+      WebElement label = findElementById(WebElementName.DrugDetailPageTitleLabel);
 
       assertNotNull("Could not find drug label", label);
 
-      assertTrue("Drug name is wrong", label.getText().toUpperCase().equals(drugName));
+      assertTrue("Drug name is wrong, expected " + drugName + " got " + label.getText().toUpperCase(), label.getText().toUpperCase().equals(drugName));
+    }
+
+
+
+    /**
+     * Click on a timeline item on a drug label page
+     * */
+    @When("^i click label (.*)$")
+    public void clickLabelWithIndex(Integer labelIndex) {
+
+      List<WebElement> labels = findElementsById(WebElementName.TimeLineItem);
+
+      labels.get(labelIndex).click();
+    }
+
+
+
+    /**
+     * Test for an expected number of diffs on a page
+     * */
+    @Then("^i will have (.*) changes$")
+    public void iWillHaveCountOfDifferencesChanges(Integer countOfDifferences) {
+
+      List<WebElement> diffedText = findElementsById(WebElementName.DiffedText);
+
+      assertTrue("Expected " + countOfDifferences.toString() + " diffs and got " + diffedText.size(), diffedText.size() == countOfDifferences);
     }
 
 
@@ -216,9 +253,9 @@ public class Search {
      * @param elementId     id of the element to find
      * @return              found WebElement or null
      * */
-    private WebElement findElementById(WebElementId elementId) {
+    private WebElement findElementById(WebElementName elementId) {
         WebDriverWait wait = new WebDriverWait(driver, sleepSeconds);
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(webElements.get(elementId))));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(webElements.get(elementId)));
     }
 
 
@@ -229,11 +266,13 @@ public class Search {
      * @param elementId     id of the element to find
      * @return              found List of WebElements or null
      * */
-    private List<WebElement> findElementsById(WebElementId elementId) {
+    private List<WebElement> findElementsById(WebElementName elementId) {
 
         WebDriverWait wait = new WebDriverWait(driver, sleepSeconds);
-        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(webElements.get(elementId))));
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(webElements.get(elementId)));
     }
+
+
 
 
 
@@ -243,10 +282,10 @@ public class Search {
      * @param label Text of the link
      * @return      WebElement of the search type link of null
      * */
-    private WebElement findSearchTypeButtonByLabel(String label) throws Throwable {
+    private WebElement findSearchTypeButtonByLabel(String label) {
 
         //get the id for this text
-        WebElementId elementId = webElementsByText.get(label);
+        WebElementName elementId = webElementsByText.get(label);
 
         assertNotNull("Could not find search type", elementId);
 

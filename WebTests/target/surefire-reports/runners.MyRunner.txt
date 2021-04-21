@@ -1,4 +1,42 @@
 -------------------------------------------------------------------------------
 Test set: runners.MyRunner
 -------------------------------------------------------------------------------
-Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.829 s - in runners.MyRunner
+Tests run: 59, Failures: 2, Errors: 4, Skipped: 14, Time elapsed: 30.229 s <<< FAILURE! - in runners.MyRunner
+Then i see the drug name ATROPINE SULFATE(| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |)  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR
+
+| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR
+
+Given that i am on the pharma website(| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |)  Time elapsed: 0.001 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+
+| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |  Time elapsed: 0.001 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+
+Given that i am on the pharma website(| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |)  Time elapsed: 0.001 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+
+| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |  Time elapsed: 0.001 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+

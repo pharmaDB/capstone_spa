@@ -115,7 +115,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1881372333,
+  "duration": 2295293365,
   "status": "passed"
 });
 formatter.match({
@@ -128,14 +128,14 @@ formatter.match({
   "location": "Search.testForElementByText(String)"
 });
 formatter.result({
-  "duration": 181084405,
+  "duration": 193555207,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 94303431,
+  "duration": 74309139,
   "status": "passed"
 });
 formatter.scenario({
@@ -174,7 +174,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1339854377,
+  "duration": 1486579061,
   "status": "passed"
 });
 formatter.match({
@@ -187,14 +187,14 @@ formatter.match({
   "location": "Search.testForElementByText(String)"
 });
 formatter.result({
-  "duration": 197401743,
+  "duration": 203799941,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 59208368,
+  "duration": 58944780,
   "status": "passed"
 });
 formatter.scenario({
@@ -233,7 +233,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1339488281,
+  "duration": 1458596972,
   "status": "passed"
 });
 formatter.match({
@@ -246,14 +246,14 @@ formatter.match({
   "location": "Search.testForElementByText(String)"
 });
 formatter.result({
-  "duration": 229257320,
+  "duration": 225890406,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 58617084,
+  "duration": 56637340,
   "status": "passed"
 });
 formatter.scenario({
@@ -292,7 +292,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1338188080,
+  "duration": 1336623758,
   "status": "passed"
 });
 formatter.match({
@@ -305,14 +305,14 @@ formatter.match({
   "location": "Search.testForElementByText(String)"
 });
 formatter.result({
-  "duration": 218982533,
+  "duration": 231655515,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 58296659,
+  "duration": 60176351,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -445,7 +445,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1380393589,
+  "duration": 1211615204,
   "status": "passed"
 });
 formatter.match({
@@ -458,7 +458,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 257770348,
+  "duration": 228242891,
   "status": "passed"
 });
 formatter.match({
@@ -471,7 +471,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 106075609,
+  "duration": 161250448,
   "status": "passed"
 });
 formatter.match({
@@ -484,14 +484,14 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3028265141,
+  "duration": 3023712149,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 60276460,
+  "duration": 59201516,
   "status": "passed"
 });
 formatter.scenario({
@@ -546,7 +546,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1679961729,
+  "duration": 1532665207,
   "status": "passed"
 });
 formatter.match({
@@ -559,7 +559,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 216062532,
+  "duration": 289497326,
   "status": "passed"
 });
 formatter.match({
@@ -572,7 +572,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 160485281,
+  "duration": 171870985,
   "status": "passed"
 });
 formatter.match({
@@ -585,14 +585,14 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3027808799,
+  "duration": 3027433280,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 60416881,
+  "duration": 61742302,
   "status": "passed"
 });
 formatter.scenario({
@@ -647,7 +647,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1394005530,
+  "duration": 1418442099,
   "status": "passed"
 });
 formatter.match({
@@ -660,7 +660,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 258597337,
+  "duration": 276465213,
   "status": "passed"
 });
 formatter.match({
@@ -673,7 +673,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 154290582,
+  "duration": 165901640,
   "status": "passed"
 });
 formatter.match({
@@ -686,14 +686,14 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3028174008,
+  "duration": 3025829822,
   "status": "passed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 58450900,
+  "duration": 61377076,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -849,7 +849,7 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 1403158069,
+  "duration": 1482194524,
   "status": "passed"
 });
 formatter.match({
@@ -862,7 +862,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 246363760,
+  "duration": 264852169,
   "status": "passed"
 });
 formatter.match({
@@ -875,7 +875,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 123303636,
+  "duration": 152503912,
   "status": "passed"
 });
 formatter.match({
@@ -888,7 +888,7 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3031416829,
+  "duration": 3029973414,
   "status": "passed"
 });
 formatter.match({
@@ -901,7 +901,7 @@ formatter.match({
   "location": "Search.clickView(String)"
 });
 formatter.result({
-  "duration": 381628298,
+  "duration": 393482723,
   "status": "passed"
 });
 formatter.match({
@@ -911,18 +911,18 @@ formatter.match({
       "offset": 20
     }
   ],
-  "location": "Search.findDrugNameAsPage(String)"
+  "location": "Search.findDrugNameOnPage(String)"
 });
 formatter.result({
-  "duration": 1514036670,
-  "status": "passed"
+  "duration": 1683996898,
+  "error_message": "java.lang.AssertionError: Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.assertTrue(Assert.java:41)\n\tat bindings.Search.findDrugNameOnPage(Search.java:208)\n\tat ✽.Then i see the drug name ATROPINE SULFATE(search.feature:41)\n",
+  "status": "failed"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 57326366,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
   "line": 47,
@@ -992,8 +992,9 @@ formatter.match({
   "location": "Search.startOnHomePage()"
 });
 formatter.result({
-  "duration": 2095571929,
-  "status": "passed"
+  "duration": 218823108,
+  "error_message": "org.openqa.selenium.SessionNotCreatedException: Could not create a session: The Safari instance is already paired with a different session.\nBuild info: version: \u00273.11.0\u0027, revision: \u0027e59cfb3\u0027, time: \u00272018-03-11T20:26:55.152Z\u0027\nSystem info: host: \u0027MichaelPersonal\u0027, ip: \u0027fe80:0:0:0:c24:846b:faef:9230%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.16\u0027, java.version: \u00271.8.0_211\u0027\nDriver info: driver.version: SafariDriver\nremote stacktrace: \n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)\n\tat org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:123)\n\tat java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)\n\tat java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)\n\tat java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)\n\tat java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)\n\tat java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)\n\tat java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)\n\tat java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)\n\tat java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)\n\tat java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:73)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)\n\tat org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:209)\n\tat org.openqa.selenium.remote.RemoteWebDriver.\u003cinit\u003e(RemoteWebDriver.java:132)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:78)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:60)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:38)\n\tat bindings.Search.startOnHomePage(Search.java:85)\n\tat ✽.Given that i am on the pharma website(search.feature:36)\n",
+  "status": "failed"
 });
 formatter.match({
   "arguments": [
@@ -1005,8 +1006,7 @@ formatter.match({
   "location": "Search.setSearchType(String)"
 });
 formatter.result({
-  "duration": 235555313,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -1018,8 +1018,7 @@ formatter.match({
   "location": "Search.enterSearchTerm(String)"
 });
 formatter.result({
-  "duration": 145508005,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -1031,8 +1030,7 @@ formatter.match({
   "location": "Search.checkSearchResultItemCount(String)"
 });
 formatter.result({
-  "duration": 3025542435,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -1044,8 +1042,7 @@ formatter.match({
   "location": "Search.clickView(String)"
 });
 formatter.result({
-  "duration": 919194290,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -1054,17 +1051,286 @@ formatter.match({
       "offset": 20
     }
   ],
-  "location": "Search.findDrugNameAsPage(String)"
+  "location": "Search.findDrugNameOnPage(String)"
 });
 formatter.result({
-  "duration": 1447066314,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "location": "Search.quit()"
 });
 formatter.result({
-  "duration": 59066241,
-  "status": "passed"
+  "status": "skipped"
+});
+formatter.scenarioOutline({
+  "line": 50,
+  "name": "view drug details",
+  "description": "",
+  "id": "search;view-drug-details",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
+});
+formatter.step({
+  "line": 51,
+  "name": "that i am on the pharma website",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 52,
+  "name": "i search by \u003csearchType\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 53,
+  "name": "i enter \u003csearchTerm\u003e into the search box",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 54,
+  "name": "i should have \u003cresultCount\u003e items",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 55,
+  "name": "i click view for NDA \u003cnda\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 56,
+  "name": "i click label \u003clabelIndex1\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 57,
+  "name": "i click label \u003clabelIndex2\u003e",
+  "keyword": "When "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 58,
+      "value": "#Then i will have \u003ccountOfDifferences\u003e changes"
+    }
+  ],
+  "line": 59,
+  "name": "quit",
+  "keyword": "Then "
+});
+formatter.examples({
+  "comments": [
+    {
+      "line": 62,
+      "value": "# The label markers in the timeline all look the same in the doc so we"
+    },
+    {
+      "line": 63,
+      "value": "# access them by index.  The label on the far right is 0.  When counting"
+    },
+    {
+      "line": 64,
+      "value": "# for index be sure to not count patents.  Patents can also be clicked, but"
+    },
+    {
+      "line": 65,
+      "value": "# they are in the list from right to left starting after the last label index"
+    }
+  ],
+  "line": 66,
+  "name": "",
+  "description": "",
+  "id": "search;view-drug-details;",
+  "rows": [
+    {
+      "cells": [
+        "searchType",
+        "searchTerm",
+        "resultCount",
+        "nda",
+        "labelIndex1",
+        "labelIndex2",
+        "countOfDifferences"
+      ],
+      "line": 67,
+      "id": "search;view-drug-details;;1"
+    },
+    {
+      "cells": [
+        "NAME",
+        "sulfate",
+        "30",
+        "NDA021146",
+        "2",
+        "4",
+        "10"
+      ],
+      "line": 68,
+      "id": "search;view-drug-details;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.scenario({
+  "line": 68,
+  "name": "view drug details",
+  "description": "",
+  "id": "search;view-drug-details;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@run"
+    }
+  ]
+});
+formatter.step({
+  "line": 51,
+  "name": "that i am on the pharma website",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 52,
+  "name": "i search by NAME",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 53,
+  "name": "i enter sulfate into the search box",
+  "matchedColumns": [
+    1
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 54,
+  "name": "i should have 30 items",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 55,
+  "name": "i click view for NDA NDA021146",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 56,
+  "name": "i click label 2",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 57,
+  "name": "i click label 4",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 58,
+      "value": "#Then i will have \u003ccountOfDifferences\u003e changes"
+    }
+  ],
+  "line": 59,
+  "name": "quit",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "Search.startOnHomePage()"
+});
+formatter.result({
+  "duration": 222844780,
+  "error_message": "org.openqa.selenium.SessionNotCreatedException: Could not create a session: The Safari instance is already paired with a different session.\nBuild info: version: \u00273.11.0\u0027, revision: \u0027e59cfb3\u0027, time: \u00272018-03-11T20:26:55.152Z\u0027\nSystem info: host: \u0027MichaelPersonal\u0027, ip: \u0027fe80:0:0:0:c24:846b:faef:9230%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.16\u0027, java.version: \u00271.8.0_211\u0027\nDriver info: driver.version: SafariDriver\nremote stacktrace: \n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)\n\tat org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:123)\n\tat java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)\n\tat java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)\n\tat java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)\n\tat java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)\n\tat java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)\n\tat java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)\n\tat java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)\n\tat java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)\n\tat java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:73)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)\n\tat org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:209)\n\tat org.openqa.selenium.remote.RemoteWebDriver.\u003cinit\u003e(RemoteWebDriver.java:132)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:78)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:60)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:38)\n\tat bindings.Search.startOnHomePage(Search.java:85)\n\tat ✽.Given that i am on the pharma website(search.feature:51)\n",
+  "status": "failed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "NAME",
+      "offset": 12
+    }
+  ],
+  "location": "Search.setSearchType(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "sulfate",
+      "offset": 8
+    }
+  ],
+  "location": "Search.enterSearchTerm(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "30",
+      "offset": 14
+    }
+  ],
+  "location": "Search.checkSearchResultItemCount(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "NDA021146",
+      "offset": 21
+    }
+  ],
+  "location": "Search.clickView(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "2",
+      "offset": 14
+    }
+  ],
+  "location": "Search.clickLabelWithIndex(Integer)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "4",
+      "offset": 14
+    }
+  ],
+  "location": "Search.clickLabelWithIndex(Integer)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "Search.quit()"
+});
+formatter.result({
+  "status": "skipped"
 });
 });
