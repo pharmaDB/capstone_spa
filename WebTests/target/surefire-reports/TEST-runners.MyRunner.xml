@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="runners.MyRunner" time="30.229" tests="59" errors="4" skipped="14" failures="2">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/michaelthornton/git/capstone_spa/WebTests/target/test-classes:/Users/michaelthornton/git/capstone_spa/WebTests/target/classes:/Users/michaelthornton/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/michaelthornton/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-java/3.11.0/selenium-java-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-api/3.11.0/selenium-api-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.11.0/selenium-chrome-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.11.0/selenium-edge-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.11.0/selenium-firefox-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.11.0/selenium-ie-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.11.0/selenium-opera-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.11.0/selenium-remote-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.11.0/selenium-safari-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-support/3.11.0/selenium-support-3.11.0.jar:/Users/michaelthornton/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/Users/michaelthornton/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/Users/michaelthornton/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/Users/michaelthornton/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/michaelthornton/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar:/Users/michaelthornton/.m2/repository/com/google/guava/guava/23.6-jre/guava-23.6-jre.jar:/Users/michaelthornton/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/michaelthornton/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/michaelthornton/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/michaelthornton/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/michaelthornton/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/michaelthornton/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar:/Users/michaelthornton/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/Users/michaelthornton/.m2/repository/com/squareup/okhttp3/okhttp/3.9.1/okhttp-3.9.1.jar:/Users/michaelthornton/.m2/repository/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-junit/1.2.5/cucumber-junit-1.2.5.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-core/1.2.5/cucumber-core-1.2.5.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-html/0.2.3/cucumber-html-0.2.3.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-jvm-deps/1.0.5/cucumber-jvm-deps-1.0.5.jar:/Users/michaelthornton/.m2/repository/info/cukes/gherkin/2.12.2/gherkin-2.12.2.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-java/1.2.5/cucumber-java-1.2.5.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/michaelthornton/git/capstone_spa/WebTests/target/surefire/surefirebooter1141112348415269020.jar /Users/michaelthornton/git/capstone_spa/WebTests/target/surefire 2021-04-21T16-57-17_375-jvmRun1 surefire8297878750280754033tmp surefire_06954075533946431139tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="surefire.test.class.path" value="/Users/michaelthornton/git/capstone_spa/WebTests/target/test-classes:/Users/michaelthornton/git/capstone_spa/WebTests/target/classes:/Users/michaelthornton/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/michaelthornton/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-java/3.11.0/selenium-java-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-api/3.11.0/selenium-api-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.11.0/selenium-chrome-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.11.0/selenium-edge-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.11.0/selenium-firefox-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.11.0/selenium-ie-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.11.0/selenium-opera-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.11.0/selenium-remote-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.11.0/selenium-safari-driver-3.11.0.jar:/Users/michaelthornton/.m2/repository/org/seleniumhq/selenium/selenium-support/3.11.0/selenium-support-3.11.0.jar:/Users/michaelthornton/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/Users/michaelthornton/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/Users/michaelthornton/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/Users/michaelthornton/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/michaelthornton/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar:/Users/michaelthornton/.m2/repository/com/google/guava/guava/23.6-jre/guava-23.6-jre.jar:/Users/michaelthornton/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/michaelthornton/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/michaelthornton/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/michaelthornton/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/michaelthornton/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/michaelthornton/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar:/Users/michaelthornton/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/Users/michaelthornton/.m2/repository/com/squareup/okhttp3/okhttp/3.9.1/okhttp-3.9.1.jar:/Users/michaelthornton/.m2/repository/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-junit/1.2.5/cucumber-junit-1.2.5.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-core/1.2.5/cucumber-core-1.2.5.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-html/0.2.3/cucumber-html-0.2.3.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-jvm-deps/1.0.5/cucumber-jvm-deps-1.0.5.jar:/Users/michaelthornton/.m2/repository/info/cukes/gherkin/2.12.2/gherkin-2.12.2.jar:/Users/michaelthornton/.m2/repository/info/cukes/cucumber-java/1.2.5/cucumber-java-1.2.5.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/michaelthornton"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/michaelthornton/git/capstone_spa/WebTests"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="idea.version2020.1.1" value="true"/>
+    <property name="surefire.real.class.path" value="/Users/michaelthornton/git/capstone_spa/WebTests/target/surefire/surefirebooter1141112348415269020.jar"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="1.8.0_211-b12"/>
+    <property name="user.name" value="michaelthornton"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="10.16"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/michaelthornton/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/h4/29mn21_145xds02tn9sfgj240000gn/T/"/>
+    <property name="java.version" value="1.8.0_211"/>
+    <property name="user.dir" value="/Users/michaelthornton/git/capstone_spa/WebTests"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/michaelthornton/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.211-b12"/>
+    <property name="java.ext.dirs" value="/Users/michaelthornton/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="Given that i am on the pharma website" classname="| ACTIVE INGREDIENTS |" time="0.001"/>
+  <testcase name="Then i should have ACTIVE INGREDIENTS element on the screen" classname="| ACTIVE INGREDIENTS |" time="0"/>
+  <testcase name="Then quit" classname="| ACTIVE INGREDIENTS |" time="0"/>
+  <testcase name="| ACTIVE INGREDIENTS |" classname="| ACTIVE INGREDIENTS |" time="0.001"/>
+  <testcase name="Given that i am on the pharma website" classname="| NDA NUMBER |" time="0"/>
+  <testcase name="Then i should have NDA NUMBER element on the screen" classname="| NDA NUMBER |" time="0"/>
+  <testcase name="Then quit" classname="| NDA NUMBER |" time="0"/>
+  <testcase name="| NDA NUMBER |" classname="| NDA NUMBER |" time="0.001"/>
+  <testcase name="Given that i am on the pharma website" classname="| NAME |" time="0"/>
+  <testcase name="Then i should have NAME element on the screen" classname="| NAME |" time="0"/>
+  <testcase name="Then quit" classname="| NAME |" time="0"/>
+  <testcase name="| NAME |" classname="| NAME |" time="0"/>
+  <testcase name="Given that i am on the pharma website" classname="| MANUFACTURER |" time="0"/>
+  <testcase name="Then i should have MANUFACTURER element on the screen" classname="| MANUFACTURER |" time="0"/>
+  <testcase name="Then quit" classname="| MANUFACTURER |" time="0"/>
+  <testcase name="| MANUFACTURER |" classname="| MANUFACTURER |" time="0.001"/>
+  <testcase name="Given that i am on the pharma website" classname="| NAME | sulfate | 30 |" time="0"/>
+  <testcase name="When i search by NAME" classname="| NAME | sulfate | 30 |" time="0"/>
+  <testcase name="When i enter sulfate into the search box" classname="| NAME | sulfate | 30 |" time="0"/>
+  <testcase name="Then i should have 30 items" classname="| NAME | sulfate | 30 |" time="0"/>
+  <testcase name="Then quit" classname="| NAME | sulfate | 30 |" time="0"/>
+  <testcase name="| NAME | sulfate | 30 |" classname="| NAME | sulfate | 30 |" time="0"/>
+  <testcase name="Given that i am on the pharma website" classname="| NDA NUMBER | NDA012462 | 1 |" time="0"/>
+  <testcase name="When i search by NDA NUMBER" classname="| NDA NUMBER | NDA012462 | 1 |" time="0"/>
+  <testcase name="When i enter NDA012462 into the search box" classname="| NDA NUMBER | NDA012462 | 1 |" time="0"/>
+  <testcase name="Then i should have 1 items" classname="| NDA NUMBER | NDA012462 | 1 |" time="0"/>
+  <testcase name="Then quit" classname="| NDA NUMBER | NDA012462 | 1 |" time="0"/>
+  <testcase name="| NDA NUMBER | NDA012462 | 1 |" classname="| NDA NUMBER | NDA012462 | 1 |" time="0.001"/>
+  <testcase name="Given that i am on the pharma website" classname="| MANUFACTURER | Greenstone | 81 |" time="0"/>
+  <testcase name="When i search by MANUFACTURER" classname="| MANUFACTURER | Greenstone | 81 |" time="0.001"/>
+  <testcase name="When i enter Greenstone into the search box" classname="| MANUFACTURER | Greenstone | 81 |" time="0"/>
+  <testcase name="Then i should have 81 items" classname="| MANUFACTURER | Greenstone | 81 |" time="0"/>
+  <testcase name="Then quit" classname="| MANUFACTURER | Greenstone | 81 |" time="0"/>
+  <testcase name="| MANUFACTURER | Greenstone | 81 |" classname="| MANUFACTURER | Greenstone | 81 |" time="0"/>
+  <testcase name="Given that i am on the pharma website" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0"/>
+  <testcase name="When i search by NAME" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0"/>
+  <testcase name="When i enter sulfate into the search box" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0"/>
+  <testcase name="Then i should have 30 items" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0"/>
+  <testcase name="Then i click view for NDA NDA021146" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0"/>
+  <testcase name="Then i see the drug name ATROPINE SULFATE" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0.003">
+    <failure message="Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR" type="java.lang.AssertionError">java.lang.AssertionError: Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR
+</failure>
+  </testcase>
+  <testcase name="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0.003">
+    <failure message="Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR" type="java.lang.AssertionError">java.lang.AssertionError: Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR
+</failure>
+  </testcase>
+  <testcase name="Then quit" classname="| NAME | sulfate | 30 | NDA021146 | ATROPINE SULFATE |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Given that i am on the pharma website" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0.001">
+    <error message="Could not create a session: The Safari instance is already paired with a different session.&#10;Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;&#10;System info: host: &apos;MichaelPersonal&apos;, ip: &apos;fe80:0:0:0:c24:846b:faef:9230%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;1.8.0_211&apos;&#10;Driver info: driver.version: SafariDriver&#10;remote stacktrace: " type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+</error>
+    <system-out><![CDATA[
+  @run
+  Scenario Outline: view drug details         &amp#27;[90m# search.feature:46&amp#27;[0m
+    &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mthat i am on the pharma website&amp#27;[0m     &amp#27;[90m# Search.startOnHomePage()&amp#27;[0m
+    &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mi search by &amp#27;[0m&amp#27;[32m&amp#27;[1mNAME&amp#27;[0m                     &amp#27;[90m# Search.setSearchType(String)&amp#27;[0m
+    &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mi enter &amp#27;[0m&amp#27;[32m&amp#27;[1msulfate&amp#27;[0m&amp#27;[32m into the search box&amp#27;[0m  &amp#27;[90m# Search.enterSearchTerm(String)&amp#27;[0m
+    &amp#27;[32mThen &amp#27;[0m&amp#27;[32mi should have &amp#27;[0m&amp#27;[32m&amp#27;[1m30&amp#27;[0m&amp#27;[32m items&amp#27;[0m               &amp#27;[90m# Search.checkSearchResultItemCount(String)&amp#27;[0m
+    &amp#27;[32mThen &amp#27;[0m&amp#27;[32mi click view for NDA &amp#27;[0m&amp#27;[32m&amp#27;[1mNDA021146&amp#27;[0m       &amp#27;[90m# Search.clickView(String)&amp#27;[0m
+    &amp#27;[31mThen &amp#27;[0m&amp#27;[31mi see the drug name &amp#27;[0m&amp#27;[31m&amp#27;[1mATROPINE SULFATE&amp#27;[0m &amp#27;[90m# Search.findDrugNameOnPage(String)&amp#27;[0m
+      &amp#27;[31mjava.lang.AssertionError: Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR
+      	at org.junit.Assert.fail(Assert.java:88)
+      	at org.junit.Assert.assertTrue(Assert.java:41)
+      	at bindings.Search.findDrugNameOnPage(Search.java:208)
+      	at ✽.Then i see the drug name ATROPINE SULFATE(search.feature:41)
+      &amp#27;[0m
+    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mquit&amp#27;[0m                                 &amp#27;[90m# Search.quit()&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0.001">
+    <error message="Could not create a session: The Safari instance is already paired with a different session.&#10;Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;&#10;System info: host: &apos;MichaelPersonal&apos;, ip: &apos;fe80:0:0:0:c24:846b:faef:9230%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;1.8.0_211&apos;&#10;Driver info: driver.version: SafariDriver&#10;remote stacktrace: " type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+</error>
+  </testcase>
+  <testcase name="When i search by MANUFACTURER" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="When i enter Greenstone into the search box" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then i should have 81 items" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then i click view for NDA NDA020702" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then i see the drug name LIPITOR" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then quit" classname="| MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Given that i am on the pharma website" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0.001">
+    <error message="Could not create a session: The Safari instance is already paired with a different session.&#10;Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;&#10;System info: host: &apos;MichaelPersonal&apos;, ip: &apos;fe80:0:0:0:c24:846b:faef:9230%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;1.8.0_211&apos;&#10;Driver info: driver.version: SafariDriver&#10;remote stacktrace: " type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+</error>
+    <system-out><![CDATA[
+  @run
+  Scenario Outline: view drug details           &amp#27;[90m# search.feature:47&amp#27;[0m
+    &amp#27;[31mGiven &amp#27;[0m&amp#27;[31mthat i am on the pharma website&amp#27;[0m       &amp#27;[90m# Search.startOnHomePage()&amp#27;[0m
+      &amp#27;[31morg.openqa.selenium.SessionNotCreatedException: Could not create a session: The Safari instance is already paired with a different session.
+      Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+      System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+      Driver info: driver.version: SafariDriver
+      remote stacktrace: 
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+      	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)
+      	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)
+      	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:123)
+      	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+      	at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+      	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+      	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
+      	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
+      	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+      	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+      	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+      	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)
+      	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)
+      	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:73)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+      	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:209)
+      	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:132)
+      	at org.openqa.selenium.safari.SafariDriver.<init>(SafariDriver.java:78)
+      	at org.openqa.selenium.safari.SafariDriver.<init>(SafariDriver.java:60)
+      	at org.openqa.selenium.safari.SafariDriver.<init>(SafariDriver.java:38)
+      	at bindings.Search.startOnHomePage(Search.java:85)
+      	at ✽.Given that i am on the pharma website(search.feature:36)
+      &amp#27;[0m
+    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mi search by &amp#27;[0m&amp#27;[36m&amp#27;[1mMANUFACTURER&amp#27;[0m               &amp#27;[90m# Search.setSearchType(String)&amp#27;[0m
+    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mi enter &amp#27;[0m&amp#27;[36m&amp#27;[1mGreenstone&amp#27;[0m&amp#27;[36m into the search box&amp#27;[0m &amp#27;[90m# Search.enterSearchTerm(String)&amp#27;[0m
+    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mi should have &amp#27;[0m&amp#27;[36m&amp#27;[1m81&amp#27;[0m&amp#27;[36m items&amp#27;[0m                 &amp#27;[90m# Search.checkSearchResultItemCount(String)&amp#27;[0m
+    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mi click view for NDA &amp#27;[0m&amp#27;[36m&amp#27;[1mNDA020702&amp#27;[0m         &amp#27;[90m# Search.clickView(String)&amp#27;[0m
+    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mi see the drug name &amp#27;[0m&amp#27;[36m&amp#27;[1mLIPITOR&amp#27;[0m            &amp#27;[90m# Search.findDrugNameOnPage(String)&amp#27;[0m
+    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mquit&amp#27;[0m                                   &amp#27;[90m# Search.quit()&amp#27;[0m
+
+  Scenario Outline: view drug details             &amp#27;[90m# search.feature:50&amp#27;[0m
+    &amp#27;[36mGiven &amp#27;[0m&amp#27;[36mthat i am on the pharma website&amp#27;[0m
+    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mi search by <searchType>&amp#27;[0m
+    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mi enter <searchTerm> into the search box&amp#27;[0m
+    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mi should have <resultCount> items&amp#27;[0m
+    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mi click view for NDA <nda>&amp#27;[0m
+    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mi click label <labelIndex1>&amp#27;[0m
+    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mi click label <labelIndex2>&amp#27;[0m
+    #Then i will have <countOfDifferences> changes
+    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mquit&amp#27;[0m
+
+    # The label markers in the timeline all look the same in the doc so we
+    # access them by index.  The label on the far right is 0.  When counting
+    # for index be sure to not count patents.  Patents can also be clicked, but
+    # they are in the list from right to left starting after the last label index
+    Examples: 
+]]></system-out>
+  </testcase>
+  <testcase name="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0.001">
+    <error message="Could not create a session: The Safari instance is already paired with a different session.&#10;Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;&#10;System info: host: &apos;MichaelPersonal&apos;, ip: &apos;fe80:0:0:0:c24:846b:faef:9230%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;1.8.0_211&apos;&#10;Driver info: driver.version: SafariDriver&#10;remote stacktrace: " type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: 
+Could not create a session: The Safari instance is already paired with a different session.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'MichaelPersonal', ip: 'fe80:0:0:0:c24:846b:faef:9230%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_211'
+Driver info: driver.version: SafariDriver
+remote stacktrace: 
+</error>
+  </testcase>
+  <testcase name="When i search by NAME" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="When i enter sulfate into the search box" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then i should have 30 items" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="When i click view for NDA NDA021146" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="When i click label 2" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="When i click label 4" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="Then quit" classname="| NAME | sulfate | 30 | NDA021146 | 2 | 4 | 10 |" time="0">
+    <skipped/>
+  </testcase>
+</testsuite>

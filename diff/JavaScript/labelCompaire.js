@@ -213,10 +213,9 @@ function diffText(diffDivElement, dmp, diffNodes) {
    * @param {div element} listA
    * @param {div element} listB
    */
-  function loadTimeline(container, listA, listB) {
+  function loadTimeline(container, listA, listB, listSection) {
 
-    getJSON("timeline1.json",
-    function(err, data) {
+    getJSON("timeline1.json", function(err, data) {
       if (err !== null) {
         alert("Something went wrong: " + err);
       } else {
@@ -255,6 +254,14 @@ function diffText(diffDivElement, dmp, diffNodes) {
             listB.value = properties.item;
           }
         });
+
+        getJSON("sections.json", function(err, data) {
+          if (err !== null) {
+            alert("Something went wrong: " + err);
+          } else {
+            populateListFromJSON(data, listSection);
+          }
+        });
       }
     });
   }
@@ -272,19 +279,23 @@ function diffText(diffDivElement, dmp, diffNodes) {
     fileAName = document.getElementById("drugLabelListA").value
     fileBName = document.getElementById("drugLabelListB").value
 
+    
+    
+    let section = document.getElementById("sectionList").value
+    
     getXML("labels/" + fileAName + ".xml", function(err, data) {
       if (err !== null) {
         alert("Something went wrong: " + err);
       } else {
 
-        let textA = getSectionText(data);
+        let textA = getSectionText(data, section);
 
         getXML("labels/" + fileBName + ".xml", function(err, data) {
           if (err !== null) {
             alert("Something went wrong: " + err);
           } else {
 
-            let textB = getSectionText(data);
+            let textB = getSectionText(data, section);
             
             //diff the two text blocks
             let dmp = new diff_match_patch();
@@ -362,22 +373,22 @@ function diffText(diffDivElement, dmp, diffNodes) {
 
 
 
-  function getSectionText(data) {
+  function getSectionText(data, section) {
 
     var parser = new DOMParser().parseFromString(data, "text/xml");
 
-    if (!parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title')) {
+    if (!parser.querySelector('document > component > structuredBody > component:nth-child(' + section + ') > section > title')) {
       return "Error reading label";
     }
 
 
-    let sectionTitle = parser.querySelector('document > component > structuredBody > component:nth-child(5) > section > title').innerHTML;
+    let sectionTitle = parser.querySelector('document > component > structuredBody > component:nth-child(' + section + ') > section > title').innerHTML;
     sectionTitle = sectionTitle.concat("<br/><br/>");
     
     //scrape sections
     var sectionText = "";
 
-    var sections = parser.querySelectorAll('document > component > structuredBody > component:nth-child(5) > section > component > section');
+    var sections = parser.querySelectorAll('document > component > structuredBody > component:nth-child(' + section + ') > section > component > section');
 
     for (i = 0; i < sections.length; i++) {
       section = sections[i];

@@ -1,0 +1,1022 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 13,
+        "name": "validate UI elements",
+        "description": "",
+        "id": "search;validate-ui-elements;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2295293365,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 193555207,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "i should have ACTIVE INGREDIENTS element on the screen",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ACTIVE INGREDIENTS",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.testForElementByText(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 74309139,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 14,
+        "name": "validate UI elements",
+        "description": "",
+        "id": "search;validate-ui-elements;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1486579061,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 203799941,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "i should have NDA NUMBER element on the screen",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA NUMBER",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.testForElementByText(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 58944780,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 15,
+        "name": "validate UI elements",
+        "description": "",
+        "id": "search;validate-ui-elements;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1458596972,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 225890406,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "i should have NAME element on the screen",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NAME",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.testForElementByText(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 56637340,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 16,
+        "name": "validate UI elements",
+        "description": "",
+        "id": "search;validate-ui-elements;;5",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1336623758,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 231655515,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "i should have MANUFACTURER element on the screen",
+            "match": {
+              "arguments": [
+                {
+                  "val": "MANUFACTURER",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.testForElementByText(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 60176351,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 29,
+        "name": "search by name",
+        "description": "",
+        "id": "search;search-by-name;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1211615204,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 228242891,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "i search by NAME",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NAME",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 161250448,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "i enter sulfate into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sulfate",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3023712149,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "i should have 30 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "30",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 59201516,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 30,
+        "name": "search by name",
+        "description": "",
+        "id": "search;search-by-name;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1532665207,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 289497326,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "i search by NDA NUMBER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA NUMBER",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 171870985,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "i enter NDA012462 into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA012462",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3027433280,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "i should have 1 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 61742302,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 31,
+        "name": "search by name",
+        "description": "",
+        "id": "search;search-by-name;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1418442099,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 276465213,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "i search by MANUFACTURER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "MANUFACTURER",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 165901640,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "i enter Greenstone into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Greenstone",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3025829822,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "i should have 81 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "81",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 61377076,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 46,
+        "name": "view drug details",
+        "description": "",
+        "id": "search;view-drug-details;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1482194524,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 264852169,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "i search by NAME",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NAME",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 152503912,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "i enter sulfate into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sulfate",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3029973414,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "i should have 30 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "30",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 393482723,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "i click view for NDA NDA021146",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA021146",
+                  "offset": 21
+                }
+              ],
+              "location": "Search.clickView(String)"
+            },
+            "matchedColumns": [
+              3
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1683996898,
+              "error_message": "java.lang.AssertionError: Drug name is wrong, expected ATROPINE SULFATE got ADDERALL XR\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.assertTrue(Assert.java:41)\n\tat bindings.Search.findDrugNameOnPage(Search.java:208)\n\tat ✽.Then i see the drug name ATROPINE SULFATE(search.feature:41)\n",
+              "status": "failed"
+            },
+            "line": 41,
+            "name": "i see the drug name ATROPINE SULFATE",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ATROPINE SULFATE",
+                  "offset": 20
+                }
+              ],
+              "location": "Search.findDrugNameOnPage(String)"
+            },
+            "matchedColumns": [
+              4
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 42,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 47,
+        "name": "view drug details",
+        "description": "",
+        "id": "search;view-drug-details;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 218823108,
+              "error_message": "org.openqa.selenium.SessionNotCreatedException: Could not create a session: The Safari instance is already paired with a different session.\nBuild info: version: \u00273.11.0\u0027, revision: \u0027e59cfb3\u0027, time: \u00272018-03-11T20:26:55.152Z\u0027\nSystem info: host: \u0027MichaelPersonal\u0027, ip: \u0027fe80:0:0:0:c24:846b:faef:9230%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.16\u0027, java.version: \u00271.8.0_211\u0027\nDriver info: driver.version: SafariDriver\nremote stacktrace: \n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)\n\tat org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:123)\n\tat java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)\n\tat java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)\n\tat java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)\n\tat java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)\n\tat java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)\n\tat java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)\n\tat java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)\n\tat java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)\n\tat java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:73)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)\n\tat org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:209)\n\tat org.openqa.selenium.remote.RemoteWebDriver.\u003cinit\u003e(RemoteWebDriver.java:132)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:78)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:60)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:38)\n\tat bindings.Search.startOnHomePage(Search.java:85)\n\tat ✽.Given that i am on the pharma website(search.feature:36)\n",
+              "status": "failed"
+            },
+            "line": 36,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 37,
+            "name": "i search by MANUFACTURER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "MANUFACTURER",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 38,
+            "name": "i enter Greenstone into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Greenstone",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 39,
+            "name": "i should have 81 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "81",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 40,
+            "name": "i click view for NDA NDA020702",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA020702",
+                  "offset": 21
+                }
+              ],
+              "location": "Search.clickView(String)"
+            },
+            "matchedColumns": [
+              3
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 41,
+            "name": "i see the drug name LIPITOR",
+            "match": {
+              "arguments": [
+                {
+                  "val": "LIPITOR",
+                  "offset": 20
+                }
+              ],
+              "location": "Search.findDrugNameOnPage(String)"
+            },
+            "matchedColumns": [
+              4
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 42,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      },
+      {
+        "line": 68,
+        "name": "view drug details",
+        "description": "",
+        "id": "search;view-drug-details;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 222844780,
+              "error_message": "org.openqa.selenium.SessionNotCreatedException: Could not create a session: The Safari instance is already paired with a different session.\nBuild info: version: \u00273.11.0\u0027, revision: \u0027e59cfb3\u0027, time: \u00272018-03-11T20:26:55.152Z\u0027\nSystem info: host: \u0027MichaelPersonal\u0027, ip: \u0027fe80:0:0:0:c24:846b:faef:9230%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.16\u0027, java.version: \u00271.8.0_211\u0027\nDriver info: driver.version: SafariDriver\nremote stacktrace: \n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)\n\tat org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)\n\tat org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:123)\n\tat java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)\n\tat java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)\n\tat java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)\n\tat java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)\n\tat java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)\n\tat java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)\n\tat java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)\n\tat java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)\n\tat java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)\n\tat org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:73)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)\n\tat org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:209)\n\tat org.openqa.selenium.remote.RemoteWebDriver.\u003cinit\u003e(RemoteWebDriver.java:132)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:78)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:60)\n\tat org.openqa.selenium.safari.SafariDriver.\u003cinit\u003e(SafariDriver.java:38)\n\tat bindings.Search.startOnHomePage(Search.java:85)\n\tat ✽.Given that i am on the pharma website(search.feature:51)\n",
+              "status": "failed"
+            },
+            "line": 51,
+            "name": "that i am on the pharma website",
+            "match": {
+              "location": "Search.startOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 52,
+            "name": "i search by NAME",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NAME",
+                  "offset": 12
+                }
+              ],
+              "location": "Search.setSearchType(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 53,
+            "name": "i enter sulfate into the search box",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sulfate",
+                  "offset": 8
+                }
+              ],
+              "location": "Search.enterSearchTerm(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 54,
+            "name": "i should have 30 items",
+            "match": {
+              "arguments": [
+                {
+                  "val": "30",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.checkSearchResultItemCount(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 55,
+            "name": "i click view for NDA NDA021146",
+            "match": {
+              "arguments": [
+                {
+                  "val": "NDA021146",
+                  "offset": 21
+                }
+              ],
+              "location": "Search.clickView(String)"
+            },
+            "matchedColumns": [
+              3
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 56,
+            "name": "i click label 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.clickLabelWithIndex(Integer)"
+            },
+            "matchedColumns": [
+              4
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 57,
+            "name": "i click label 4",
+            "match": {
+              "arguments": [
+                {
+                  "val": "4",
+                  "offset": 14
+                }
+              ],
+              "location": "Search.clickLabelWithIndex(Integer)"
+            },
+            "matchedColumns": [
+              5
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 58,
+                "value": "#Then i will have \u003ccountOfDifferences\u003e changes"
+              }
+            ],
+            "line": 59,
+            "name": "quit",
+            "match": {
+              "location": "Search.quit()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@run"
+          }
+        ]
+      }
+    ],
+    "name": "search",
+    "description": "",
+    "id": "search",
+    "keyword": "Feature",
+    "uri": "search.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@run"
+      }
+    ]
+  }
+]
