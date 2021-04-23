@@ -4,6 +4,9 @@ import {v4 as uuidv4} from 'uuid';
 import {DiffMatchPatch} from 'diff-match-patch-ts';
 import * as _ from 'lodash';
 
+const randomColor = require('randomcolor');
+const color = require('color');
+
 import {DrugService} from '../../shared/services/drug.service';
 import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
 
@@ -130,14 +133,18 @@ export class DrugComponent implements OnInit {
 
       // for every drug label present, add a label timeline item to the timelineItems arr
       this.drug.drugLabels.forEach((label: any) => {
+        const timelineLabelColor = color(randomColor({ luminosity: 'light', hue: 'random '}));
+        const timelineLabelColorDarkened = timelineLabelColor.darken(0.666);
         const timelineLabel = {
           id: uuidv4(),
           content: 'L',
           start: label.published_date,
           group: 'label',
           className: 'timeline-label-identifier',
+          style: `color: ${timelineLabelColorDarkened}; border-color: ${timelineLabelColorDarkened}; background: ${timelineLabelColor}`,
           title: label.application_numbers[0],
-          data: label
+          data: label,
+          color
         };
         this.timelineItems.push(timelineLabel);
       });
