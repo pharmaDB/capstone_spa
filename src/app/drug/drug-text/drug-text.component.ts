@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {DrugViewConfig} from '../drug-view-config.interface';
 import {DrugViewMode} from '../drug-view-config.interface';
 
@@ -46,6 +46,10 @@ export class DrugTextComponent {
    */
   closePatentViewClickHandler(): void {
     this.onClosePatentViewClicked.emit();
+  }
+
+  handleTextDiffClicked(): void {
+    console.log('diff clicked');
   }
 
   /**

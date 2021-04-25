@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {v4 as uuidv4} from 'uuid';
 import {DiffMatchPatch} from 'diff-match-patch-ts';
@@ -19,7 +19,8 @@ import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
 @Component({
   selector: 'app-drug',
   templateUrl: './drug.component.html',
-  styleUrls: ['./drug.component.scss']
+  styleUrls: ['./drug.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DrugComponent implements OnInit {
 
@@ -33,6 +34,7 @@ export class DrugComponent implements OnInit {
     inViewPatent: undefined
   };
 
+  allAdditionsAcrossAllLabels = [];
   timelineItems: TimelineItem[] = [];
   isPageLoading = true;
   isTextLoading = false;
@@ -92,7 +94,7 @@ export class DrugComponent implements OnInit {
 
     // if two labels are selected (ie the new drugViewConfig indicates a label diff)...
     if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {
-      const labelSectionDiffs: { name: string, scores?: any[], diff: any}[] = [];
+      const labelSectionDiffs: { name: string, scores?: any[], endText: any, diff: any, flattenedDiffs: any}[] = [];
 
       // ...then iterate through each section of the label
       drugViewConfig.inViewLabelOne.data.sections.forEach((section: any) => {
@@ -107,15 +109,108 @@ export class DrugComponent implements OnInit {
         const diff = diffTool.diff_main(section.text, labelTwoSection.text);
         diffTool.diff_cleanupSemantic(diff);
 
+        const flattenedDiffs = _.find(this.allAdditionsAcrossAllLabels, (x: any) => {
+          return x.name === section.name;
+        });
+
         // create a new section object with the diff data, patent claim scores and section name. store it.
-        labelSectionDiffs.push({ name: section.name, scores: labelTwoSection.scores, diff });
+        labelSectionDiffs.push({
+          name: section.name,
+          scores: labelTwoSection.scores,
+          endText: labelTwoSection.text,
+          diff,
+          flattenedDiffs });
       });
 
       // store the diffs in the drugViewConfig, so they can be delivered to and presented by the DrugText component
       this.drugViewConfig.labelDiff = {
         sections: labelSectionDiffs
       };
+
+      // dev code
+
+      // for every drug label section...
+      this.drugViewConfig.labelDiff.sections.forEach((section: any) => {
+        const endTextAsArray = [{ text: section.endText, fromLabel: null }];
+
+        // see if there is an addition that fits in that section...
+        section.flattenedDiffs.additionsAcrossLabelLifetime.forEach((diffFromTime: any) => {
+          const additionLocation = _.findIndex(endTextAsArray, (endTextArrayItem: any) => {
+            return endTextArrayItem.text.indexOf(diffFromTime.addedText) !== -1;
+          });
+
+          if (additionLocation === -1) {
+            return;
+          }
+
+          const startingPosition = endTextAsArray[additionLocation].text.indexOf(diffFromTime.addedText);
+          const endingPosition = startingPosition + diffFromTime.addedText.length;
+
+          const textBeforeTheAddition = endTextAsArray[additionLocation].text.substring(0, startingPosition);
+          const addedText = diffFromTime.addedText;
+          const textAfterTheAddition = endTextAsArray[additionLocation].text.substring(endingPosition, section.endText.length);
+          const diffArraySegment = [
+            { text: textBeforeTheAddition, fromLabel: null },
+            { text: addedText, fromLabel: diffFromTime },
+            { text: textAfterTheAddition, fromLabel: null }
+          ];
+          endTextAsArray.splice(additionLocation, 1, diffArraySegment[0], diffArraySegment[1], diffArraySegment[2]);
+        });
+
+        section.endTextAsArray = endTextAsArray;
+      });
     }
+  }
+
+  calculateAndFlattenAllDiffs(): void {
+    const additionsFlattenedBySection: any[] = [];
+    _.reverse(this.drug.drugLabels).forEach((label: any, index: number) => {
+      if ((index + 1) > (this.drug.drugLabels.length - 1)) {
+        return;
+      }
+      const secondLabel = this.drug.drugLabels[index + 1];
+      const secondLabelTimelineItem = _.find(this.timelineItems, (timelineItem: any) => {
+        return timelineItem.splId === secondLabel.spl_id;
+      });
+
+      label.sections.forEach((section: any) => {
+        let sectionCollection = _.find(additionsFlattenedBySection, (s: any) => {
+          return s.name === section.name;
+        });
+
+        if (!sectionCollection) {
+          additionsFlattenedBySection.push({
+            name: section.name,
+            additionsAcrossLabelLifetime: [ ]
+          });
+          sectionCollection = _.find(additionsFlattenedBySection, (s: any) => {
+            return s.name === section.name;
+          });
+        }
+
+        const secondLabelSection = _.find(secondLabel.sections, (labelSection: any) => {
+          return labelSection.name === section.name;
+        });
+
+        // execute a diff on the two sections and clean it up to make it human readable
+        const diffTool = new DiffMatchPatch();
+        const diff = diffTool.diff_main(section.text, secondLabelSection.text);
+        diffTool.diff_cleanupSemantic(diff);
+
+        diff.forEach((diffElement: any) => {
+          if (diffElement[0] === 1) {
+            // @ts-ignore
+            sectionCollection.additionsAcrossLabelLifetime.push({
+              addedText: diffElement[1],
+              timelineItem: secondLabelTimelineItem,
+              scores: { } } );
+          }
+        });
+      });
+    });
+
+    // @ts-ignore
+    this.allAdditionsAcrossAllLabels = additionsFlattenedBySection;
   }
 
   /**
@@ -135,6 +230,7 @@ export class DrugComponent implements OnInit {
       this.drug.drugLabels.forEach((label: any) => {
         const timelineLabelColor = color(randomColor({ luminosity: 'light', hue: 'random '}));
         const timelineLabelColorDarkened = timelineLabelColor.darken(0.666);
+
         const timelineLabel = {
           id: uuidv4(),
           content: 'L',
@@ -144,10 +240,14 @@ export class DrugComponent implements OnInit {
           style: `color: ${timelineLabelColorDarkened}; border-color: ${timelineLabelColorDarkened}; background: ${timelineLabelColor}`,
           title: label.application_numbers[0],
           data: label,
-          color
+          splId: label.spl_id,
+          color: timelineLabelColor,
+          colorDarkened: timelineLabelColorDarkened
         };
         this.timelineItems.push(timelineLabel);
       });
+
+      this.calculateAndFlattenAllDiffs();
 
       // for every drug patent present, add a patent timeline item to the timelineItems arr
       this.drug.drugPatents.forEach((patent: any) => {

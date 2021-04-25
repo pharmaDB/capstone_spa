@@ -16,6 +16,8 @@ export interface DrugViewConfig {
       name: string;
       diff: any;
       scores?: any;
+      endText?: string;
+      endTextAsArray?: any[];
     }[]
   };
   // labelOneIdentifier?: string;

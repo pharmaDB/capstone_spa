@@ -102,9 +102,17 @@
             <!-- if the diff is an equality (0) do nothing in terms of CSS class -->
             <span id="at4RU3MWs4" [ngClass]="{'diff-deleted-text': diffElement[0] === -1, 'diff-added-text':diffElement[0] === 1 }"
                   [innerHTML]="diffElement[1]">
-              {{ diffElement[1] }} {{ diffElement[1] }} efwefwefwefwf
             </span>
           </span>
+          <br/><br/>
+            <span *ngFor="let textElement of section.endTextAsArray">
+              <span (click)="handleTextDiffClicked()" *ngIf="textElement.fromLabel" style="background:{{ textElement.fromLabel.timelineItem.color }}; color:{{ textElement.fromLabel.timelineItem.colorDarkened }}">
+                {{ textElement.text }}
+              </span>
+              <span *ngIf="!textElement.fromLabel">
+                {{ textElement.text }}
+              </span>
+            </span>
         </section>
       </article>
     </span>

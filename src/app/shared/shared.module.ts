@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShortestValueFromArrayPipe } from './pipes/shortest-value-from-array.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 /**
  * SharedModule
@@ -18,7 +19,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
   declarations: [
     NavbarComponent,
     ShortestValueFromArrayPipe,
-    TruncatePipe
+    TruncatePipe,
+    SanitizeHtmlPipe
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
   exports: [
     NavbarComponent,
     ShortestValueFromArrayPipe,
-    TruncatePipe
+    TruncatePipe,
+    SanitizeHtmlPipe
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
