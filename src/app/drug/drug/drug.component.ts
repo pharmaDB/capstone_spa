@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 const randomColor = require('randomcolor');
 const color = require('color');
 
-import {DrugService} from '../../shared/services/drug.service';
+import {DrugService, IPharmaDBDrugLabel, IPharmaDBDrugPatent, IPharmaDBGetByNDAResponse} from '../../shared/services/drug.service';
 import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
 
 /**
@@ -23,6 +23,11 @@ import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
   encapsulation: ViewEncapsulation.None,
 })
 export class DrugComponent implements OnInit {
+  isPageLoading = true;
+  isTextLoading = false;
+  ndaNumber: string; // NDA number of Drug currently in-view
+  timelineItems: (TimelineLabel | TimelinePatent)[] = []; // data structure to store all the items in view
+  drug: IPharmaDBGetByNDAResponse; // Raw data (from the API/DrugService) of the Drug currently in-view
 
   // default empty drugViewConfig
   drugViewConfig: DrugViewConfig = {
@@ -35,11 +40,6 @@ export class DrugComponent implements OnInit {
   };
 
   allAdditionsAcrossAllLabels = [];
-  timelineItems: TimelineItem[] = [];
-  isPageLoading = true;
-  isTextLoading = false;
-  ndaNumber: string; // NDA number of Drug currently in-view
-  drug: any; // Raw data (from the API/DrugService) of the Drug currently in-view
 
   constructor(
     private route: ActivatedRoute,
@@ -53,16 +53,16 @@ export class DrugComponent implements OnInit {
    * @param event: event emitted from the DrugText component, representing the user clicking on a patent claim tag
    */
   onPatentClaimTagClicked(event: any): void {
-    const patent = _.find(this.drug.drugPatents, (p: any) => p.patent_number === event.patent_number);
-    const claim = _.find(patent.claims, (c: any) => c.claim_number === event.claim_number);
-
-    this.onDrugViewChange({
-      drugViewMode: this.drugViewConfig.drugViewMode,
-      inViewLabelOne: this.drugViewConfig.inViewLabelOne,
-      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
-      isPatentInView: true,
-      inViewPatentNumber: patent.patent_number,
-      inViewPatent: claim});
+    // const patent = _.find(this.drug.drugPatents, (p: any) => p.patent_number === event.patent_number);
+    // const claim = _.find(patent.claims, (c: any) => c.claim_number === event.claim_number);
+    //
+    // this.onDrugViewChange({
+    //   drugViewMode: this.drugViewConfig.drugViewMode,
+    //   inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+    //   inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+    //   isPatentInView: true,
+    //   inViewPatentNumber: patent.patent_number,
+    //   inViewPatent: claim});
   }
 
   /**
@@ -91,74 +91,75 @@ export class DrugComponent implements OnInit {
 
     // set new drugViewConfig
     this.drugViewConfig = drugViewConfig;
-
+    console.log(this.drugViewConfig);
     // if two labels are selected (ie the new drugViewConfig indicates a label diff)...
     if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {
-      const labelSectionDiffs: { name: string, scores?: any[], endText: any, diff: any, flattenedDiffs: any}[] = [];
-
-      // ...then iterate through each section of the label
-      drugViewConfig.inViewLabelOne.data.sections.forEach((section: any) => {
-
-        // grab the alternate section from the opposing label
-        const labelTwoSection = _.find(drugViewConfig.inViewLabelTwo.data.sections, (labelTwoSec: any) => {
-          return labelTwoSec.name === section.name;
-        });
-
-        // execute a diff on the two sections and clean it up to make it human readable
-        const diffTool = new DiffMatchPatch();
-        const diff = diffTool.diff_main(section.text, labelTwoSection.text);
-        diffTool.diff_cleanupSemantic(diff);
-
-        const flattenedDiffs = _.find(this.allAdditionsAcrossAllLabels, (x: any) => {
-          return x.name === section.name;
-        });
-
-        // create a new section object with the diff data, patent claim scores and section name. store it.
-        labelSectionDiffs.push({
-          name: section.name,
-          scores: labelTwoSection.scores,
-          endText: labelTwoSection.text,
-          diff,
-          flattenedDiffs });
-      });
-
-      // store the diffs in the drugViewConfig, so they can be delivered to and presented by the DrugText component
-      this.drugViewConfig.labelDiff = {
-        sections: labelSectionDiffs
-      };
-
-      // dev code
-
-      // for every drug label section...
-      this.drugViewConfig.labelDiff.sections.forEach((section: any) => {
-        const endTextAsArray = [{ text: section.endText, fromLabel: null }];
-
-        // see if there is an addition that fits in that section...
-        section.flattenedDiffs.additionsAcrossLabelLifetime.forEach((diffFromTime: any) => {
-          const additionLocation = _.findIndex(endTextAsArray, (endTextArrayItem: any) => {
-            return endTextArrayItem.text.indexOf(diffFromTime.addedText) !== -1;
-          });
-
-          if (additionLocation === -1) {
-            return;
-          }
-
-          const startingPosition = endTextAsArray[additionLocation].text.indexOf(diffFromTime.addedText);
-          const endingPosition = startingPosition + diffFromTime.addedText.length;
-
-          const textBeforeTheAddition = endTextAsArray[additionLocation].text.substring(0, startingPosition);
-          const addedText = diffFromTime.addedText;
-          const textAfterTheAddition = endTextAsArray[additionLocation].text.substring(endingPosition, section.endText.length);
-          const diffArraySegment = [
-            { text: textBeforeTheAddition, fromLabel: null },
-            { text: addedText, fromLabel: diffFromTime },
-            { text: textAfterTheAddition, fromLabel: null }
-          ];
-          endTextAsArray.splice(additionLocation, 1, diffArraySegment[0], diffArraySegment[1], diffArraySegment[2]);
-        });
-
-        section.endTextAsArray = endTextAsArray;
-      });
+      console.log('diffTime')
+      // const labelSectionDiffs: { name: string, scores?: any[], endText: any, diff: any, flattenedDiffs: any}[] = [];
+      //
+      // // ...then iterate through each section of the label
+      // drugViewConfig.inViewLabelOne.data.sections.forEach((section: any) => {
+      //
+      //   // grab the alternate section from the opposing label
+      //   const labelTwoSection = _.find(drugViewConfig.inViewLabelTwo.data.sections, (labelTwoSec: any) => {
+      //     return labelTwoSec.name === section.name;
+      //   });
+      //
+      //   // execute a diff on the two sections and clean it up to make it human readable
+      //   const diffTool = new DiffMatchPatch();
+      //   const diff = diffTool.diff_main(section.text, labelTwoSection.text);
+      //   diffTool.diff_cleanupSemantic(diff);
+      //
+      //   const flattenedDiffs = _.find(this.allAdditionsAcrossAllLabels, (x: any) => {
+      //     return x.name === section.name;
+      //   });
+      //
+      //   // create a new section object with the diff data, patent claim scores and section name. store it.
+      //   labelSectionDiffs.push({
+      //     name: section.name,
+      //     scores: labelTwoSection.scores,
+      //     endText: labelTwoSection.text,
+      //     diff,
+      //     flattenedDiffs });
+      // });
+      //
+      // // store the diffs in the drugViewConfig, so they can be delivered to and presented by the DrugText component
+      // this.drugViewConfig.labelDiff = {
+      //   sections: labelSectionDiffs
+      // };
+      //
+      // // dev code
+      //
+      // // for every drug label section...
+      // this.drugViewConfig.labelDiff.sections.forEach((section: any) => {
+      //   const endTextAsArray = [{ text: section.endText, fromLabel: null }];
+      //
+      //   // see if there is an addition that fits in that section...
+      //   section.flattenedDiffs.additionsAcrossLabelLifetime.forEach((diffFromTime: any) => {
+      //     const additionLocation = _.findIndex(endTextAsArray, (endTextArrayItem: any) => {
+      //       return endTextArrayItem.text.indexOf(diffFromTime.addedText) !== -1;
+      //     });
+      //
+      //     if (additionLocation === -1) {
+      //       return;
+      //     }
+      //
+      //     const startingPosition = endTextAsArray[additionLocation].text.indexOf(diffFromTime.addedText);
+      //     const endingPosition = startingPosition + diffFromTime.addedText.length;
+      //
+      //     const textBeforeTheAddition = endTextAsArray[additionLocation].text.substring(0, startingPosition);
+      //     const addedText = diffFromTime.addedText;
+      //     const textAfterTheAddition = endTextAsArray[additionLocation].text.substring(endingPosition, section.endText.length);
+      //     const diffArraySegment = [
+      //       { text: textBeforeTheAddition, fromLabel: null },
+      //       { text: addedText, fromLabel: diffFromTime },
+      //       { text: textAfterTheAddition, fromLabel: null }
+      //     ];
+      //     endTextAsArray.splice(additionLocation, 1, diffArraySegment[0], diffArraySegment[1], diffArraySegment[2]);
+      //   });
+      //
+      //   section.endTextAsArray = endTextAsArray;
+      // });
     }
   }
 
@@ -192,6 +193,8 @@ export class DrugComponent implements OnInit {
           return labelSection.name === section.name;
         });
 
+        if (!secondLabelSection) { return; }
+
         // execute a diff on the two sections and clean it up to make it human readable
         const diffTool = new DiffMatchPatch();
         const diff = diffTool.diff_main(section.text, secondLabelSection.text);
@@ -221,17 +224,17 @@ export class DrugComponent implements OnInit {
     // get NDA number from current URL route
     this.ndaNumber = this.route.snapshot.params.NDANumber;
 
-    this.drugService.getDrugByApplicationNumber(this.ndaNumber).subscribe((response) => {
+    this.drugService.getDrugByApplicationNumber(this.ndaNumber).subscribe((drugData: IPharmaDBGetByNDAResponse) => {
 
       // store raw drug data for convenience in case needed for later features
-      this.drug = response;
+      this.drug = drugData;
 
       // for every drug label present, add a label timeline item to the timelineItems arr
-      this.drug.drugLabels.forEach((label: any) => {
+      this.drug.drugLabels.forEach((label: IPharmaDBDrugLabel) => {
         const timelineLabelColor = color(randomColor({ luminosity: 'light', hue: 'random '}));
         const timelineLabelColorDarkened = timelineLabelColor.darken(0.666);
 
-        const timelineLabel = {
+        const timelineLabel: TimelineLabel = {
           id: uuidv4(),
           content: 'L',
           start: label.published_date,
@@ -239,29 +242,30 @@ export class DrugComponent implements OnInit {
           className: 'timeline-label-identifier',
           style: `color: ${timelineLabelColorDarkened}; border-color: ${timelineLabelColorDarkened}; background: ${timelineLabelColor}`,
           title: label.application_numbers[0],
-          data: label,
-          splId: label.spl_id,
           color: timelineLabelColor,
-          colorDarkened: timelineLabelColorDarkened
+          colorDarkened: timelineLabelColorDarkened,
+          drugLabel: label
+          // data: label,
+          // splId: label.spl_id,
         };
         this.timelineItems.push(timelineLabel);
       });
 
-      this.calculateAndFlattenAllDiffs();
+     // this.calculateAndFlattenAllDiffs();
 
       // for every drug patent present, add a patent timeline item to the timelineItems arr
-      this.drug.drugPatents.forEach((patent: any) => {
-        const timelinePatent = {
-          id: uuidv4(),
-          content: 'P',
-          start: patent.published_date,
-          group: 'patent',
-          className: 'timeline-patent-identifier',
-          title: patent.patent_number,
-          data: patent
-        };
-        this.timelineItems.push(timelinePatent);
-      });
+      // this.drug.drugPatents.forEach((patent: any) => {
+      //   const timelinePatent = {
+      //     id: uuidv4(),
+      //     content: 'P',
+      //     start: patent.published_date,
+      //     group: 'patent',
+      //     className: 'timeline-patent-identifier',
+      //     title: patent.patent_number,
+      //     data: patent
+      //   };
+      //   this.timelineItems.push(timelinePatent);
+      // });
 
       this.isPageLoading = false;
     });
@@ -273,12 +277,32 @@ export class DrugComponent implements OnInit {
  * Interface for objects used in the visJS timeline library. Fits the visJS timeline item construct but includes
  * extra params specific to this web applications use case.
  */
-export interface TimelineItem {
+// export interface TimelineItem {
+//   id: string;
+//   content: string;
+//   start: string;
+//   group: string;
+//   className: string;
+//   title: string;
+//   data?: any;
+// }
+
+interface TimelineItem {
   id: string;
   content: string;
   start: string;
   group: string;
   className: string;
+  style: string;
   title: string;
-  data?: any;
+  color: any;
+  colorDarkened: any;
+}
+
+export interface TimelinePatent extends TimelineItem{
+  drugLabel: IPharmaDBDrugPatent;
+}
+
+export interface TimelineLabel extends TimelineItem{
+  drugLabel: IPharmaDBDrugLabel;
 }

@@ -2,7 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angul
 import * as _ from 'lodash';
 import {DrugViewConfig} from '../drug-view-config.interface';
 import {DrugViewMode} from '../drug-view-config.interface';
-import {TimelineItem} from '../drug/drug.component';
+import {TimelinePatent, TimelineLabel} from '../drug/drug.component';
 
 declare var vis: any;
 
@@ -22,10 +22,10 @@ export class DrugTimelineComponent implements OnInit {
   // event emitter use to notify the parent of required Drug view changes
   @Output() onDrugViewChange = new EventEmitter<DrugViewConfig>();
 
-  @Input() timelineItems: TimelineItem[];
+  @Input() timelineItems: (TimelineLabel | TimelinePatent)[];
   @Input() drugViewConfig: DrugViewConfig;
   timeline: any;
-  selectedTimelineItems: string[] = [];
+  selectedTimelineItems: (TimelineLabel | TimelinePatent)[] = [];
 
   constructor(
     private element: ElementRef
@@ -39,6 +39,11 @@ export class DrugTimelineComponent implements OnInit {
    * @param itemId String: the id of the item selected on the timeline
    */
   onItemSelectionHandler(itemId: string): void {
+    // get the item that will be added, by the itemId provided as an arg
+    const itemToBeAdded = _.find(this.timelineItems, (item: any) => {
+      return item.id === itemId;
+    });
+    if (!itemToBeAdded) { return; };
 
     // if there are 2 or more selected items already, then clear the selection (only 2 can be selected at a time)
     if (this.selectedTimelineItems.length >= 2) {
@@ -47,11 +52,6 @@ export class DrugTimelineComponent implements OnInit {
 
     // if there is only one selected item from the timeline then...
     if (this.selectedTimelineItems.length === 1) {
-
-      // get the item that will be added, by the itemId provided as an arg
-      const itemToBeAdded = _.find(this.timelineItems, (item: any) => {
-        return item.id === itemId;
-      });
 
       // and get the other item that's currently selected
       const currentlySelectedItem = _.find(this.timelineItems, (item: any) => {
@@ -65,7 +65,7 @@ export class DrugTimelineComponent implements OnInit {
     }
 
     // add the itemId of the selected item to the arr that contains all currently selected items
-    this.selectedTimelineItems.push(itemId);
+    this.selectedTimelineItems.push(itemToBeAdded);
 
     // set the selected items in the visJS library
     this.timeline.setSelection(this.selectedTimelineItems);
@@ -81,55 +81,47 @@ export class DrugTimelineComponent implements OnInit {
    */
   updateView(): void {
     let nextDrugViewMode: DrugViewMode = DrugViewMode.none;
-    let nextLabelOneIdentifier: string | undefined;
-    let nextLabelTwoIdentifier: string | undefined;
-    let nextPatentIdentifier: string | undefined;
-
-    // use the itemIds in the selectedTimelineItems to fetch every selected item in its entirety and store it conveniently
-    const itemsSelected: any[] = [];
-    this.selectedTimelineItems.forEach((itemId: string) => {
-      itemsSelected.push(_.find(this.timelineItems, (item: any) => {
-        return item.id === itemId;
-      }));
-    });
+    let nextLabelOneIdentifier: TimelineLabel | undefined;
+    let nextLabelTwoIdentifier: TimelineLabel | undefined;
+    let nextPatentIdentifier: TimelinePatent | undefined;
 
     // if only one item is selected...
-    if (itemsSelected.length === 1) {
+    if (this.selectedTimelineItems.length === 1) {
 
       // and that item is a patent then go to the single patent text view mode
-      if (itemsSelected[0].group === 'patent') {
-        nextPatentIdentifier = itemsSelected[0]; // set in-view item
+      if (this.selectedTimelineItems[0].group === 'patent') {
+        nextPatentIdentifier = this.selectedTimelineItems[0] as TimelinePatent; // set in-view item
         nextDrugViewMode = DrugViewMode.patent; // set viewing mode for viewing one patent
       }
 
       // or if that item is a label go to the single label text view mode
-      if (itemsSelected[0].group === 'label') {
-        nextLabelOneIdentifier = itemsSelected[0]; // set in-view item
+      if (this.selectedTimelineItems[0].group === 'label') {
+        nextLabelOneIdentifier = this.selectedTimelineItems[0] as TimelineLabel; // set in-view item
         nextDrugViewMode = DrugViewMode.label; // set viewing mode for viewing on label
       }
     }
 
     // if two items are selected...
-    if (itemsSelected.length === 2) {
+    if (this.selectedTimelineItems.length === 2) {
 
       // and the both are labels go to the two label diffing view
-      if (itemsSelected[0].group === 'label' && itemsSelected[1].group === 'label') {
-        nextLabelOneIdentifier = itemsSelected[0]; // set first in-view label
-        nextLabelTwoIdentifier = itemsSelected[1]; // set second in-view label
+      if (this.selectedTimelineItems[0].group === 'label' && this.selectedTimelineItems[1].group === 'label') {
+        nextLabelOneIdentifier = this.selectedTimelineItems[0] as TimelineLabel; // set first in-view label
+        nextLabelTwoIdentifier = this.selectedTimelineItems[1] as TimelineLabel; // set second in-view label
         nextDrugViewMode = DrugViewMode.label_label; // set viewing mode for viewing 2 labels
       }
 
       // or if one is a label and the other a patent go to the label patent analysis view mode
-      if (itemsSelected[0].group === 'label' && itemsSelected[1].group === 'patent') {
-        nextLabelOneIdentifier = itemsSelected[0]; // set in-view label
-        nextPatentIdentifier = itemsSelected[1]; // set in-view patent
+      if (this.selectedTimelineItems[0].group === 'label' && this.selectedTimelineItems[1].group === 'patent') {
+        nextLabelOneIdentifier = this.selectedTimelineItems[0] as TimelineLabel; // set in-view label
+        nextPatentIdentifier = this.selectedTimelineItems[1] as TimelinePatent; // set in-view patent
         nextDrugViewMode = DrugViewMode.label_patent; // set viewing mode for viewing a patent v a label
       }
 
       // same as above if statement just accounting for different selection order
-      if (itemsSelected[0].group === 'patent' && itemsSelected[1].group === 'label') {
-        nextLabelOneIdentifier = itemsSelected[1]; // set in-view label
-        nextPatentIdentifier = itemsSelected[0]; // set in-view patent
+      if (this.selectedTimelineItems[0].group === 'patent' && this.selectedTimelineItems[1].group === 'label') {
+        nextPatentIdentifier = this.selectedTimelineItems[0] as TimelinePatent; // set in-view patent
+        nextLabelOneIdentifier = this.selectedTimelineItems[1] as TimelineLabel; // set in-view label
         nextDrugViewMode = DrugViewMode.label_patent; // set viewing mode for viewing a patent v a label
       }
     }

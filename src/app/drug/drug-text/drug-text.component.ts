@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {DrugViewConfig} from '../drug-view-config.interface';
 import {DrugViewMode} from '../drug-view-config.interface';
+import {IPharmaDBDrugLabel, IPharmaDBDrugLabelDiffAgainstPreviousLabel } from '../../shared/services/drug.service';
 
 /**
  * DrugText Component

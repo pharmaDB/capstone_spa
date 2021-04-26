@@ -3,150 +3,154 @@
   <!-- welcome/what to do well -->
   <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.none)">
     <article class="uk-article">
-      <div id="atuKha4jxg" class="uk-placeholder uk-text-center uk-margin-large">Select a patent or a label from the timeline to begin
+      <div id="atuKha4jxg" class="uk-placeholder uk-text-center uk-margin-large">Select a patent or a label from the
+        timeline to begin
       </div>
     </article>
   </div>
 
   <!-- Drug label -->
-  <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.label)">
+  <div *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.label) && (drugViewConfig.inViewLabelOne))">
     <span>
       <article class="uk-article">
         <h1 id="attRMvsVY1" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Label</h1>
         <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
-          <span id="atI86YRXpI">Label version {{ drugViewConfig.inViewLabelOne.data.spl_version }}
-            , published on {{ drugViewConfig.inViewLabelOne.data.published_date }}</span>
+          <span id="atI86YRXpI">Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}
+            , published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}</span>
           <span class="float-right">
             <!-- DailyMed link to the full drug label -->
             <a id="atAXOY2ZJE" target="_blank"
-               href="{{'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=' + drugViewConfig.inViewLabelOne.data.set_id + '&version=' + drugViewConfig.inViewLabelOne.data.spl_version}}">
+               href="{{'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=' + drugViewConfig.inViewLabelOne.drugLabel.set_id + '&version=' + drugViewConfig.inViewLabelOne.drugLabel.spl_version}}">
               View entire label on DailyMed
               <span uk-icon="icon: arrow-right;"></span>
             </a>
           </span>
         </p>
 
-        <!-- for every label section -->
-        <section *ngFor="let section of drugViewConfig.inViewLabelOne.data.sections"
-                 class="uk-padding-small uk-margin-small-bottom">
-          <!-- show the section name -->
-          <p id="atoiOjOhqd" class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">
-            {{ section.name }}
-
-            <!-- and if there are patent claim relevancy scores... -->
-            <span id="atDcCa2WPo" *ngIf="section.scores">
-
-              <!-- ...for ever score -->
-              <span id="atuic0IhEq" *ngFor="let score of section.scores">
-
-                <!-- if the score is above .95, then render the appropriate patent claim tag -->
-                <span id="at67NzS5Nn" *ngIf="score.score >= .95"
-                      (click)="patentClaimTagClickHandler(score.patentNumber, score.claimNumber)"
-                      class="uk-label uk-background-muted uk-text-muted uk-margin-small-right uk-margin-small-left pointer">
-                  Patent No. {{ score.patentNumber }}, Claim {{ score.claimNumber }}</span>
+        <ul uk-accordion="active: 0; multiple: true">
+          <li *ngFor="let section of drugViewConfig.inViewLabelOne.drugLabel.diff_against_previous_label"
+              class="uk-padding-small uk-margin-small-bottom">
+              <a id="atoiOjOhqd" class="uk-accordion-title uk-text-lead proximaNovaBold uk-margin-remove-bottom" href="#">
+                {{ section.name }}
+                <span *ngIf="(section | getDiffAdditionsCount) > 0">
+                  <span class="uk-label uk-label-success uk-margin-small-left proximaNovaRegular">Additions: {{ section | getDiffAdditionsCount }}</span>
                 </span>
-              </span>
-          </p>
-
-          <!-- present the label text -->
-          <p id="atED59KYkl" class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom" [innerHTML]="section.text"></p>
-        </section>
-
-      </article>
-    </span>
-  </div>
-
-  <!-- Drug label diff -->
-  <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.label_label)">
-    <span>
-      <article class="uk-article">
-
-        <!-- show the base label and compare label version and spl ID involved in the diff -->
-        <h1 id="atpm9ZDBVS" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Compare Labels</h1>
-        <p id="atqB226FUN" class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
-          <strong>Base:</strong> Label version {{ drugViewConfig.inViewLabelOne.data.spl_version }}
-          , published on {{ drugViewConfig.inViewLabelOne.data.published_date }}
-          <span class="uk-margin-small-left uk-margin-small-right" uk-icon="icon: arrow-right;"></span>
-          <strong>Compared:</strong> Label version {{ drugViewConfig.inViewLabelTwo.data.spl_version }}
-          , published on {{ drugViewConfig.inViewLabelTwo.data.published_date }}
-        </p>
-
-        <!-- for every label section -->
-        <section *ngFor="let section of drugViewConfig.labelDiff!.sections"
-                 class="uk-padding-small uk-margin-small-bottom">
-          <!-- show the section name -->
-          <p id="atA4V1bNKj" class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">
-            {{ section.name }}
-
-            <!-- and if there are patent claim relevancy scores... -->
-            <span id="atJ8pb4B6c" *ngIf="section.scores">
-
-              <!-- ...for ever score -->
-              <span id="atWduQh4qg" *ngFor="let score of section.scores">
-
-                <!-- if the score is above .95, then render the appropriate patent claim tag -->
-                <span id="atKM6Wzm4e" *ngIf="score.score >= .95"
-                      (click)="patentClaimTagClickHandler(score.patentNumber, score.claimNumber)"
-                      class="uk-label uk-background-muted uk-text-muted uk-margin-small-right uk-margin-small-left pointer">
-                  Patent No. {{ score.patentNumber }}, Claim {{ score.claimNumber }}
+                <span *ngIf="(section | getDiffDeletionsCount) > 0">
+                  <span class="uk-label uk-label-danger uk-margin-small-left proximaNovaRegular">Deletions: {{ section | getDiffDeletionsCount }}</span>
                 </span>
-              </span>
-            </span>
-          </p>
+              </a>
+              <div class="uk-accordion-content">
+                  <p>
+                    <!-- and or every diff element therein -->
+                    <span id="atf1qXuXEj" *ngFor="let textDiffElement of section.text">
 
-          <!-- and or every diff element therein -->
-          <span id="atf1qXuXEj" *ngFor="let diffElement of section.diff">
-
-            <!-- if the diff is an addition (1) give it green highlighting via CSS class-->
-            <!-- if the diff is an deletion (-1) give it red highlighting via CSS class -->
-            <!-- if the diff is an equality (0) do nothing in terms of CSS class -->
-            <span id="at4RU3MWs4" [ngClass]="{'diff-deleted-text': diffElement[0] === -1, 'diff-added-text':diffElement[0] === 1 }"
-                  [innerHTML]="diffElement[1]">
-            </span>
-          </span>
-          <br/><br/>
-            <span *ngFor="let textElement of section.endTextAsArray">
-              <span (click)="handleTextDiffClicked()" *ngIf="textElement.fromLabel" style="background:{{ textElement.fromLabel.timelineItem.color }}; color:{{ textElement.fromLabel.timelineItem.colorDarkened }}">
-                {{ textElement.text }}
-              </span>
-              <span *ngIf="!textElement.fromLabel">
-                {{ textElement.text }}
-              </span>
-            </span>
-        </section>
+                      <!-- if the diff is an addition (1) give it green highlighting via CSS class-->
+                      <!-- if the diff is an deletion (-1) give it red highlighting via CSS class -->
+                      <!-- if the diff is an equality (0) do nothing in terms of CSS class -->
+                      <span id="at4RU3MWs4"
+                            [ngClass]="{'diff-deleted-text': textDiffElement[0] === -1, 'diff-added-text':textDiffElement[0] === 1 }"
+                            [innerHTML]="textDiffElement[1]">
+                      </span>
+                    </span>
+                  </p>
+              </div>
+          </li>
+        </ul>
       </article>
     </span>
   </div>
 
-  <!-- Drug Patent -->
-  <div *ngIf="(drugViewConfig.isPatentInView)" class="uk-width-1-3@m">
-    <span>
-      <article class="uk-article">
-        <!-- show the patent number of the in-view patent and provide an option to close the patent panel -->
-        <h1 id="atRJvN9sIx" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">
-          Patent {{ drugViewConfig.inViewPatentNumber }}
-          <span (click)="closePatentViewClickHandler()" class="float-right uk-link uk-article-meta"
-                uk-icon="icon: close;"></span>
-        </h1>
-        <!-- show patent claim number -->
-        <p id="ati1QtqPO5" class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
-          Claim Number {{ drugViewConfig.inViewPatent.claim_number }}
-          <span class="float-right">
-            <!-- Google Patents link to the full patent -->
-            <a id="atNeyANkYl" target="_blank"
-               href="{{'https://patents.google.com/patent/US' + drugViewConfig.inViewPatentNumber + '/en'}}">
-              View entire patent on Google Patents
-              <span uk-icon="icon: arrow-right;"></span>
-            </a>
-          </span>
-        </p>
+  <!--  &lt;!&ndash; Drug label diff &ndash;&gt;-->
+  <!--  <div *ngIf="(drugViewConfig.drugViewMode === DrugViewMode.label_label)">-->
+  <!--    <span>-->
+  <!--      <article class="uk-article">-->
 
-        <!-- show patent claim text -->
-        <section class="uk-margin-small-bottom">
-          <p id="atVDZE7fIS" class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom"
-             [innerHTML]="drugViewConfig.inViewPatent.claim_text"></p>
-        </section>
-      </article>
-    </span>
-  </div>
-</div>
+  <!--        &lt;!&ndash; show the base label and compare label version and spl ID involved in the diff &ndash;&gt;-->
+  <!--        <h1 id="atpm9ZDBVS" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Compare Labels</h1>-->
+  <!--        <p id="atqB226FUN" class="uk-article-meta proximaNovaRegular uk-margin-remove-top">-->
+  <!--          <strong>Base:</strong> Label version {{ drugViewConfig.inViewLabelOne.data.spl_version }}-->
+  <!--          , published on {{ drugViewConfig.inViewLabelOne.data.published_date }}-->
+  <!--          <span class="uk-margin-small-left uk-margin-small-right" uk-icon="icon: arrow-right;"></span>-->
+  <!--          <strong>Compared:</strong> Label version {{ drugViewConfig.inViewLabelTwo.data.spl_version }}-->
+  <!--          , published on {{ drugViewConfig.inViewLabelTwo.data.published_date }}-->
+  <!--        </p>-->
+
+  <!--        &lt;!&ndash; for every label section &ndash;&gt;-->
+  <!--        <section *ngFor="let section of drugViewConfig.labelDiff!.sections"-->
+  <!--                 class="uk-padding-small uk-margin-small-bottom">-->
+  <!--          &lt;!&ndash; show the section name &ndash;&gt;-->
+  <!--          <p id="atA4V1bNKj" class="uk-text-lead proximaNovaBold uk-margin-remove-bottom">-->
+  <!--            {{ section.name }}-->
+
+  <!--            &lt;!&ndash; and if there are patent claim relevancy scores... &ndash;&gt;-->
+  <!--            <span id="atJ8pb4B6c" *ngIf="section.scores">-->
+
+  <!--              &lt;!&ndash; ...for ever score &ndash;&gt;-->
+  <!--              <span id="atWduQh4qg" *ngFor="let score of section.scores">-->
+
+  <!--                &lt;!&ndash; if the score is above .95, then render the appropriate patent claim tag &ndash;&gt;-->
+  <!--                <span id="atKM6Wzm4e" *ngIf="score.score >= .95"-->
+  <!--                      (click)="patentClaimTagClickHandler(score.patentNumber, score.claimNumber)"-->
+  <!--                      class="uk-label uk-background-muted uk-text-muted uk-margin-small-right uk-margin-small-left pointer">-->
+  <!--                  Patent No. {{ score.patentNumber }}, Claim {{ score.claimNumber }}-->
+  <!--                </span>-->
+  <!--              </span>-->
+  <!--            </span>-->
+  <!--          </p>-->
+
+  <!--          &lt;!&ndash; and or every diff element therein &ndash;&gt;-->
+  <!--          <span id="atf1qXuXEj" *ngFor="let diffElement of section.diff">-->
+
+  <!--            &lt;!&ndash; if the diff is an addition (1) give it green highlighting via CSS class&ndash;&gt;-->
+  <!--            &lt;!&ndash; if the diff is an deletion (-1) give it red highlighting via CSS class &ndash;&gt;-->
+  <!--            &lt;!&ndash; if the diff is an equality (0) do nothing in terms of CSS class &ndash;&gt;-->
+  <!--            <span id="at4RU3MWs4" [ngClass]="{'diff-deleted-text': diffElement[0] === -1, 'diff-added-text':diffElement[0] === 1 }"-->
+  <!--                  [innerHTML]="diffElement[1]">-->
+  <!--            </span>-->
+  <!--          </span>-->
+  <!--          <br/><br/>-->
+  <!--            <span *ngFor="let textElement of section.endTextAsArray">-->
+  <!--              <span (click)="handleTextDiffClicked()" *ngIf="textElement.fromLabel" style="background:{{ textElement.fromLabel.timelineItem.color }}; color:{{ textElement.fromLabel.timelineItem.colorDarkened }}">-->
+  <!--                {{ textElement.text }}-->
+  <!--              </span>-->
+  <!--              <span *ngIf="!textElement.fromLabel">-->
+  <!--                {{ textElement.text }}-->
+  <!--              </span>-->
+  <!--            </span>-->
+  <!--        </section>-->
+  <!--      </article>-->
+  <!--    </span>-->
+  <!--  </div>-->
+
+  <!--  &lt;!&ndash; Drug Patent &ndash;&gt;-->
+  <!--  <div *ngIf="(drugViewConfig.isPatentInView)" class="uk-width-1-3@m">-->
+  <!--    <span>-->
+  <!--      <article class="uk-article">-->
+  <!--        &lt;!&ndash; show the patent number of the in-view patent and provide an option to close the patent panel &ndash;&gt;-->
+  <!--        <h1 id="atRJvN9sIx" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">-->
+  <!--          Patent {{ drugViewConfig.inViewPatentNumber }}-->
+  <!--          <span (click)="closePatentViewClickHandler()" class="float-right uk-link uk-article-meta"-->
+  <!--                uk-icon="icon: close;"></span>-->
+  <!--        </h1>-->
+  <!--        &lt;!&ndash; show patent claim number &ndash;&gt;-->
+  <!--        <p id="ati1QtqPO5" class="uk-article-meta proximaNovaRegular uk-margin-remove-top">-->
+  <!--          Claim Number {{ drugViewConfig.inViewPatent.claim_number }}-->
+  <!--          <span class="float-right">-->
+  <!--            &lt;!&ndash; Google Patents link to the full patent &ndash;&gt;-->
+  <!--            <a id="atNeyANkYl" target="_blank"-->
+  <!--               href="{{'https://patents.google.com/patent/US' + drugViewConfig.inViewPatentNumber + '/en'}}">-->
+  <!--              View entire patent on Google Patents-->
+  <!--              <span uk-icon="icon: arrow-right;"></span>-->
+  <!--            </a>-->
+  <!--          </span>-->
+  <!--        </p>-->
+
+  <!--        &lt;!&ndash; show patent claim text &ndash;&gt;-->
+  <!--        <section class="uk-margin-small-bottom">-->
+  <!--          <p id="atVDZE7fIS" class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom"-->
+  <!--             [innerHTML]="drugViewConfig.inViewPatent.claim_text"></p>-->
+  <!--        </section>-->
+  <!--      </article>-->
+  <!--    </span>-->
+  <!--  </div>-->
+  <!--</div>-->

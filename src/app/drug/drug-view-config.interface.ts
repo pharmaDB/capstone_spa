@@ -1,3 +1,6 @@
+import { IPharmaDBDrugLabel, IPharmaDBDrugPatent} from '../shared/services/drug.service';
+import {TimelineLabel, TimelinePatent} from './drug/drug.component';
+
 /**
  * DrugViewConfig Interface
  * The DrugViewConfig Interface is responsible for holding an overall state of the Drug view
@@ -6,11 +9,11 @@
  */
 export interface DrugViewConfig {
   drugViewMode: DrugViewMode;
-  inViewLabelOne?: any;
-  inViewLabelTwo?: any;
+  inViewLabelOne: TimelineLabel | undefined;
+  inViewLabelTwo: TimelineLabel | undefined;
   isPatentInView: boolean;
-  inViewPatent?: any;
-  inViewPatentNumber?: any;
+  inViewPatent: TimelinePatent | undefined;
+  inViewPatentNumber?: string;
   labelDiff?: {
     sections: {
       name: string;
