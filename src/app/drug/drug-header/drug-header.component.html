@@ -1,24 +1,30 @@
 <div class="uk-margin-top" uk-grid>
 
-  <div class="uk-width-3-4@m">
+  <div class="uk-width-1-4@m">
     <div class="uk-text-left">
       <!-- present the Drug name of the shortest Drug name available for the drug, truncating it if necessary -->
       <h1 id="atxMt5NQIk"
-        class="uk-heading-small drug-header uk-margin-remove-bottom">{{ drug.metadata.brandNames | shortestValueFromArray | truncate:[18, '...'] }}</h1>
+        class="uk-heading-small drug-header uk-margin-remove-bottom">{{ drug.metadata.brandNames | shortestValueFromArray | truncate:[18, '...'] }}
+          <span id="atSJm7uqUZ" class="uk-label uk-background-muted uk-text-muted">{{ drug.applicationNumber }}</span>
+      </h1>
     </div>
   </div>
   <div class="uk-width-expand@m">
     <div class="uk-text-right">
-      <div>
-        <!-- show the drugs NDA application number -->
-        <span id="atSJm7uqUZ" class="uk-label uk-background-muted uk-text-muted">{{ drug.applicationNumber }}</span>
+      <button class="uk-button uk-button-default proximaNovaThin" type="button">SET ID: {{ drugViewConfig.selectedDrugLabelSetID }}</button>
+      <div uk-dropdown>
+        <ul class="uk-nav uk-dropdown-nav">
+          <li *ngFor="let setId of drugViewConfig.drugLabelSetIDs">
+            <a (click)="handleSetIdClicked(setId)" class="uk-text-left">SET ID: {{ setId }}</a>
+          </li>
+        </ul>
       </div>
-      <div>
-        <!-- clickable icons for opening modals to view additional drug metadata and drug images (if images are available) -->
-        <a id="at6jgPnRZd" href="#drug-info-modal" uk-toggle class="uk-margin-small-right"><span uk-icon="info"></span></a>
-        <a id="atAl3S6CYL" *ngIf="drug.drugImages.length > 0" href="#drug-images-modal" uk-toggle class="uk-margin-small-right"><span
-          uk-icon="image"></span></a>
-      </div>
+<!--      <div>-->
+<!--        &lt;!&ndash; clickable icons for opening modals to view additional drug metadata and drug images (if images are available) &ndash;&gt;-->
+<!--        <a id="at6jgPnRZd" href="#drug-info-modal" uk-toggle class="uk-margin-small-right"><span uk-icon="info"></span></a>-->
+<!--        <a id="atAl3S6CYL" *ngIf="drug.drugImages.length > 0" href="#drug-images-modal" uk-toggle class="uk-margin-small-right"><span-->
+<!--          uk-icon="image"></span></a>-->
+<!--      </div>-->
     </div>
   </div>
 </div>

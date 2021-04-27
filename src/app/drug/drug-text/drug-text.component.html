@@ -10,13 +10,35 @@
   </div>
 
   <!-- Drug label -->
-  <div *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.label) && (drugViewConfig.inViewLabelOne))">
+  <div *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff || DrugViewMode.historicalLabelDiff) && (drugViewConfig.inViewLabelOne))">
     <span>
       <article class="uk-article">
-        <h1 id="attRMvsVY1" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">Label</h1>
+        <h1 id="attRMvsVY1" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">
+          <span [ngSwitch]="drugViewConfig.drugViewMode">
+            <span *ngSwitchCase="DrugViewMode.labelDiff">
+              Single Label Diff
+            </span>
+            <span *ngSwitchCase="DrugViewMode.historicalLabelDiff">
+              Historical Label Diff
+            </span>
+          </span>
+          <button (click)="handleToggleDrugView()" href="#" class="uk-button uk-button-default float-right" type="button">
+            <span [ngSwitch]="drugViewConfig.drugViewMode">
+              <span *ngSwitchCase="DrugViewMode.labelDiff">
+                Switch to Historical Diff
+              </span>
+              <span *ngSwitchCase="DrugViewMode.historicalLabelDiff">
+                Switch to Label Diff
+              </span>
+            </span>
+          </button>
+        </h1>
+
+        <span *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff) && (drugViewConfig.inViewLabelOne))">
         <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
-          <span id="atI86YRXpI">Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}
-            , published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}</span>
+          <strong>Base:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_published_date }}
+          <span class="uk-margin-small-left uk-margin-small-right" uk-icon="icon: arrow-right;"></span>
+          <strong>Compared:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}
           <span class="float-right">
             <!-- DailyMed link to the full drug label -->
             <a id="atAXOY2ZJE" target="_blank"
@@ -56,6 +78,7 @@
               </div>
           </li>
         </ul>
+        </span>
       </article>
     </span>
   </div>

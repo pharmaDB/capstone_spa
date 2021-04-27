@@ -9,6 +9,8 @@ import {TimelineLabel, TimelinePatent} from './drug/drug.component';
  */
 export interface DrugViewConfig {
   drugViewMode: DrugViewMode;
+  drugLabelSetIDs: string[];
+  selectedDrugLabelSetID: string;
   inViewLabelOne: TimelineLabel | undefined;
   inViewLabelTwo: TimelineLabel | undefined;
   isPatentInView: boolean;
@@ -35,8 +37,9 @@ export interface DrugViewConfig {
  */
 export enum DrugViewMode {
   none,
-  label,
-  patent,
-  label_label,
-  label_patent,
+  labelDiff,
+  historicalLabelDiff
+  // patent,
+  // label_label,
+  // label_patent,
 }

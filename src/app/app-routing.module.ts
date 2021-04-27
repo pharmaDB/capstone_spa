@@ -12,6 +12,7 @@ import { DrugComponent } from './drug/drug/drug.component';
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'drugs/:NDANumber', component: DrugComponent },
+  { path: 'drugs/:NDANumber/:setId', component: DrugComponent },
   { path: '**',   redirectTo: 'search' }, // a catch all, any non specified route will redirect to /search (including root /)
 ];
 

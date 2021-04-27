@@ -1,7 +1,5 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {DrugViewConfig} from '../drug-view-config.interface';
-import {DrugViewMode} from '../drug-view-config.interface';
-import {IPharmaDBDrugLabel, IPharmaDBDrugLabelDiffAgainstPreviousLabel } from '../../shared/services/drug.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
 
 /**
  * DrugText Component
@@ -19,6 +17,7 @@ import {IPharmaDBDrugLabel, IPharmaDBDrugLabelDiffAgainstPreviousLabel } from '.
 export class DrugTextComponent {
   @Output() onPatentClaimTagClicked = new EventEmitter<any>();
   @Output() onClosePatentViewClicked = new EventEmitter<any>();
+  @Output() onDrugViewChange = new EventEmitter<DrugViewConfig>();   // event emitter use to notify the parent of required Drug view changes
   @Input() drugViewConfig: DrugViewConfig;
 
   constructor() {
@@ -51,6 +50,18 @@ export class DrugTextComponent {
 
   handleTextDiffClicked(): void {
     console.log('diff clicked');
+  }
+
+  handleToggleDrugView(): void {
+    this.onDrugViewChange.emit({
+      drugViewMode: this.drugViewConfig.drugViewMode === DrugViewMode.labelDiff ? DrugViewMode.historicalLabelDiff : DrugViewMode.labelDiff,
+      drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
+      selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
+      inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+      isPatentInView: this.drugViewConfig.isPatentInView,
+      inViewPatent: this.drugViewConfig.inViewPatent
+    });
   }
 
   /**

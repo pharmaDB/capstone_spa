@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {v4 as uuidv4} from 'uuid';
 import {DiffMatchPatch} from 'diff-match-patch-ts';
 import * as _ from 'lodash';
@@ -9,6 +9,7 @@ const color = require('color');
 
 import {DrugService, IPharmaDBDrugLabel, IPharmaDBDrugPatent, IPharmaDBGetByNDAResponse} from '../../shared/services/drug.service';
 import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
+import set = Reflect.set;
 
 /**
  * DrugComponent
@@ -25,6 +26,7 @@ import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
 export class DrugComponent implements OnInit {
   isPageLoading = true;
   isTextLoading = false;
+  setIdFromURL: string | undefined = undefined;
   ndaNumber: string; // NDA number of Drug currently in-view
   timelineItems: (TimelineLabel | TimelinePatent)[] = []; // data structure to store all the items in view
   drug: IPharmaDBGetByNDAResponse; // Raw data (from the API/DrugService) of the Drug currently in-view
@@ -32,6 +34,8 @@ export class DrugComponent implements OnInit {
   // default empty drugViewConfig
   drugViewConfig: DrugViewConfig = {
     drugViewMode: DrugViewMode.none,
+    drugLabelSetIDs: [],
+    selectedDrugLabelSetID: '',
     inViewLabelOne: undefined,
     inViewLabelTwo: undefined,
     labelDiff: undefined,
@@ -42,9 +46,16 @@ export class DrugComponent implements OnInit {
   allAdditionsAcrossAllLabels = [];
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private drugService: DrugService,
-  ) { }
+  ) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+
+  }
 
   /**
    * onPatentClaimTagClicked handler
@@ -65,6 +76,10 @@ export class DrugComponent implements OnInit {
     //   inViewPatent: claim});
   }
 
+  onSetIdClicked(setId: string): void {
+    this.router.navigate([`/drugs/${this.ndaNumber}/${setId}`]);
+  }
+
   /**
    * onClasePatentViewClicked handler
    * handles events from the DrugText component once the close button is clicked on the patent viewing window. Resets the patent and patent
@@ -73,6 +88,8 @@ export class DrugComponent implements OnInit {
   onClosePatentViewClicked(): void {
     this.onDrugViewChange({
       drugViewMode: this.drugViewConfig.drugViewMode,
+      drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
+      selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
       inViewLabelOne: this.drugViewConfig.inViewLabelOne,
       inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
       isPatentInView: false,
@@ -92,9 +109,10 @@ export class DrugComponent implements OnInit {
     // set new drugViewConfig
     this.drugViewConfig = drugViewConfig;
     console.log(this.drugViewConfig);
+    this.timelineItems = [];
     // if two labels are selected (ie the new drugViewConfig indicates a label diff)...
     if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {
-      console.log('diffTime')
+      console.log('diffTime');
       // const labelSectionDiffs: { name: string, scores?: any[], endText: any, diff: any, flattenedDiffs: any}[] = [];
       //
       // // ...then iterate through each section of the label
@@ -223,32 +241,49 @@ export class DrugComponent implements OnInit {
   ngOnInit(): void {
     // get NDA number from current URL route
     this.ndaNumber = this.route.snapshot.params.NDANumber;
+    this.setIdFromURL = this.route.snapshot.params.setId;
 
     this.drugService.getDrugByApplicationNumber(this.ndaNumber).subscribe((drugData: IPharmaDBGetByNDAResponse) => {
 
       // store raw drug data for convenience in case needed for later features
       this.drug = drugData;
 
+      // first iterate through the labels to determine how many setIDs there are. store them and select the first one
+      this.drug.drugLabels.forEach((label: IPharmaDBDrugLabel) => {
+        if (!this.drugViewConfig.drugLabelSetIDs.includes(label.set_id)) {
+          this.drugViewConfig.drugLabelSetIDs.push(label.set_id);
+        }
+      });
+
+      // if there is a setId provided in the URL and its one of the ones included in the drug data then select that otherwise select the first set id
+      if (this.setIdFromURL && this.drugViewConfig.drugLabelSetIDs.includes(this.setIdFromURL)) {
+        this.drugViewConfig.selectedDrugLabelSetID = this.setIdFromURL;
+      } else {
+        this.drugViewConfig.selectedDrugLabelSetID = this.drugViewConfig.drugLabelSetIDs[0];
+      }
+
       // for every drug label present, add a label timeline item to the timelineItems arr
       this.drug.drugLabels.forEach((label: IPharmaDBDrugLabel) => {
-        const timelineLabelColor = color(randomColor({ luminosity: 'light', hue: 'random '}));
-        const timelineLabelColorDarkened = timelineLabelColor.darken(0.666);
+        if (label.set_id === this.drugViewConfig.selectedDrugLabelSetID) {
+          const timelineLabelColor = color(randomColor({ luminosity: 'light', hue: 'random '}));
+          const timelineLabelColorDarkened = timelineLabelColor.darken(0.666);
 
-        const timelineLabel: TimelineLabel = {
-          id: uuidv4(),
-          content: 'L',
-          start: label.published_date,
-          group: 'label',
-          className: 'timeline-label-identifier',
-          style: `color: ${timelineLabelColorDarkened}; border-color: ${timelineLabelColorDarkened}; background: ${timelineLabelColor}`,
-          title: label.application_numbers[0],
-          color: timelineLabelColor,
-          colorDarkened: timelineLabelColorDarkened,
-          drugLabel: label
-          // data: label,
-          // splId: label.spl_id,
-        };
-        this.timelineItems.push(timelineLabel);
+          const timelineLabel: TimelineLabel = {
+            id: uuidv4(),
+            content: 'L',
+            start: label.published_date,
+            group: 'label',
+            className: 'timeline-label-identifier',
+            style: `color: ${timelineLabelColorDarkened}; border-color: ${timelineLabelColorDarkened}; background: ${timelineLabelColor}`,
+            title: label.application_numbers[0],
+            color: timelineLabelColor,
+            colorDarkened: timelineLabelColorDarkened,
+            drugLabel: label
+            // data: label,
+            // splId: label.spl_id,
+          };
+          this.timelineItems.push(timelineLabel);
+        }
       });
 
      // this.calculateAndFlattenAllDiffs();

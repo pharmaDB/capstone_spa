@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {DrugViewConfig} from '../drug-view-config.interface';
 
 /**
  * DrugHeader Component
@@ -12,7 +13,12 @@ import { Component, Input } from '@angular/core';
 })
 export class DrugHeaderComponent {
   @Input() drug: any;
+  @Input() drugViewConfig: DrugViewConfig;
+  @Output() onSetIdClicked = new EventEmitter<string>();
 
   constructor() { }
 
+  handleSetIdClicked(setId: string): void {
+    this.onSetIdClicked.emit(setId);
+  }
 }
