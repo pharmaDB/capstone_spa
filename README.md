@@ -25,3 +25,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Docker
+
+Run `ng build --prod` for a prod build
+Run `Docker build -t av-app-image .` to create a docker image
+Run `docker run --name av-app-container -d -p 8080:80 av-app-image` to start the container
