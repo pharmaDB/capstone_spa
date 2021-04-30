@@ -16,7 +16,12 @@
 <!-- if the page is not currently loading then render the DrugHeader, DrugText and DrugTimeline components -->
 <div *ngIf="!isPageLoading" class="uk-container uk-container-large">
     <app-drug-header [drug]="drug" [drugViewConfig]="drugViewConfig" (onSetIdClicked)="onSetIdClicked($event)"></app-drug-header>
-    <app-drug-text *ngIf="!isTextLoading" (onDrugViewChange)="onDrugViewChange($event)" (onPatentClaimTagClicked)="onPatentClaimTagClicked($event)" (onClosePatentViewClicked)="onClosePatentViewClicked()" [drugViewConfig]="drugViewConfig"></app-drug-text>
+    <app-drug-text *ngIf="!isTextLoading"
+                   (onDrugViewChange)="onDrugViewChange($event)"
+                   (onPatentClaimTagClicked)="onPatentClaimTagClicked($event)"
+                   (onClosePatentViewClicked)="onClosePatentViewClicked()"
+                   (onDiffAdditionClicked)="onDiffAdditionClicked($event)"
+                   [drugViewConfig]="drugViewConfig"></app-drug-text>
     <div class="timeline-container">
       <app-drug-timeline class="uk-container uk-container-large" (onDrugViewChange)="onDrugViewChange($event)" [drugViewConfig]="drugViewConfig" [timelineItems]="timelineItems"></app-drug-timeline>
 

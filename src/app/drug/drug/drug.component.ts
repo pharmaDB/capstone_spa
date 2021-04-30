@@ -80,6 +80,43 @@ export class DrugComponent implements OnInit {
     this.router.navigate([`/drugs/${this.ndaNumber}/${setId}`]);
   }
 
+  onDiffAdditionClicked(diffAddition: any): void {
+    const patents: IPharmaDBDrugPatent[] = [];
+
+    // for each score (which might be associated to a unique patent claim)
+    diffAddition[3].scores.forEach((score: any): void => {
+
+      // try to get the patent from the patents arr to see if it has already been added
+      const patentFromPatentsObject = _.find(patents, (patent: IPharmaDBDrugPatent) => {
+        return patent.patent_number === score.patent_number;
+      });
+
+      // if it already exists then simply exit out
+      if (patentFromPatentsObject) { return; }
+
+      // get the patent from the this.drug object that contains all the drug labels patents
+      const patentFromDrugObject = _.find(this.drug.drugPatents, (patent: IPharmaDBDrugPatent) => {
+        return patent.patent_number === score.patent_number;
+      });
+
+      // push the patent into the patents array
+      if (patentFromDrugObject) {
+        patents.push(patentFromDrugObject);
+      }
+
+
+    });
+
+    this.onDrugViewChange({
+      drugViewMode: this.drugViewConfig.drugViewMode,
+      drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
+      selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
+      inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+      isPatentInView: true,
+      inViewPatent: { diffElement: diffAddition, patents}});
+  }
+
   /**
    * onClasePatentViewClicked handler
    * handles events from the DrugText component once the close button is clicked on the patent viewing window. Resets the patent and patent

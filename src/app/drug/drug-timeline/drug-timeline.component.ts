@@ -136,7 +136,7 @@ export class DrugTimelineComponent implements OnInit {
       inViewLabelOne: nextLabelOneIdentifier,
       inViewLabelTwo: nextLabelTwoIdentifier,
       isPatentInView: false,
-      inViewPatent: nextPatentIdentifier
+      inViewPatent: undefined
     });
   }
 

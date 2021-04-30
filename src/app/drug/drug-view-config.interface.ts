@@ -14,7 +14,10 @@ export interface DrugViewConfig {
   inViewLabelOne: TimelineLabel | undefined;
   inViewLabelTwo: TimelineLabel | undefined;
   isPatentInView: boolean;
-  inViewPatent: TimelinePatent | undefined;
+  inViewPatent: {
+    diffElement: any | undefined;
+    patents: IPharmaDBDrugPatent[] | undefined;
+  } | undefined;
   inViewPatentNumber?: string;
   labelDiff?: {
     sections: {

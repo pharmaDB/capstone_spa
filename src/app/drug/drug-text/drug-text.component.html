@@ -69,9 +69,13 @@
                       <!-- if the diff is an addition (1) give it green highlighting via CSS class-->
                       <!-- if the diff is an deletion (-1) give it red highlighting via CSS class -->
                       <!-- if the diff is an equality (0) do nothing in terms of CSS class -->
-                      <span id="at4RU3MWs4"
-                            [ngClass]="{'diff-deleted-text': textDiffElement[0] === -1, 'diff-added-text':textDiffElement[0] === 1 }"
-                            [innerHTML]="textDiffElement[1]">
+                      <span [ngSwitch]="textDiffElement[0]">
+                        <span *ngSwitchCase="0" class="" [innerHTML]="textDiffElement[1]">
+                        </span>
+                        <span *ngSwitchCase="1" (click)="diffAdditionClickHandler(textDiffElement)" class="diff-added-text" [innerHTML]="textDiffElement[1]">
+                        </span>
+                        <span *ngSwitchCase="-1" class="diff-deleted-text" [innerHTML]="textDiffElement[1]">
+                        </span>
                       </span>
                     </span>
                   </p>
@@ -145,35 +149,48 @@
   <!--    </span>-->
   <!--  </div>-->
 
-  <!--  &lt;!&ndash; Drug Patent &ndash;&gt;-->
-  <!--  <div *ngIf="(drugViewConfig.isPatentInView)" class="uk-width-1-3@m">-->
-  <!--    <span>-->
-  <!--      <article class="uk-article">-->
-  <!--        &lt;!&ndash; show the patent number of the in-view patent and provide an option to close the patent panel &ndash;&gt;-->
-  <!--        <h1 id="atRJvN9sIx" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">-->
-  <!--          Patent {{ drugViewConfig.inViewPatentNumber }}-->
-  <!--          <span (click)="closePatentViewClickHandler()" class="float-right uk-link uk-article-meta"-->
-  <!--                uk-icon="icon: close;"></span>-->
-  <!--        </h1>-->
-  <!--        &lt;!&ndash; show patent claim number &ndash;&gt;-->
-  <!--        <p id="ati1QtqPO5" class="uk-article-meta proximaNovaRegular uk-margin-remove-top">-->
-  <!--          Claim Number {{ drugViewConfig.inViewPatent.claim_number }}-->
-  <!--          <span class="float-right">-->
-  <!--            &lt;!&ndash; Google Patents link to the full patent &ndash;&gt;-->
-  <!--            <a id="atNeyANkYl" target="_blank"-->
-  <!--               href="{{'https://patents.google.com/patent/US' + drugViewConfig.inViewPatentNumber + '/en'}}">-->
-  <!--              View entire patent on Google Patents-->
-  <!--              <span uk-icon="icon: arrow-right;"></span>-->
-  <!--            </a>-->
-  <!--          </span>-->
-  <!--        </p>-->
+    <!-- Drug Patent -->
+    <div *ngIf="(drugViewConfig.isPatentInView && drugViewConfig.inViewPatent)" class="uk-width-1-3@m">
+      <span>
+        <article class="uk-article">
+          <!-- show the patent number of the in-view patent and provide an option to close the patent panel -->
+          <h1 id="atRJvN9sIx" class="uk-article-title proximaNovaThin">
+            Patents
+            <span (click)="closePatentViewClickHandler()" class="float-right uk-link uk-article-meta"
+                  uk-icon="icon: close;"></span>
+          </h1>
+          <span class="proximaNovaBold">
+            Expanded Context
+            <hr class="uk-margin-remove-top uk-margin-small-bottom"/>
+          </span>
+          <span class="proximaNovaThin">
+            "{{ drugViewConfig.inViewPatent.diffElement[3].expanded_content }}"
+          </span>
 
-  <!--        &lt;!&ndash; show patent claim text &ndash;&gt;-->
-  <!--        <section class="uk-margin-small-bottom">-->
-  <!--          <p id="atVDZE7fIS" class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom"-->
-  <!--             [innerHTML]="drugViewConfig.inViewPatent.claim_text"></p>-->
-  <!--        </section>-->
-  <!--      </article>-->
-  <!--    </span>-->
-  <!--  </div>-->
-  <!--</div>-->
+          <div *ngFor="let score of drugViewConfig.inViewPatent.diffElement[3].scores" class="uk-margin-medium-top">
+            <span class="proximaNovaBold">
+              PATENT {{ score.patent_number }}, CLAIM {{ score.claim_number }}
+              <span id="ati1QtqPO5" class="float-right uk-article-meta proximaNovaRegular">
+                <!-- Google Patents link to the full patent -->
+                <a id="atNeyANkYl" target="_blank"
+                   href="{{'https://patents.google.com/patent/US' + score.patent_number + '/en'}}">
+                  Google Patents
+                  <span uk-icon="icon: arrow-right;"></span>
+                </a>
+              </span>
+              <hr class="uk-margin-remove-top uk-margin-small-bottom"/>
+            </span>
+            <span class="proximaNovaBold">
+            "patent claim text"
+          </span>
+          </div>
+
+          <!-- show patent claim text -->
+          <section class="uk-margin-small-bottom">
+<!--            <p id="atVDZE7fIS" class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom"-->
+<!--               [innerHTML]="drugViewConfig.inViewPatent.claim_text"></p>-->
+          </section>
+        </article>
+      </span>
+    </div>
+<!--  </div>-->

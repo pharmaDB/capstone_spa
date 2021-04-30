@@ -17,6 +17,7 @@ import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
 export class DrugTextComponent {
   @Output() onPatentClaimTagClicked = new EventEmitter<any>();
   @Output() onClosePatentViewClicked = new EventEmitter<any>();
+  @Output() onDiffAdditionClicked = new EventEmitter<any>();
   @Output() onDrugViewChange = new EventEmitter<DrugViewConfig>();   // event emitter use to notify the parent of required Drug view changes
   @Input() drugViewConfig: DrugViewConfig;
 
@@ -48,8 +49,8 @@ export class DrugTextComponent {
     this.onClosePatentViewClicked.emit();
   }
 
-  handleTextDiffClicked(): void {
-    console.log('diff clicked');
+  diffAdditionClickHandler(textDiff: any): void {
+    this.onDiffAdditionClicked.emit(textDiff);
   }
 
   handleToggleDrugView(): void {
