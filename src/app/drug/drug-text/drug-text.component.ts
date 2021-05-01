@@ -19,7 +19,16 @@ export class DrugTextComponent {
   @Output() onClosePatentViewClicked = new EventEmitter<any>();
   @Output() onDiffAdditionClicked = new EventEmitter<any>();
   @Output() onDrugViewChange = new EventEmitter<DrugViewConfig>();   // event emitter use to notify the parent of required Drug view changes
-  @Input() drugViewConfig: DrugViewConfig;
+  // @Input() drugViewConfig: DrugViewConfig;
+  DrugViewConfig: DrugViewConfig;
+
+  @Input() set drugViewConfig(value: DrugViewConfig) {
+    this.DrugViewConfig = value;
+  }
+
+  get drugViewConfig(): DrugViewConfig {
+    return this.DrugViewConfig;
+  }
 
   constructor() {
   }
@@ -51,6 +60,10 @@ export class DrugTextComponent {
 
   diffAdditionClickHandler(textDiff: any): void {
     this.onDiffAdditionClicked.emit(textDiff);
+  }
+
+  get tess(): string {
+    return 'wfw';
   }
 
   handleToggleDrugView(): void {

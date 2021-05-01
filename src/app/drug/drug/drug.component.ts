@@ -86,26 +86,42 @@ export class DrugComponent implements OnInit {
     // for each score (which might be associated to a unique patent claim)
     diffAddition[3].scores.forEach((score: any): void => {
 
-      // try to get the patent from the patents arr to see if it has already been added
-      const patentFromPatentsObject = _.find(patents, (patent: IPharmaDBDrugPatent) => {
-        return patent.patent_number === score.patent_number;
-      });
-
-      // if it already exists then simply exit out
-      if (patentFromPatentsObject) { return; }
-
       // get the patent from the this.drug object that contains all the drug labels patents
       const patentFromDrugObject = _.find(this.drug.drugPatents, (patent: IPharmaDBDrugPatent) => {
         return patent.patent_number === score.patent_number;
       });
-
-      // push the patent into the patents array
-      if (patentFromDrugObject) {
-        patents.push(patentFromDrugObject);
+      if (!patentFromDrugObject) {
+        console.log('there are no patents associated with this addition');
+        this.onDrugViewChange({
+          drugViewMode: this.drugViewConfig.drugViewMode,
+          drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
+          selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
+          inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+          inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+          isPatentInView: true,
+          inViewPatent: { diffElement: diffAddition, patents}
+        });
+        return;
       }
 
+      const patentClaim = _.find(patentFromDrugObject.claims, (claim: any) => {
+        return claim.claim_number === score.claim_number;
+      });
 
+      score.claim = patentClaim;
+      score.parentClaims = [];
+
+      score.parent_claim_numbers.forEach((parentClaimNumber: number) => {
+        const parentClaim = _.find(patentFromDrugObject.claims, (claim: any) => {
+          return claim.claim_number === parentClaimNumber;
+        });
+        score.parentClaims.push(parentClaim);
+      });
+
+      _.reverse(score.parentClaims);
     });
+
+    console.log(diffAddition[3].scores);
 
     this.onDrugViewChange({
       drugViewMode: this.drugViewConfig.drugViewMode,
@@ -114,7 +130,8 @@ export class DrugComponent implements OnInit {
       inViewLabelOne: this.drugViewConfig.inViewLabelOne,
       inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
       isPatentInView: true,
-      inViewPatent: { diffElement: diffAddition, patents}});
+      inViewPatent: { diffElement: diffAddition, patents}
+    });
   }
 
   /**
@@ -145,7 +162,7 @@ export class DrugComponent implements OnInit {
 
     // set new drugViewConfig
     this.drugViewConfig = drugViewConfig;
-    console.log(this.drugViewConfig);
+
     this.timelineItems = [];
     // if two labels are selected (ie the new drugViewConfig indicates a label diff)...
     if (drugViewConfig.inViewLabelOne && drugViewConfig.inViewLabelTwo) {

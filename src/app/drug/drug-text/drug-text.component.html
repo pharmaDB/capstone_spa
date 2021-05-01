@@ -180,17 +180,19 @@
               </span>
               <hr class="uk-margin-remove-top uk-margin-small-bottom"/>
             </span>
-            <span class="proximaNovaBold">
-            "patent claim text"
-          </span>
-          </div>
+            <span class="proximaNovaRegular">
+              {{ score.claim.claim_text }}
 
-          <!-- show patent claim text -->
-          <section class="uk-margin-small-bottom">
-<!--            <p id="atVDZE7fIS" class="proximaNovaRegular uk-margin-remove-top uk-margin-remove-bottom"-->
-<!--               [innerHTML]="drugViewConfig.inViewPatent.claim_text"></p>-->
-          </section>
+              <ul uk-accordion class="uk-margin-small-top">
+                <li *ngFor="let parentClaim of score.parentClaims">
+                    <a class="uk-accordion-title parent-claim-subheader proximaNovaBold">Parent Claim {{ parentClaim.claim_number }}</a>
+                    <div class="uk-accordion-content proximaNovaRegular">
+                      {{ parentClaim.claim_text }}
+                    </div>
+                </li>
+              </ul>
+            </span>
+          </div>
         </article>
       </span>
     </div>
-<!--  </div>-->
