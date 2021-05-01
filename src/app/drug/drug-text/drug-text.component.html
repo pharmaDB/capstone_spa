@@ -10,9 +10,9 @@
   </div>
 
   <!-- Drug label -->
-  <div class="text-container-left" *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff || DrugViewMode.historicalLabelDiff) && (drugViewConfig.inViewLabelOne))">
+  <div class="text-container-left hide-scroll-bar" *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff || DrugViewMode.historicalLabelDiff) && (drugViewConfig.inViewLabelOne))">
     <span>
-      <article class="uk-article">
+      <article class="uk-article label-text-container">
         <h1 id="attRMvsVY1" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">
           <span [ngSwitch]="drugViewConfig.drugViewMode">
             <span *ngSwitchCase="DrugViewMode.labelDiff">
@@ -150,9 +150,9 @@
   <!--  </div>-->
 
     <!-- Drug Patent -->
-    <div *ngIf="(drugViewConfig.isPatentInView && drugViewConfig.inViewPatent)" class="uk-width-1-3@m text-container-right">
+    <div *ngIf="(drugViewConfig.isPatentInView && drugViewConfig.inViewPatent)" class="uk-width-1-3@m text-container-right hide-scroll-bar">
       <span>
-        <article class="uk-article">
+        <article class="uk-article patent-text-container">
           <!-- show the patent number of the in-view patent and provide an option to close the patent panel -->
           <h1 id="atRJvN9sIx" class="uk-article-title proximaNovaThin">
             Patents
