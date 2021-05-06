@@ -1,11 +1,14 @@
 <div class="uk-margin-top" uk-grid>
 
-  <div class="uk-width-1-4@m">
+  <div class="uk-width-1-3@m">
     <div class="uk-text-left">
       <!-- present the Drug name of the shortest Drug name available for the drug, truncating it if necessary -->
       <h1 id="atxMt5NQIk"
         class="uk-heading-small drug-header uk-margin-remove-bottom">{{ drug.metadata.brandNames | shortestValueFromArray | truncate:[18, '...'] }}
           <span id="atSJm7uqUZ" class="uk-label uk-background-muted uk-text-muted ndaNumberLabel">{{ drug.applicationNumber }}</span>
+        <!-- clickable icons for opening modals to view additional drug metadata and drug images (if images are available) -->
+        <a id="at6jgPnRZd" href="#drug-info-modal" uk-toggle class="uk-margin-small-left uk-margin-small-right"><span uk-icon="info"></span></a>
+        <a id="atAl3S6CYL" *ngIf="drug.drugImages.length > 0" href="#drug-images-modal" uk-toggle class="uk-margin-small-right"><span uk-icon="image"></span></a>
       </h1>
     </div>
   </div>
@@ -20,12 +23,6 @@
           </li>
         </ul>
       </div>
-<!--      <div>-->
-<!--        &lt;!&ndash; clickable icons for opening modals to view additional drug metadata and drug images (if images are available) &ndash;&gt;-->
-<!--        <a id="at6jgPnRZd" href="#drug-info-modal" uk-toggle class="uk-margin-small-right"><span uk-icon="info"></span></a>-->
-<!--        <a id="atAl3S6CYL" *ngIf="drug.drugImages.length > 0" href="#drug-images-modal" uk-toggle class="uk-margin-small-right"><span-->
-<!--          uk-icon="image"></span></a>-->
-<!--      </div>-->
     </div>
   </div>
 </div>
