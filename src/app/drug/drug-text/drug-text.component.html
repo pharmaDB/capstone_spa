@@ -10,7 +10,8 @@
   </div>
 
   <!-- Drug label -->
-  <div class="text-container-left hide-scroll-bar" *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff || DrugViewMode.historicalLabelDiff) && (drugViewConfig.inViewLabelOne))">
+  <div class="text-container-left hide-scroll-bar"
+       *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff || DrugViewMode.historicalLabelDiff) && (drugViewConfig.inViewLabelOne))">
     <span>
       <article class="uk-article label-text-container">
         <h1 id="attRMvsVY1" class="uk-article-title proximaNovaThin uk-margin-remove-bottom">
@@ -22,7 +23,8 @@
               Historical Label Diff
             </span>
           </span>
-          <button (click)="handleToggleDrugView()" href="#" class="uk-button uk-button-default float-right" type="button">
+          <button (click)="handleToggleDrugView()" href="#" class="uk-button uk-button-default float-right"
+                  type="button">
             <span [ngSwitch]="drugViewConfig.drugViewMode">
               <span *ngSwitchCase="DrugViewMode.labelDiff">
                 Switch to Historical Diff
@@ -34,6 +36,53 @@
           </button>
         </h1>
 
+        <!-- Historical Drug Label Diff View -->
+        <span *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.historicalLabelDiff) && drugViewConfig.labelDiff)">
+          <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
+            <strong>Historical additions up to:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}
+            <span class="float-right">
+              <!-- DailyMed link to the full drug label -->
+              <a id="atAXOY2ZJE" target="_blank"
+                 href="{{'https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=' + drugViewConfig.inViewLabelOne.drugLabel.set_id + '&version=' + drugViewConfig.inViewLabelOne.drugLabel.spl_version}}">
+                View entire label on DailyMed
+                <span uk-icon="icon: arrow-right;"></span>
+              </a>
+            </span>
+          </p>
+
+          <ul uk-accordion="active: 0; multiple: true">
+            <li *ngFor="let section of drugViewConfig.labelDiff"
+                class="uk-padding-small uk-margin-small-bottom">
+                <a id="atoiOjOhqd" class="uk-accordion-title uk-text-lead proximaNovaBold uk-margin-remove-bottom"
+                   href="#">
+                  {{ section.name }}
+                  <!--                  <span *ngIf="(section | getDiffAdditionsCount) > 0">-->
+                  <!--                    <span-->
+                  <!--                      class="uk-label uk-label-success uk-margin-small-left proximaNovaRegular">Additions: {{ section | getDiffAdditionsCount }}</span>-->
+                  <!--                  </span>-->
+                  <!--                  <span *ngIf="(section | getDiffDeletionsCount) > 0">-->
+                  <!--                    <span-->
+                  <!--                      class="uk-label uk-label-danger uk-margin-small-left proximaNovaRegular">Deletions: {{ section | getDiffDeletionsCount }}</span>-->
+                  <!--                  </span>-->
+                </a>
+                <div class="uk-accordion-content">
+                  <span id="atf1qXuXEj" *ngFor="let textElement of section.endText">
+                    <span *ngIf="textElement.assocaitedAddition"
+                          style="background:{{ textElement.assocaitedAddition.timelineItem.color }}; color:{{ textElement.assocaitedAddition.timelineItem.colorDarkened }}"
+                          (click)="diffAdditionClickHandler(textElement.assocaitedAddition.diffElement)">
+                      {{ textElement.text }}
+                    </span>
+                    <span *ngIf="!textElement.assocaitedAddition">
+                      {{ textElement.text }}
+                    </span>
+                  </span>
+                </div>
+            </li>
+          </ul>
+        </span>
+        <!-- END Historical drug label diff view -->
+
+        <!-- Single Drug Label Diff View -->
         <span *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff) && (drugViewConfig.inViewLabelOne))">
         <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
           <strong>Base:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_published_date }}
@@ -52,13 +101,16 @@
         <ul uk-accordion="active: 0; multiple: true">
           <li *ngFor="let section of drugViewConfig.inViewLabelOne.drugLabel.diff_against_previous_label"
               class="uk-padding-small uk-margin-small-bottom">
-              <a id="atoiOjOhqd" class="uk-accordion-title uk-text-lead proximaNovaBold uk-margin-remove-bottom" href="#">
+              <a id="atoiOjOhqd" class="uk-accordion-title uk-text-lead proximaNovaBold uk-margin-remove-bottom"
+                 href="#">
                 {{ section.name }}
                 <span *ngIf="(section | getDiffAdditionsCount) > 0">
-                  <span class="uk-label uk-label-success uk-margin-small-left proximaNovaRegular">Additions: {{ section | getDiffAdditionsCount }}</span>
+                  <span
+                    class="uk-label uk-label-success uk-margin-small-left proximaNovaRegular">Additions: {{ section | getDiffAdditionsCount }}</span>
                 </span>
                 <span *ngIf="(section | getDiffDeletionsCount) > 0">
-                  <span class="uk-label uk-label-danger uk-margin-small-left proximaNovaRegular">Deletions: {{ section | getDiffDeletionsCount }}</span>
+                  <span
+                    class="uk-label uk-label-danger uk-margin-small-left proximaNovaRegular">Deletions: {{ section | getDiffDeletionsCount }}</span>
                 </span>
               </a>
               <div class="uk-accordion-content">
@@ -72,7 +124,8 @@
                       <span [ngSwitch]="textDiffElement[0]">
                         <span *ngSwitchCase="0" class="" [innerHTML]="textDiffElement[1]">
                         </span>
-                        <span *ngSwitchCase="1" (click)="diffAdditionClickHandler(textDiffElement)" class="diff-added-text" [innerHTML]="textDiffElement[1]">
+                        <span *ngSwitchCase="1" (click)="diffAdditionClickHandler(textDiffElement)"
+                              class="diff-added-text" [innerHTML]="textDiffElement[1]">
                         </span>
                         <span *ngSwitchCase="-1" class="diff-deleted-text" [innerHTML]="textDiffElement[1]">
                         </span>
@@ -82,6 +135,8 @@
               </div>
           </li>
         </ul>
+          <!-- END single drug label view diff -->
+
         </span>
       </article>
     </span>
@@ -149,8 +204,9 @@
   <!--    </span>-->
   <!--  </div>-->
 
-    <!-- Drug Patent -->
-    <div *ngIf="(drugViewConfig.isPatentInView && drugViewConfig.inViewPatent)" class="uk-width-1-3@m text-container-right hide-scroll-bar">
+  <!-- Drug Patent -->
+  <div *ngIf="(drugViewConfig.isPatentInView && drugViewConfig.inViewPatent)"
+       class="uk-width-1-3@m text-container-right hide-scroll-bar">
       <span>
         <article class="uk-article patent-text-container">
           <!-- show the patent number of the in-view patent and provide an option to close the patent panel -->
@@ -185,7 +241,8 @@
 
               <ul uk-accordion class="uk-margin-small-top">
                 <li *ngFor="let parentClaim of score.parentClaims">
-                    <a class="uk-accordion-title parent-claim-subheader proximaNovaBold">Parent | Claim {{ parentClaim.claim_number }}</a>
+                    <a
+                      class="uk-accordion-title parent-claim-subheader proximaNovaBold">Parent | Claim {{ parentClaim.claim_number }}</a>
                     <div class="uk-accordion-content proximaNovaRegular">
                       {{ parentClaim.claim_text }}
                     </div>
@@ -195,4 +252,4 @@
           </div>
         </article>
       </span>
-    </div>
+  </div>

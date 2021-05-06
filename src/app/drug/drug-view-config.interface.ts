@@ -19,15 +19,16 @@ export interface DrugViewConfig {
     patents: IPharmaDBDrugPatent[] | undefined;
   } | undefined;
   inViewPatentNumber?: string;
-  labelDiff?: {
-    sections: {
-      name: string;
-      diff: any;
-      scores?: any;
-      endText?: string;
-      endTextAsArray?: any[];
-    }[]
-  };
+  labelDiff?: any[];
+  //   {
+  //   sections: {
+  //     name: string;
+  //     diff: any;
+  //     scores?: any;
+  //     endText?: string;
+  //     endTextAsArray?: any[];
+  //   }[]
+  // };
   // labelOneIdentifier?: string;
   // labelTwoIdentifier?: string;
   // patentIdentifier?: string;
