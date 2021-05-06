@@ -5,13 +5,14 @@
       <!-- present the Drug name of the shortest Drug name available for the drug, truncating it if necessary -->
       <h1 id="atxMt5NQIk"
         class="uk-heading-small drug-header uk-margin-remove-bottom">{{ drug.metadata.brandNames | shortestValueFromArray | truncate:[18, '...'] }}
-          <span id="atSJm7uqUZ" class="uk-label uk-background-muted uk-text-muted">{{ drug.applicationNumber }}</span>
+          <span id="atSJm7uqUZ" class="uk-label uk-background-muted uk-text-muted ndaNumberLabel">{{ drug.applicationNumber }}</span>
       </h1>
     </div>
   </div>
   <div class="uk-width-expand@m">
     <div class="uk-text-right">
-      <button class="uk-button uk-button-default proximaNovaThin" type="button">SET ID: {{ drugViewConfig.selectedDrugLabelSetID }}</button>
+      <!-- enabled this button to re-enable the selection of a specific set id -->
+      <button class="uk-button uk-button-default proximaNovaThin" type="button" disabled>SET ID: {{ drugViewConfig.selectedDrugLabelSetID }}</button>
       <div uk-dropdown>
         <ul class="uk-nav uk-dropdown-nav">
           <li *ngFor="let setId of drugViewConfig.drugLabelSetIDs">

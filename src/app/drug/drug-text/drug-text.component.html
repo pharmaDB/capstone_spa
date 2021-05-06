@@ -39,7 +39,9 @@
         <!-- Historical Drug Label Diff View -->
         <span *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.historicalLabelDiff) && drugViewConfig.labelDiff)">
           <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
-            <strong>Historical additions up to:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}
+            <span class="uk-label uk-label-success" style="background:{{ drugViewConfig.inViewLabelOne.color }}; color:{{ drugViewConfig.inViewLabelOne.colorDarkened }}">
+              <strong>Historical additions up to:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}
+            </span>
             <span class="float-right">
               <!-- DailyMed link to the full drug label -->
               <a id="atAXOY2ZJE" target="_blank"
@@ -85,9 +87,13 @@
         <!-- Single Drug Label Diff View -->
         <span *ngIf="((drugViewConfig.drugViewMode === DrugViewMode.labelDiff) && (drugViewConfig.inViewLabelOne))">
         <p class="uk-article-meta proximaNovaRegular uk-margin-remove-top">
-          <strong>Base:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_published_date }}
+          <span class="uk-label uk-background-muted uk-text-secondary">
+            <strong>Base:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.previous_label_published_date }}
+          </span>
           <span class="uk-margin-small-left uk-margin-small-right" uk-icon="icon: arrow-right;"></span>
-          <strong>Compared:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}
+          <span class="uk-label uk-label-success" style="background:{{ drugViewConfig.inViewLabelOne.color }}; color:{{ drugViewConfig.inViewLabelOne.colorDarkened }}">
+            <strong>Compared:</strong> Label version {{ drugViewConfig.inViewLabelOne.drugLabel.spl_version }}, published on {{ drugViewConfig.inViewLabelOne.drugLabel.published_date }}
+          </span>
           <span class="float-right">
             <!-- DailyMed link to the full drug label -->
             <a id="atAXOY2ZJE" target="_blank"
