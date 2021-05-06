@@ -25,7 +25,7 @@ export class DrugTimelineComponent implements OnInit {
   @Input() timelineItems: (TimelineLabel | TimelinePatent)[];
   @Input() drugViewConfig: DrugViewConfig;
   timeline: any;
-  selectedTimelineItems: (TimelineLabel | TimelinePatent)[] = [];
+  selectedTimelineItem: (TimelineLabel | TimelinePatent);
 
   constructor(
     private element: ElementRef
@@ -39,36 +39,39 @@ export class DrugTimelineComponent implements OnInit {
    * @param itemId String: the id of the item selected on the timeline
    */
   onItemSelectionHandler(itemId: string): void {
+    console.log(itemId);
+    console.log(this.timelineItems);
     // get the item that will be added, by the itemId provided as an arg
     const itemToBeAdded = _.find(this.timelineItems, (item: any) => {
       return item.id === itemId;
     });
+    console.log(itemToBeAdded);
     if (!itemToBeAdded) { return; };
 
     // if there are 2 or more selected items already, then clear the selection (only 2 can be selected at a time)
-    if (this.selectedTimelineItems.length >= 2) {
-      this.selectedTimelineItems = [];
-    }
+    // if (this.selectedTimelineItems.length >= 2) {
+    //   this.selectedTimelineItems = [];
+    // }
 
-    // if there is only one selected item from the timeline then...
-    if (this.selectedTimelineItems.length === 1) {
-
-      // and get the other item that's currently selected
-      const currentlySelectedItem = _.find(this.timelineItems, (item: any) => {
-        return item.id === this.selectedTimelineItems[0];
-      });
-
-      // if both items are patents, then clear the selection (because two patents cant be selected at the same time)
-      if (itemToBeAdded?.group === 'patent' && currentlySelectedItem?.group === 'patent') {
-        this.selectedTimelineItems = []; // clear the previous patent selected
-      }
-    }
+    // // if there is only one selected item from the timeline then...
+    // if (this.selectedTimelineItems.length === 1) {
+    //
+    //   // and get the other item that's currently selected
+    //   const currentlySelectedItem = _.find(this.timelineItems, (item: any) => {
+    //     return item.id === this.selectedTimelineItems[0];
+    //   });
+    //
+    //   // if both items are patents, then clear the selection (because two patents cant be selected at the same time)
+    //   if (itemToBeAdded?.group === 'patent' && currentlySelectedItem?.group === 'patent') {
+    //     this.selectedTimelineItems = []; // clear the previous patent selected
+    //   }
+    // }
 
     // add the itemId of the selected item to the arr that contains all currently selected items
-    this.selectedTimelineItems.push(itemToBeAdded);
+    this.selectedTimelineItem = itemToBeAdded;
 
     // set the selected items in the visJS library
-    this.timeline.setSelection(this.selectedTimelineItems);
+    this.timeline.setSelection(this.selectedTimelineItem);
 
     // trigger an update to the rest of the view (this is part of what changes the in view panels based on the timeline selection)
     this.updateView();
@@ -82,28 +85,31 @@ export class DrugTimelineComponent implements OnInit {
   updateView(): void {
     let nextDrugViewMode: DrugViewMode = DrugViewMode.none;
     let nextLabelOneIdentifier: TimelineLabel | undefined;
-    let nextLabelTwoIdentifier: TimelineLabel | undefined;
-    let nextPatentIdentifier: TimelinePatent | undefined;
+    // let nextLabelTwoIdentifier: TimelineLabel | undefined;
+    // let nextPatentIdentifier: TimelinePatent | undefined;
+
+    nextLabelOneIdentifier = this.selectedTimelineItem as TimelineLabel; // set in-view item
+    nextDrugViewMode = DrugViewMode.labelDiff; // set viewing mode for viewing on label
 
     // if only one item is selected...
-    if (this.selectedTimelineItems.length === 1) {
-
-      // and that item is a patent then go to the single patent text view mode
-      // deprecate user cannot select a patent
-      // if (this.selectedTimelineItems[0].group === 'patent') {
-      //   nextPatentIdentifier = this.selectedTimelineItems[0] as TimelinePatent; // set in-view item
-      //   nextDrugViewMode = DrugViewMode.patent; // set viewing mode for viewing one patent
-      // }
-
-      // or if that item is a label go to the single label text view mode
-      if (this.selectedTimelineItems[0].group === 'label') {
-        nextLabelOneIdentifier = this.selectedTimelineItems[0] as TimelineLabel; // set in-view item
-        nextDrugViewMode = DrugViewMode.labelDiff; // set viewing mode for viewing on label
-      }
-    }
+    // if (this.selectedTimelineItems.length === 1) {
+    //
+    //   // and that item is a patent then go to the single patent text view mode
+    //   // deprecate user cannot select a patent
+    //   // if (this.selectedTimelineItems[0].group === 'patent') {
+    //   //   nextPatentIdentifier = this.selectedTimelineItems[0] as TimelinePatent; // set in-view item
+    //   //   nextDrugViewMode = DrugViewMode.patent; // set viewing mode for viewing one patent
+    //   // }
+    //
+    //   // or if that item is a label go to the single label text view mode
+    //   if (this.selectedTimelineItems[0].group === 'label') {
+    //     nextLabelOneIdentifier = this.selectedTimelineItems[0] as TimelineLabel; // set in-view item
+    //     nextDrugViewMode = DrugViewMode.labelDiff; // set viewing mode for viewing on label
+    //   }
+    // }
 
     // if two items are selected...
-    if (this.selectedTimelineItems.length === 2) {
+    // if (this.selectedTimelineItems.length === 2) {
 
       // and the both are labels go to the two label diffing view
       // deprecated, user cannot select 2 labels
@@ -126,15 +132,16 @@ export class DrugTimelineComponent implements OnInit {
       //   nextLabelOneIdentifier = this.selectedTimelineItems[1] as TimelineLabel; // set in-view label
       //   nextDrugViewMode = DrugViewMode.label_patent; // set viewing mode for viewing a patent v a label
       // }
-    }
+    // }
 
     // emit an event that contains the new Drug view config object so the parent component can observe it and act accordingly
+    console.log("ewfwefw");
     this.onDrugViewChange.emit({
       drugViewMode: nextDrugViewMode,
       drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
       selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
       inViewLabelOne: nextLabelOneIdentifier,
-      inViewLabelTwo: nextLabelTwoIdentifier,
+      inViewLabelTwo: undefined,
       isPatentInView: false,
       inViewPatent: undefined
     });
@@ -164,19 +171,19 @@ export class DrugTimelineComponent implements OnInit {
     // when something is selected/clicked on the timeline...
     this.timeline.on('select', (event: any) => {
 
-      // if it's empty space in the timeline, reset the Drug view by creating an new empty Drug view config and emitting it
+      // if it's empty space in the timeline, then do nothing
       if (event.items.length === 0) {
-        this.selectedTimelineItems = [];
-        this.onDrugViewChange.emit({
-          drugViewMode: DrugViewMode.none,
-          drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
-          selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
-          inViewLabelOne: undefined,
-          inViewLabelTwo: undefined,
-          inViewPatentNumber: undefined,
-          inViewPatent: undefined,
-          isPatentInView: false,
-        });
+        // this.selectedTimelineItems = undefined;
+        // this.onDrugViewChange.emit({
+        //   drugViewMode: DrugViewMode.none,
+        //   drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
+        //   selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
+        //   inViewLabelOne: undefined,
+        //   inViewLabelTwo: undefined,
+        //   inViewPatentNumber: undefined,
+        //   inViewPatent: undefined,
+        //   isPatentInView: false,
+        // });
         return;
       }
 
@@ -190,7 +197,7 @@ export class DrugTimelineComponent implements OnInit {
         this.onItemSelectionHandler(event.items[0]);
         previousSelectedItem = event.items[0];
       } else {
-        this.timeline.setSelection(this.selectedTimelineItems);
+        this.timeline.setSelection(this.selectedTimelineItem);
       }
       // END BUG FIX
 

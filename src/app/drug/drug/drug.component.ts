@@ -164,10 +164,12 @@ export class DrugComponent implements OnInit {
    */
   onDrugViewChange(drugViewConfig: DrugViewConfig): void {
 
+    console.log(drugViewConfig);
+
     // set new drugViewConfig
     this.drugViewConfig = drugViewConfig;
 
-    this.timelineItems = [];
+    // this.timelineItems = [];
 
     // if hte drugView is in historicalLabelDiff mode...
     if ((this.drugViewConfig.drugViewMode === DrugViewMode.historicalLabelDiff) && (this.drugViewConfig.inViewLabelOne)) {
