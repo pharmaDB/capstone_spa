@@ -47,7 +47,7 @@ Feature: search
       | MANUFACTURER | Greenstone | 81 | NDA020702 | LIPITOR |
 
 
-  Scenario Outline: view drug details
+  Scenario Outline: select drug labels
     Given that i am on the pharma website
     When i search by <searchType>
     When i enter <searchTerm> into the search box
