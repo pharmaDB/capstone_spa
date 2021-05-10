@@ -2,15 +2,28 @@
 <div *ngIf="isPageLoading" class="uk-container-large">
     <div class="uk-position-center">
         <div class="uk-text-center">
-        <div uk-spinner="ratio: 2"></div>
-        <p class="uk-text-meta">Getting data for {{ndaNumber}}...</p>
+          <div uk-spinner="ratio: 2"></div>
+          <span *ngIf="setIdFromURL">
+            <p class="uk-text-meta uk-margin-top">Loading data for Set ID {{ setIdFromURL }}...</p>
+          </span>
+          <span *ngIf="!setIdFromURL">
+            <p class="uk-text-meta uk-margin-top">Loading data for NDA Number {{ndaNumber}}...</p>
+          </span>
         </div>
     </div>
 </div>
 
 <!-- if the page is not currently loading then render the DrugHeader, DrugText and DrugTimeline components -->
 <div *ngIf="!isPageLoading" class="uk-container uk-container-large">
-    <app-drug-header [drug]="drug"></app-drug-header>
-    <app-drug-text *ngIf="!isTextLoading" (onPatentClaimTagClicked)="onPatentClaimTagClicked($event)" (onClosePatentViewClicked)="onClosePatentViewClicked()" [drugViewConfig]="drugViewConfig"></app-drug-text>
-    <app-drug-timeline (onDrugViewChange)="onDrugViewChange($event)" [drugViewConfig]="drugViewConfig" [timelineItems]="timelineItems"></app-drug-timeline>
+    <app-drug-header [drug]="drug" [drugViewConfig]="drugViewConfig" (onSetIdClicked)="onSetIdClicked($event)"></app-drug-header>
+    <app-drug-text *ngIf="!isTextLoading"
+                   (onDrugViewChange)="onDrugViewChange($event)"
+                   (onPatentClaimTagClicked)="onPatentClaimTagClicked($event)"
+                   (onClosePatentViewClicked)="onClosePatentViewClicked()"
+                   (onDiffAdditionClicked)="onDiffAdditionClicked($event)"
+                   [drugViewConfig]="drugViewConfig"></app-drug-text>
+    <div class="timeline-container">
+      <app-drug-timeline class="uk-container uk-container-large" (onDrugViewChange)="onDrugViewChange($event)" [drugViewConfig]="drugViewConfig" [timelineItems]="timelineItems"></app-drug-timeline>
+
+    </div>
 </div>

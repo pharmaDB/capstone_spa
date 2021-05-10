@@ -6,7 +6,7 @@
       <li id="atxAiOfZWmd2" *ngFor="let searchResult of searchResults" class="searchResult uk-padding-xsmall">
         <div class="uk-text-center uk-grid-column-collapse" uk-grid>
           <div class="uk-width-1-3@m">
-            <div class="uk-padding-small uk-padding-remove-top">
+            <div class="uk-padding-small uk-padding-remove-top uk-padding-remove-bottom">
               <h1 id="at4dW62g5g"
                 class="uk-text-uppercase uk-text-small uk-text-bold uk-text-left uk-padding-remove-bottom uk-margin-remove">
                 {{ searchResult.openfda.brand_name | shortestValueFromArray | truncate:[18, '...'] }}
@@ -39,11 +39,18 @@
                     </ul>
                   </div>
                 </div>
+                <br/>
+                <div id="atKk5bWLhP"
+                      class="uk-text-small uk-text-light uk-text-muted uk-text-left uk-padding-remove-bottom ">
+                  {{ searchResult.application_number }}
+                </div>
               </div>
-              <div class="uk-text-left">
-                <span class="uk-label uk-margin-small-right uk-background-muted uk-text-muted">0 Labels</span>
-                <span class="uk-label uk-background-muted uk-text-muted">0 Patents</span>
-              </div>
+
+              <!-- labels and patents counts tags have been deprecated -->
+<!--              <div class="uk-text-left">-->
+<!--                <span class="uk-label uk-margin-small-right uk-background-muted uk-text-muted">0 Labels</span>-->
+<!--                <span class="uk-label uk-background-muted uk-text-muted">0 Patents</span>-->
+<!--              </div>-->
             </div>
           </div>
           <div
@@ -58,17 +65,17 @@
               </div>
             </div>
           </div>
-          <div class="uk-width-1-6@m">
+          <div class="uk-width-1-4@m">
             <div class="uk-padding-remove">
-              <div class="uk-margin-small-bottom">
-                <span id="atKk5bWLhP"
-                  class="uk-text-small uk-text-light uk-text-muted uk-text-right uk-padding-remove-bottom uk-margin-remove">
-                  {{ searchResult.application_number }}
-                </span>
+              <div class="uk-margin-xsmall-bottom">
+<!--                <span id="atKk5bWLhP"-->
+<!--                  class="uk-text-small uk-text-light uk-text-muted uk-text-right uk-padding-remove-bottom uk-margin-remove">-->
+<!--                  {{ searchResult.application_number }}-->
+<!--                </span>-->
               </div>
               <div>
                 <a id="atHh0sP8uJ" class="uk-button uk-button-default uk-margin-small-top"
-                   (click)="goToDrug(searchResult.application_number)">View</a>
+                   (click)="goToDrug(searchResult.application_number)">View Labels</a>
               </div>
             </div>
           </div>

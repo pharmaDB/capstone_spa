@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShortestValueFromArrayPipe } from './pipes/shortest-value-from-array.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
+import { GetDiffAdditionsCountPipe } from './pipes/get-diff-additions-count.pipe';
+import { GetDiffDeletionsCountPipe } from './pipes/get-diff-deletions-count.pipe';
 
 /**
  * SharedModule
@@ -18,7 +21,10 @@ import { TruncatePipe } from './pipes/truncate.pipe';
   declarations: [
     NavbarComponent,
     ShortestValueFromArrayPipe,
-    TruncatePipe
+    TruncatePipe,
+    SanitizeHtmlPipe,
+    GetDiffAdditionsCountPipe,
+    GetDiffDeletionsCountPipe
   ],
   imports: [
     CommonModule,
@@ -27,7 +33,10 @@ import { TruncatePipe } from './pipes/truncate.pipe';
   exports: [
     NavbarComponent,
     ShortestValueFromArrayPipe,
-    TruncatePipe
+    TruncatePipe,
+    SanitizeHtmlPipe,
+    GetDiffAdditionsCountPipe,
+    GetDiffDeletionsCountPipe
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

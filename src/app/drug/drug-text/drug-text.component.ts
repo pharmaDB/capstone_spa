@@ -1,6 +1,5 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {DrugViewConfig} from '../drug-view-config.interface';
-import {DrugViewMode} from '../drug-view-config.interface';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
 
 /**
  * DrugText Component
@@ -18,7 +17,18 @@ import {DrugViewMode} from '../drug-view-config.interface';
 export class DrugTextComponent {
   @Output() onPatentClaimTagClicked = new EventEmitter<any>();
   @Output() onClosePatentViewClicked = new EventEmitter<any>();
-  @Input() drugViewConfig: DrugViewConfig;
+  @Output() onDiffAdditionClicked = new EventEmitter<any>();
+  @Output() onDrugViewChange = new EventEmitter<DrugViewConfig>();   // event emitter use to notify the parent of required Drug view changes
+  // @Input() drugViewConfig: DrugViewConfig;
+  DrugViewConfig: DrugViewConfig;
+
+  @Input() set drugViewConfig(value: DrugViewConfig) {
+    this.DrugViewConfig = value;
+  }
+
+  get drugViewConfig(): DrugViewConfig {
+    return this.DrugViewConfig;
+  }
 
   constructor() {
   }
@@ -46,6 +56,26 @@ export class DrugTextComponent {
    */
   closePatentViewClickHandler(): void {
     this.onClosePatentViewClicked.emit();
+  }
+
+  diffAdditionClickHandler(textDiff: any): void {
+    this.onDiffAdditionClicked.emit(textDiff);
+  }
+
+  get tess(): string {
+    return 'wfw';
+  }
+
+  handleToggleDrugView(): void {
+    this.onDrugViewChange.emit({
+      drugViewMode: this.drugViewConfig.drugViewMode === DrugViewMode.labelDiff ? DrugViewMode.historicalLabelDiff : DrugViewMode.labelDiff,
+      drugLabelSetIDs: this.drugViewConfig.drugLabelSetIDs,
+      selectedDrugLabelSetID: this.drugViewConfig.selectedDrugLabelSetID,
+      inViewLabelOne: this.drugViewConfig.inViewLabelOne,
+      inViewLabelTwo: this.drugViewConfig.inViewLabelTwo,
+      isPatentInView: this.drugViewConfig.isPatentInView,
+      inViewPatent: this.drugViewConfig.inViewPatent
+    });
   }
 
   /**
