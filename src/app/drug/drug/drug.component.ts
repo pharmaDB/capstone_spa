@@ -96,6 +96,7 @@ export class DrugComponent implements OnInit {
       const patentFromDrugObject = _.find(this.drug.drugPatents, (patent: IPharmaDBDrugPatent) => {
         return patent.patent_number === score.patent_number;
       });
+      console.log(patentFromDrugObject);
       if (!patentFromDrugObject) {
         console.log('there are no patents associated with this addition');
         this.onDrugViewChange({
@@ -111,7 +112,7 @@ export class DrugComponent implements OnInit {
       }
 
       const patentClaim = _.find(patentFromDrugObject.claims, (claim: any) => {
-        return claim.claim_number === score.claim_number;
+        return parseInt(claim.claim_number, 10) === score.claim_number;
       });
 
       score.claim = patentClaim;
@@ -119,7 +120,7 @@ export class DrugComponent implements OnInit {
 
       score.parent_claim_numbers.forEach((parentClaimNumber: number) => {
         const parentClaim = _.find(patentFromDrugObject.claims, (claim: any) => {
-          return claim.claim_number === parentClaimNumber;
+          return parseInt(claim.claim_number, 10) === parentClaimNumber;
         });
         score.parentClaims.push(parentClaim);
       });
