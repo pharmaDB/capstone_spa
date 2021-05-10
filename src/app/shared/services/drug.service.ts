@@ -28,7 +28,7 @@ export class DrugService {
    */
   findDrug(searchQuery: string, searchType: string): Observable<OpenFDADrug[]> {
     // change the URL depending on the environment
-    return this.http.get(`http://localhost:3000/drugs?searchQuery=${searchQuery}&searchType=${searchType}`) as Observable<OpenFDADrug[]>;
+    return this.http.get(`https://api.pharmadb.org/drugs?searchQuery=${searchQuery}&searchType=${searchType}`) as Observable<OpenFDADrug[]>;
   }
 
   /**
@@ -44,7 +44,7 @@ export class DrugService {
     const getPatents = true;
 
     // change the URL depending on the environment
-    return this.http.get(`http://localhost:3000/drugs/${ndaNumber}?splHistory=${getSPLHistoryMetadata}&images=${getImages}&currentSplLabel=${getCurrentSplLabel}&labels=${getLabels}&patents=${getPatents}`);
+    return this.http.get(`https://api.pharmadb.org/drugs/${ndaNumber}?splHistory=${getSPLHistoryMetadata}&images=${getImages}&currentSplLabel=${getCurrentSplLabel}&labels=${getLabels}&patents=${getPatents}`);
   }
 
   /**
