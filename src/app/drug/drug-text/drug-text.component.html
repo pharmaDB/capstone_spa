@@ -130,8 +130,11 @@
                       <span [ngSwitch]="textDiffElement[0]">
                         <span *ngSwitchCase="0" class="" [innerHTML]="textDiffElement[1]">
                         </span>
-                        <span *ngSwitchCase="1" (click)="diffAdditionClickHandler(textDiffElement)"
-                              class="diff-added-text" [innerHTML]="textDiffElement[1]">
+                        <span *ngSwitchCase="1">
+                          <span *ngIf="textDiffElement[3]" (click)="diffAdditionClickHandler(textDiffElement)" class="diff-added-text pointer" [innerHTML]="textDiffElement[1]">
+                          </span>
+                          <span *ngIf="!textDiffElement[3]" class="diff-added-text" [innerHTML]="textDiffElement[1]">
+                          </span>
                         </span>
                         <span *ngSwitchCase="-1" class="diff-deleted-text" [innerHTML]="textDiffElement[1]">
                         </span>
