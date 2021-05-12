@@ -235,6 +235,9 @@
           <div *ngFor="let score of drugViewConfig.inViewPatent.diffElement[3].scores" class="uk-margin-medium-top">
             <span class="proximaNovaBold">
               PATENT {{ score.patent_number }}, CLAIM {{ score.claim_number }}
+              <span class="uk-label uk-background-muted dark-text uk-margin-small-left">
+                <strong>{{ score.score | number : '0.0-2'}}</strong>
+              </span>
               <span id="ati1QtqPO5" class="float-right uk-article-meta proximaNovaRegular">
                 <!-- Google Patents link to the full patent -->
                 <a id="atNeyANkYl" target="_blank"
