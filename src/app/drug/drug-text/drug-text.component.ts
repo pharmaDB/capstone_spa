@@ -15,11 +15,9 @@ import {DrugViewConfig, DrugViewMode} from '../drug-view-config.interface';
   styleUrls: ['./drug-text.component.scss']
 })
 export class DrugTextComponent {
-  @Output() onPatentClaimTagClicked = new EventEmitter<any>();
   @Output() onClosePatentViewClicked = new EventEmitter<any>();
   @Output() onDiffAdditionClicked = new EventEmitter<any>();
   @Output() onDrugViewChange = new EventEmitter<DrugViewConfig>();   // event emitter use to notify the parent of required Drug view changes
-  // @Input() drugViewConfig: DrugViewConfig;
   DrugViewConfig: DrugViewConfig;
 
   @Input() set drugViewConfig(value: DrugViewConfig) {
@@ -31,20 +29,6 @@ export class DrugTextComponent {
   }
 
   constructor() {
-  }
-
-  /**
-   * patentClaimTagClickHandler
-   * The patentClaimTagClickHandler is fired once a patent tag (the element that shows a patent is relevant to a specific label section)
-   * is clicked. Once this is fired, an event is emitted to let the parent, Drug component know that the event has occurred and its values.
-   * @param patentNumber string: the patent number specified in the patent claim tag that was clicked
-   * @param claimNumber string: the claim number specified in the patent claim tag that was clicked
-   */
-  patentClaimTagClickHandler(patentNumber: string, claimNumber: number): void {
-    this.onPatentClaimTagClicked.emit({
-      patent_number: patentNumber,
-      claim_number: claimNumber
-    });
   }
 
   /**
@@ -60,10 +44,6 @@ export class DrugTextComponent {
 
   diffAdditionClickHandler(textDiff: any): void {
     this.onDiffAdditionClicked.emit(textDiff);
-  }
-
-  get tess(): string {
-    return 'wfw';
   }
 
   handleToggleDrugView(): void {

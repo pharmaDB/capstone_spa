@@ -1,6 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {IPharmaDBDrugLabelDiffAgainstPreviousLabel} from '../services/drug.service';
 
+/**
+ * getDiffDeletionsCount
+ * this pipe is used in the angular templating and will return the number of deletions for a diff
+ * data structure that's passed in
+ */
 @Pipe({
   name: 'getDiffDeletionsCount'
 })

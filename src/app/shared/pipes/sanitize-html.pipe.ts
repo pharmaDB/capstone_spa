@@ -2,6 +2,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
+/**
+ * sanatizeHtml
+ * this pipe will take in HTML and return sanitized HTML as a string
+ */
 @Pipe({
   name: 'sanitizeHtml'
 })
