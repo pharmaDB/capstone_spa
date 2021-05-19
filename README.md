@@ -19,8 +19,10 @@ You must also pull the repository and install the projects npm dependencies whic
 
 After successfully running these commands, the application can be run locally or built for deployment by following the below sections.
 
-This web app requires an instance of the [PharmaDB API](https://github.com/pharmaDB/pharmadb_api) to be running since that is what provides the data needed for the webapp. If you're running this web application against your own installation of the PharmaDB API, then you must change the url in the ```src/app/shared/services/drug.service.ts```
-to reflect the domain or IP address on which you're running your instance of the PharmaDB API.
+This web app requires an instance of the [PharmaDB API](https://github.com/pharmaDB/pharmadb_api) to be running since that is what provides the data needed for the webapp. If you're running this web application against your own installation of the PharmaDB API, then you must change the environment apiUrl parameter to 
+reflect the domain or IP address on which you're running your instance of the PharmaDB API. This could be done by modifying the `/environments/environment.ts` and `/environment/environment.prod.ts` files or by adding an addition Angular environment.
+
+By default, the application will use https://api.pharamadb.org as the data source, which may or may not be up at the time of reading this.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

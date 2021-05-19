@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {OpenFDADrug} from './open-fdadrug.interface';
+import { environment } from '../../../environments/environment';
 
 /**
  * The DrugService is the primary (and currently only) service responsible for the
@@ -25,8 +26,9 @@ export class DrugService {
    * @returns Observable<OpenFDADrug[]>: an array of matching drugs and their metadata in the OpenFDADrug typing
    */
   findDrug(searchQuery: string, searchType: string): Observable<OpenFDADrug[]> {
+    console.log(environment.apiUrl);
     // TODO: replace this string URL with an environment variable that points to the location of the API
-    return this.http.get(`https://api.pharmadb.org/drugs?searchQuery=${searchQuery}&searchType=${searchType}`) as Observable<OpenFDADrug[]>;
+    return this.http.get(`${environment.apiUrl}/drugs?searchQuery=${searchQuery}&searchType=${searchType}`) as Observable<OpenFDADrug[]>;
   }
 
   /**
@@ -40,9 +42,9 @@ export class DrugService {
     const getImages = true;
     const getLabels = true;
     const getPatents = true;
-
+    console.log(environment.apiUrl);
     // TODO: replace this string URL with an environment variable that points to the location of the API
-    return this.http.get(`https://api.pharmadb.org/drugs/${ndaNumber}?splHistory=${getSPLHistoryMetadata}&images=${getImages}&currentSplLabel=${getCurrentSplLabel}&labels=${getLabels}&patents=${getPatents}`);
+    return this.http.get(`${environment.apiUrl}/drugs/${ndaNumber}?splHistory=${getSPLHistoryMetadata}&images=${getImages}&currentSplLabel=${getCurrentSplLabel}&labels=${getLabels}&patents=${getPatents}`);
   }
 }
 
