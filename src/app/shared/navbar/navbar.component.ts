@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import { environment } from '../../../environments/environment';
 
 /**
  * Navbar Component (app-navbar)
@@ -13,8 +15,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  bulkDownloadURL: SafeUrl;
 
-  constructor() {
+  constructor(
+    private domSanitizer: DomSanitizer
+  ) {
+    this.bulkDownloadURL = this.domSanitizer.bypassSecurityTrustUrl(environment.bulkDownloadURL);
   }
 
   ngOnInit(): void {
